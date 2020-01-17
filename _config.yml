@@ -26,8 +26,9 @@ description: >-
   site documents asepcts of the study, as well as providing methods and results of
   topc modeling, principal components analysis, dictionary-based text analysis, and
   demographic analyses of open-ended survey responses from the groups sampled. 
-baseurl: '' # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
-url: https://gharp.github.io/  # the base hostname & protocol for your site, e.g. http://example.com
+
+baseurl: "/ArtsEngagementProjectSite" # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
+url: "https://artsengine.github.io/"  # the base hostname & protocol for your site, e.g. http://example.com
 
 
 #######################################################################################
