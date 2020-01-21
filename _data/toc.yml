@@ -82,7 +82,7 @@
 # Add a header and sample content section
 - header: Analyses
 
-- url: /analysis/methods_overview
+- url: /analysis/methods
   not_numbered: true
   expand_sections: true
   sections:
