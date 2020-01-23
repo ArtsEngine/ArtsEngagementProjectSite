@@ -5,16 +5,16 @@ Topics help to identify *WHAT* the students said in response to different questi
 
 In order to measure different patterns among the student responses, we used three separate linguistic analysis tools to characterize the language used. Each tool has a different focus, utilizing domain-specific dictionaries to search strings of words and classify matching words or patterns of words among a series of categories. 
 
-- **Docuscope** classifies the rhetorical strategies present in the text {% cite kaufer2004power ishizaki2012computer %}. 
+- **Docuscope Language Action Types (LATs)** analyzes rhetorical features such as persuasiveness or first-person reporting; covers 40 million linguistic patterns of English classified into over 100 categories of rhetorical effects{% cite kaufer2004power ishizaki2012computer %}. 
 
-- **Automated Integrative Complexity (AIC)** measures the structural complexity of a statement for evidence of complex thinking and reasoning {% cite conway2014automated houck2014automated %}. 
+- **Automated Integrative Complexity (AIC)** measures the cognitive structure implied in a speaker’s verbal content including how well they identify different dimensions of an issue and integrate different ideas {% cite conway2014automated houck2014automated %}. 
 
-- **Linguistic Inquiry and Word Count (LIWC)** estimates the frequency of a variety of linguistic, social, emotional, and psychometric variables {% cite tausczik2010psychological  pennebakerLIWC %}. 
+- **Linguistic Inquiry and Word Count (LIWC)** calculates the degree to which linguistic, cognitive, and affective categories of words are used in a text {% cite tausczik2010psychological  pennebakerLIWC %}. 
 
 Each tool provides a different set of measures for its categories, and these are output as csv files. The measures are then integrated back into the source data table and used as co-variates in statistical analyses of patterns present among the responses. This work draws on the examples of Michael Witmore and Jonathan Hope’s analyses of early modern texts and Shakespeare’s plays {% cite hope2010hundredth witmore2015distances witmore2015projecting witmore2016latour witmore2016digital hogarth2019reflexive witmore_hope_2019%}. In contrast, our analysis relies on web-collected interview survey responses as the unit of analysis while introducing additional analytical measures through the combined use of AIC, LIWC, Docuscope and STM.
 
 
-## Docuscope LATs
+## Docuscope Language Action Types (LATs)
 
 Docuscope {% cite kaufer2004power ishizaki2012computer %} is a corpus-based rhetorical analysis tool and dictionary developed by to analyze rhetorical patterns in text, student writing, and interview transcripts. Docuscope searches texts for strings of words (including words, phrases and punctuation marks) that can be classified according to a series of rhetorical categories contained in the program’s dictionaries, called ‘Language Action Types’ (LATs), and counts the frequency of those LATs for each text. 
 
