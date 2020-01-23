@@ -1,0 +1,449 @@
+---
+interact_link: content/analysis/stm-workflow.ipynb
+kernel_name: ir
+kernel_path: content/analysis
+has_widgets: false
+title: |-
+  Comprehensive STM Workflow
+pagenum: 24
+prev_page:
+  url: /analysis/topics.html
+next_page:
+  url: /analysis/dictionaries.html
+suffix: .ipynb
+search: stm topics c webapp used run k stms better viewer data refinement topic using nbclust best question space questions model art arts comprehensive workflow nbclustering prelim theta json outputted manual tweaking preliminary baseline library methods cluster analysis very close estimates improved recommended numbers outputting change lower thresh stopwords try qualitatively after inspecting comparing good place start looking well defined none appears asked custom stop words grow growth develop development positive negative helped major really much made think dont don t experience experiences college life role provided
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Comprehensive STM Workflow</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>STM run with k=0</li>
+<li>NbClustering run over prelim STMs' theta to find better number of topics</li>
+<li>STM viewer webapp STM json data outputted</li>
+<li>Manual STM refinement / tweaking</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">magrittr</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">stm</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">jsonlite</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">doMC</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">foreach</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">NbClust</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">load</span><span class="p">(</span><span class="s">&#39;../data_processing/tidy_questions.Rda&#39;</span><span class="p">)</span>
+<span class="nf">source</span><span class="p">(</span><span class="s">&#39;stmjson.R&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Set number of cores to use on following computations</span>
+<span class="nf">registerDoMC</span><span class="p">(</span><span class="n">cores</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Preliminary-STM">Preliminary STM<a class="anchor-link" href="#Preliminary-STM"> </a></h2><p>Used to find baseline topic number using STM library methods (K=0)</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># STM does not produce meaningful clusters for these questions and are best removed.</span>
+<span class="n">questions</span> <span class="o">%&gt;%</span> <span class="n">names</span> <span class="o">%&gt;%</span> <span class="n">as.data.frame</span> <span class="o">%&gt;%</span> <span class="nf">slice</span><span class="p">(</span><span class="m">4</span><span class="o">:</span><span class="m">6</span><span class="p">)</span>
+<span class="n">questions</span> <span class="o">&lt;-</span> <span class="n">questions[</span><span class="o">-</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">)</span><span class="n">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">start</span> <span class="o">&lt;-</span> <span class="nf">Sys.time</span><span class="p">()</span>
+<span class="n">verbosity</span> <span class="o">&lt;-</span> <span class="kc">FALSE</span>
+
+<span class="n">procs</span> <span class="o">&lt;-</span> <span class="nf">foreach</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">questions</span><span class="p">)))</span> <span class="o">%dopar%</span> <span class="nf">textProcessor</span><span class="p">(</span><span class="n">documents</span> <span class="o">=</span> <span class="n">questions[[n]][[1]]</span><span class="p">,</span>
+                                                                  <span class="n">metadata</span> <span class="o">=</span> <span class="n">questions[[n]][2]</span><span class="p">,</span>
+                                                                  <span class="n">customstopwords</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;art&#39;</span><span class="p">,</span><span class="s">&#39;arts&#39;</span><span class="p">),</span>
+                                                                  <span class="n">verbose</span> <span class="o">=</span> <span class="n">verbosity</span><span class="p">)</span>
+
+<span class="n">docs</span> <span class="o">&lt;-</span> <span class="nf">foreach</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">questions</span><span class="p">)))</span> <span class="o">%dopar%</span> <span class="nf">prepDocuments</span><span class="p">(</span><span class="n">documents</span> <span class="o">=</span> <span class="n">procs[[n]]</span><span class="o">$</span><span class="n">documents</span><span class="p">,</span> 
+                                                                 <span class="n">vocab</span> <span class="o">=</span> <span class="n">procs[[n]]</span><span class="o">$</span><span class="n">vocab</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="n">procs[[n]]</span><span class="o">$</span><span class="n">meta</span><span class="p">,</span>
+                                                                 <span class="n">lower.thresh</span> <span class="o">=</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">procs[[n]]</span><span class="o">$</span><span class="n">documents</span> <span class="o">%&gt;%</span>
+                                                                                       <span class="n">length</span> <span class="o">&gt;</span> <span class="m">1000</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">3</span><span class="p">),</span>
+                                                                 <span class="n">verbose</span> <span class="o">=</span> <span class="n">verbosity</span><span class="p">)</span>
+
+<span class="n">prelim_stms</span> <span class="o">&lt;-</span> <span class="nf">foreach</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">questions</span><span class="p">)))</span> <span class="o">%dopar%</span> <span class="nf">stm</span><span class="p">(</span><span class="n">documents</span> <span class="o">=</span> <span class="n">docs[[n]]</span><span class="o">$</span><span class="n">documents</span><span class="p">,</span>
+                                                               <span class="n">vocab</span> <span class="o">=</span> <span class="n">docs[[n]]</span><span class="o">$</span><span class="n">vocab</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> 
+                                                               <span class="n">data</span> <span class="o">=</span> <span class="n">docs[[n]]</span><span class="o">$</span><span class="n">meta</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="n">verbosity</span><span class="p">)</span>
+
+<span class="n">time_taken</span> <span class="o">&lt;-</span> <span class="nf">Sys.time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="n">time_taken</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="NbClust-Cluster-Analysis">NbClust Cluster Analysis<a class="anchor-link" href="#NbClust-Cluster-Analysis"> </a></h2><p>Used to find very close estimates of the best number of topics for each question</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">pcas</span> <span class="o">&lt;-</span> <span class="nf">foreach</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">prelim_stms</span><span class="p">)))</span> <span class="o">%dopar%</span> <span class="nf">prcomp</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">prelim_stms[[n]]</span><span class="o">$</span><span class="n">theta</span><span class="p">),</span> <span class="n">scale.</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+
+<span class="n">nbcs</span> <span class="o">&lt;-</span> <span class="nf">foreach</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">pcas</span><span class="p">)))</span> <span class="o">%dopar%</span> <span class="nf">NbClust</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="nf">select</span><span class="p">(</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x</span><span class="p">),</span>
+                                                                     <span class="m">1</span><span class="o">:</span><span class="p">(</span><span class="n">stmobj</span><span class="o">$</span><span class="n">settings</span><span class="o">$</span><span class="n">dim</span><span class="o">$</span><span class="n">K</span> <span class="o">-</span> <span class="m">5</span><span class="p">)),</span>
+                                                       <span class="n">diss</span> <span class="o">=</span> <span class="nf">daisy</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x</span><span class="p">),</span>
+                                                       <span class="n">distance</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span>
+                                                       <span class="n">min.nc</span><span class="o">=</span><span class="m">3</span><span class="p">,</span>
+                                                       <span class="n">max.nc</span><span class="o">=</span><span class="m">27</span><span class="p">,</span>
+                                                       <span class="n">method</span><span class="o">=</span><span class="s">&#39;complete&#39;</span><span class="p">,</span>
+                                                       <span class="n">index</span><span class="o">=</span><span class="s">&#39;all&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># The methods filtered out seem to always choose the lowest number of clusters considered every time.</span>
+<span class="n">k_canidates</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">seq</span><span class="p">(</span><span class="n">nbcs</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">num_clust</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">nbcs[[i]]</span><span class="o">$</span><span class="n">Best.nc</span> <span class="o">%&gt;%</span> <span class="n">t</span> <span class="o">%&gt;%</span> <span class="n">rownames</span><span class="p">,</span>
+               <span class="n">nc</span><span class="o">=</span><span class="n">nbcs[[i]]</span><span class="o">$</span><span class="n">Best.nc</span> <span class="o">%&gt;%</span> <span class="n">t</span> <span class="o">%&gt;%</span> <span class="nf">as.data.frame</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">pull</span><span class="p">(</span><span class="m">1</span><span class="p">))</span> <span class="o">%&gt;%</span> 
+                    <span class="nf">filter</span><span class="p">(</span><span class="n">method</span> <span class="o">!=</span> <span class="s">&#39;Cindex&#39;</span> <span class="o">&amp;</span> <span class="n">method</span> <span class="o">!=</span> <span class="s">&#39;DB&#39;</span> <span class="o">&amp;</span> <span class="n">method</span> <span class="o">!=</span> <span class="s">&#39;Silhouette&#39;</span> <span class="o">&amp;</span>
+                           <span class="n">method</span> <span class="o">!=</span> <span class="s">&#39;Duda&#39;</span> <span class="o">&amp;</span> <span class="n">method</span> <span class="o">!=</span> <span class="s">&#39;PseudoT2&#39;</span> <span class="o">&amp;</span> <span class="n">method</span> <span class="o">!=</span> <span class="s">&#39;Beale&#39;</span> <span class="o">&amp;</span>
+                           <span class="n">method</span> <span class="o">!=</span> <span class="s">&#39;McClain&#39;</span> <span class="o">&amp;</span> <span class="n">method</span> <span class="o">!=</span> <span class="s">&#39;Hubert&#39;</span> <span class="o">&amp;</span> <span class="n">method</span> <span class="o">!=</span> <span class="s">&#39;Dindex&#39;</span><span class="p">)</span>
+    <span class="n">num_clust</span> <span class="o">%&lt;&gt;%</span> <span class="nf">pull</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="n">table</span> <span class="o">%&gt;%</span> <span class="n">data.frame</span> <span class="o">%&gt;%</span> <span class="nf">arrange</span><span class="p">(</span><span class="o">-</span><span class="n">Freq</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">slice</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">pull</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+    <span class="n">k_canidates</span> <span class="o">%&lt;&gt;%</span> <span class="nf">c</span><span class="p">(</span><span class="n">num_clust</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Improved-STMs">Improved STMs<a class="anchor-link" href="#Improved-STMs"> </a></h2><p>Using NbClust recommended numbers of topics</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">start</span> <span class="o">&lt;-</span> <span class="nf">Sys.time</span><span class="p">()</span>
+<span class="n">verbosity</span> <span class="o">&lt;-</span> <span class="kc">FALSE</span>
+
+<span class="n">improved_stms</span> <span class="o">&lt;-</span> <span class="nf">foreach</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">questions</span><span class="p">)))</span> <span class="o">%dopar%</span> <span class="nf">stm</span><span class="p">(</span><span class="n">documents</span> <span class="o">=</span> <span class="n">docs[[n]]</span><span class="o">$</span><span class="n">documents</span><span class="p">,</span>
+                                                                 <span class="n">vocab</span> <span class="o">=</span> <span class="n">docs[[n]]</span><span class="o">$</span><span class="n">vocab</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="n">k_canidates[n]</span><span class="p">,</span>
+                                                                 <span class="n">data</span> <span class="o">=</span> <span class="n">docs[[n]]</span><span class="o">$</span><span class="n">meta</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="n">verbosity</span><span class="p">)</span>
+
+<span class="n">time_taken</span> <span class="o">&lt;-</span> <span class="nf">Sys.time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+<span class="n">time_taken</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Outputting-STM-Data">Outputting STM Data<a class="anchor-link" href="#Outputting-STM-Data"> </a></h3><p>To be used with the webapp</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">question_names</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">seq</span><span class="p">(</span><span class="n">questions</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">question_names</span> <span class="o">%&lt;&gt;%</span> <span class="nf">c</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">questions[[i]][1]</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">directory</span> <span class="o">=</span> <span class="s">&#39;./&#39;</span>
+
+<span class="nf">foreach</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">questions</span><span class="p">)))</span> <span class="o">%dopar%</span> <span class="nf">create_json</span><span class="p">(</span>
+    <span class="n">stm</span> <span class="o">=</span> <span class="n">improved_stms[[n]]</span><span class="p">,</span>
+    <span class="n">documents_raw</span> <span class="o">=</span> <span class="n">questions[[n]][question_names[n]]</span> <span class="o">%&gt;%</span> <span class="nf">slice</span><span class="p">(</span><span class="o">-</span><span class="n">procs[[n]]</span><span class="o">$</span><span class="n">docs.removed</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+                                                                       <span class="nf">slice</span><span class="p">(</span><span class="o">-</span><span class="n">docs[[n]]</span><span class="o">$</span><span class="n">docs.removed</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+                                                                       <span class="n">pull</span><span class="p">,</span>
+    <span class="n">documents_matrix</span> <span class="o">=</span> <span class="n">docs[[n]]</span><span class="o">$</span><span class="n">documents</span><span class="p">,</span>
+    <span class="n">column_name</span> <span class="o">=</span> <span class="n">question_names[[n]]</span><span class="p">,</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">questions[n]</span><span class="p">),</span>
+    <span class="n">clustering_thresh</span> <span class="o">=</span> <span class="m">1.4</span><span class="p">,</span> <span class="c1">#should be as low as possible without errors (raise in 0.1 steps if errors)</span>
+    <span class="n">verbose</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span>
+    <span class="n">directory</span> <span class="o">=</span> <span class="n">directory</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="STM-Refinement">STM Refinement<a class="anchor-link" href="#STM-Refinement"> </a></h2><p>Use this space to change the number of topics, lower.thresh, and stopwords of questions to try to make a qualitatively better model after inspecting/comparing the model in the STM viewer webapp. A good place to start is looking at how well defined the "no"/"none" topic is (which appears in most of the questions asked).</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="/-use-this-space-to-write-down-the-question-number,-best-number-of-topics,-and-custom-stop-words">/ use this space to write down the question number, best number of topics, and custom stop words<a class="anchor-link" href="#/-use-this-space-to-write-down-the-question-number,-best-number-of-topics,-and-custom-stop-words"> </a></h1><p>c(15, 9, )
+c(16, 11, c('art','arts','grow','growth','develop','development','way'))
+c(17, 13, c('art','arts','positive','negative','helped','major','really',
+              'much','made','think','dont','don\'t','experience','experiences',
+              'college','most','life','role','provided')))</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">i</span> <span class="o">&lt;-</span> <span class="m">19</span>
+<span class="n">ntopics</span> <span class="o">&lt;-</span> <span class="m">11</span>
+
+<span class="n">procs[[i]]</span> <span class="o">&lt;-</span> <span class="nf">textProcessor</span><span class="p">(</span><span class="n">documents</span> <span class="o">=</span> <span class="n">questions[[i]][[1]]</span><span class="p">,</span> 
+              <span class="n">metadata</span> <span class="o">=</span> <span class="n">questions[[i]][2]</span><span class="p">,</span>
+              <span class="n">customstopwords</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;art&#39;</span><span class="p">,</span><span class="s">&#39;arts&#39;</span><span class="p">,</span><span class="s">&#39;grow&#39;</span><span class="p">,</span><span class="s">&#39;growth&#39;</span><span class="p">,</span><span class="s">&#39;develop&#39;</span><span class="p">,</span><span class="s">&#39;development&#39;</span><span class="p">,</span><span class="s">&#39;way&#39;</span><span class="p">))</span>
+<span class="c1">#               customstopwords = c(&#39;art&#39;,&#39;arts&#39;,&#39;positive&#39;,&#39;negative&#39;,&#39;helped&#39;,&#39;major&#39;,&#39;really&#39;,</span>
+<span class="c1">#                                   &#39;much&#39;,&#39;made&#39;,&#39;think&#39;,&#39;dont&#39;,&#39;don\&#39;t&#39;,&#39;experience&#39;,&#39;experiences&#39;,</span>
+<span class="c1">#                                   &#39;college&#39;,&#39;most&#39;,&#39;life&#39;,&#39;role&#39;,&#39;provided&#39;))</span>
+<span class="c1">#               customstopwords = c(&#39;art&#39;,&#39;arts&#39;))</span>
+
+<span class="n">docs[[i]]</span> <span class="o">&lt;-</span> <span class="nf">prepDocuments</span><span class="p">(</span><span class="n">documents</span> <span class="o">=</span> <span class="n">procs[[i]]</span><span class="o">$</span><span class="n">documents</span><span class="p">,</span>
+              <span class="n">vocab</span> <span class="o">=</span> <span class="n">procs[[i]]</span><span class="o">$</span><span class="n">vocab</span><span class="p">,</span>
+              <span class="n">meta</span> <span class="o">=</span> <span class="n">procs[[i]]</span><span class="o">$</span><span class="n">meta</span><span class="p">,</span>
+              <span class="n">lower.thresh</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
+              <span class="c1">#lower.thresh = ifelse(procs[[i]]$documents %&gt;% length &gt; 1000, 4, 3))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">start</span> <span class="o">&lt;-</span> <span class="nf">Sys.time</span><span class="p">()</span>
+<span class="n">stmobj</span> <span class="o">&lt;-</span> <span class="nf">stm</span><span class="p">(</span><span class="n">documents</span> <span class="o">=</span> <span class="n">docs[[i]]</span><span class="o">$</span><span class="n">documents</span><span class="p">,</span>
+                <span class="n">vocab</span> <span class="o">=</span> <span class="n">docs[[i]]</span><span class="o">$</span><span class="n">vocab</span><span class="p">,</span>
+                <span class="n">K</span> <span class="o">=</span> <span class="n">ntopics</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">docs[[i]]</span><span class="o">$</span><span class="n">meta</span><span class="p">,</span>
+                <span class="n">verbose</span><span class="o">=</span><span class="bp">F</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">Sys.time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># comment out one of the following lines</span>
+<span class="n">labels</span> <span class="o">&lt;-</span> <span class="nf">read_json</span><span class="p">(</span><span class="s">&#39;labels/sr_othergrowth_labels.json&#39;</span><span class="p">)</span>
+<span class="c1"># labels &lt;- NULL</span>
+
+<span class="nf">if </span><span class="p">(</span><span class="nf">is.null</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">labels</span><span class="o">$</span><span class="n">topics</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
+    <span class="n">labels</span><span class="o">$</span><span class="n">clusters</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
+<span class="p">}</span>
+
+<span class="nf">create_json</span><span class="p">(</span>
+    <span class="n">stm</span> <span class="o">=</span> <span class="n">stmobj</span><span class="p">,</span>
+    <span class="n">documents_raw</span> <span class="o">=</span> <span class="n">questions[[i]][question_names[i]]</span> <span class="o">%&gt;%</span> <span class="nf">slice</span><span class="p">(</span><span class="o">-</span><span class="n">procs[[i]]</span><span class="o">$</span><span class="n">docs.removed</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+                                                                       <span class="nf">slice</span><span class="p">(</span><span class="o">-</span><span class="n">docs[[i]]</span><span class="o">$</span><span class="n">docs.removed</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+                                                                       <span class="n">pull</span><span class="p">,</span>
+    <span class="n">documents_matrix</span> <span class="o">=</span> <span class="n">docs[[i]]</span><span class="o">$</span><span class="n">documents</span><span class="p">,</span>
+    <span class="n">column_name</span> <span class="o">=</span> <span class="n">question_names[[i]]</span><span class="p">,</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">questions[i]</span><span class="p">),</span>
+    <span class="n">clustering_thresh</span> <span class="o">=</span> <span class="m">1.4</span><span class="p">,</span> <span class="c1"># should be as low as possible w/o errors</span>
+    <span class="n">instant</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="c1"># names the json data.json if set to true</span>
+    <span class="n">topic_labels</span> <span class="o">=</span> <span class="n">labels</span><span class="o">$</span><span class="n">topics</span><span class="p">,</span>
+    <span class="n">cluster_labels</span> <span class="o">=</span> <span class="n">labels</span><span class="o">$</span><span class="n">clusters</span><span class="p">,</span>
+    <span class="n">directory</span> <span class="o">=</span> <span class="s">&#39;./&#39;</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+    </main>
+    

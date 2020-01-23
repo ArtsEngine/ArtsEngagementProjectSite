@@ -5,13 +5,13 @@ kernel_path: content/analysis
 has_widgets: false
 title: |-
   Demographic Analysis
-pagenum: 25
+pagenum: 27
 prev_page:
   url: /analysis/pca.html
 next_page:
   url: 
 suffix: .ipynb
-search: rda data pcalabels into within generating code imports load scripts old update new labels place want using structure filled table google sheets exported csv loaded r resaved file define helper functions filter demographics those min max levels inclusive smalldemos variable loop questions pcs munging finally graphs recommend letting run say seconds hit twice stop print explore variables being used ggplot
+search: rda data pcalabels into variables functions loop graphs within generating code demographic analysis imports load scripts old update new labels place want using structure filled table google sheets exported csv loaded r resaved file demo alt temp begin tidy define helper filter demographics those min max levels inclusive smalldemos variable questions pcs munging finally recommend letting run say seconds hit twice stop print explore being used ggplot
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -164,6 +164,272 @@ The following object is masked from ‘package:tidyr’:
 </div>
 </div>
 
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Demo-Variables">Demo Variables<a class="anchor-link" href="#Demo-Variables"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># all factors vvv</span>
+<span class="c1"># df[df %&gt;% sapply(is.factor) %&gt;% as.vector, rownums]</span>
+<span class="n">motiv_demos</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="nf">contains</span><span class="p">(</span><span class="s">&#39;sr_motivation&#39;</span><span class="p">))</span> <span class="o">%&gt;%</span> <span class="n">names</span>
+<span class="n">identity_demos</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="nf">contains</span><span class="p">(</span><span class="s">&#39;sr_identity&#39;</span><span class="p">))</span> <span class="o">%&gt;%</span> <span class="n">names</span>
+<span class="n">participation_demos</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="nf">all_arts</span><span class="p">(</span><span class="s">&#39;participation&#39;</span><span class="p">))</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="nf">starts_with</span><span class="p">(</span><span class="s">&#39;sr&#39;</span><span class="p">))</span> <span class="o">%&gt;%</span> <span class="n">names</span>
+<span class="n">real_demos</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;ethnic_group&#39;</span><span class="p">,</span> <span class="s">&#39;sex&#39;</span><span class="p">,</span> <span class="s">&#39;school&#39;</span><span class="p">,</span> <span class="s">&#39;parented&#39;</span><span class="p">,</span> <span class="s">&#39;income&#39;</span><span class="p">,</span> <span class="s">&#39;artsincollege&#39;</span><span class="p">,</span> <span class="s">&#39;hstype&#39;</span><span class="p">,</span> <span class="s">&#39;hssize&#39;</span><span class="p">,</span>
+           <span class="s">&#39;hslocation&#39;</span><span class="p">,</span> <span class="s">&#39;hs_arts_freq&#39;</span><span class="p">,</span> <span class="s">&#39;hs_encouragement&#39;</span><span class="p">,</span> <span class="s">&#39;hs_required&#39;</span><span class="p">,</span> <span class="s">&#39;hs_fees&#39;</span><span class="p">,</span>
+           <span class="s">&#39;so_childhood1&#39;</span><span class="p">,</span> <span class="s">&#39;so_childhood3&#39;</span><span class="p">,</span> <span class="s">&#39;so_childhood5&#39;</span><span class="p">,</span> <span class="s">&#39;sr_participated&#39;</span><span class="p">,</span>
+               <span class="s">&#39;sr_highestdegreeplanned&#39;</span><span class="p">)</span>
+<span class="n">demo_groups</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;real_demos&#39;</span><span class="p">,</span><span class="s">&#39;motiv_demos&#39;</span><span class="p">,</span><span class="s">&#39;identity_demos&#39;</span><span class="p">,</span><span class="s">&#39;participation_demos&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Functions">Functions<a class="anchor-link" href="#Functions"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">stripnames</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">question</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">data</span> <span class="o">&lt;-</span> <span class="n">data</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="s">&#39;rownums&#39;</span><span class="p">,</span> <span class="nf">starts_with</span><span class="p">(</span><span class="n">question</span><span class="p">))</span>
+    <span class="n">varnames</span> <span class="o">&lt;-</span> <span class="nf">names</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">newnames</span> <span class="o">&lt;-</span> <span class="n">varnames</span>
+    <span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">seq</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="nf">length</span><span class="p">(</span><span class="n">varnames</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="n">newnames[i]</span> <span class="o">&lt;-</span> <span class="nf">substr</span><span class="p">(</span><span class="n">varnames[i]</span><span class="p">,</span> <span class="nf">gregexpr</span><span class="p">(</span><span class="s">&quot;\\.\\.&quot;</span><span class="p">,</span> <span class="n">varnames[i]</span><span class="p">)</span><span class="n">[[1]][1]</span><span class="m">+2</span><span class="p">,</span> <span class="nf">nchar</span><span class="p">(</span><span class="n">varnames[i]</span><span class="p">))</span>
+    <span class="p">}</span>
+    <span class="nf">names</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">newnames</span>
+    <span class="nf">return</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">stripVars</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">#remove irrelavant variables</span>
+    <span class="n">removenames</span> <span class="o">&lt;-</span> <span class="nf">names</span><span class="p">(</span><span class="n">data</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="nf">matches</span><span class="p">(</span><span class="s">&quot;AIC..Words|AIC..IC_Differentiation|AIC..IC_Integration|AIC..DIAL_Differentiation|AIC..DIAL_Integration|AIC..ELAB_Differentiation|AIC..ELAB_Integration|docuscope..OralCues|docuscope..DialogCues|docuscope..XWordTokens|docuscope..XPunctuationTokens|docuscope..XTokens|LIWC..WC|LIWC..Sixltr|LIWC..Dic|LIWC..WPS|LIWC..swear|LIWC..netspeak|LIWC..assent|LIWC..nonflu|LIWC..filler|LIWC..AllPunc|LIWC..Period|LIWC..Comma|LIWC..Colon|LIWC..SemiC|LIWC..QMark|LIWC..Exclam|LIWC..Dash|LIWC..Quote|LIWC..Apostro|LIWC..Parenth|LIWC..OtherP&quot;</span><span class="p">)))</span>
+    <span class="n">data</span> <span class="o">&lt;-</span> <span class="n">data[</span> <span class="p">,</span> <span class="o">!</span><span class="nf">names</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">%in%</span> <span class="n">removenames]</span>
+    <span class="nf">return</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">mergeQuestion</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">question</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nf">substr</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#39;_&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">question</span> <span class="o">&lt;-</span> <span class="nf">substr</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="nf">nchar</span><span class="p">(</span><span class="n">question</span><span class="p">))</span>
+    <span class="p">}</span>
+    <span class="c1"># if you&#39;re aware of other prefixes, add them here</span>
+    <span class="n">yrs</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="s">&#39;fl&#39;</span><span class="p">,</span><span class="s">&#39;f1&#39;</span><span class="p">,</span><span class="s">&#39;f2&#39;</span><span class="p">,</span><span class="s">&#39;so&#39;</span><span class="p">,</span><span class="s">&#39;jr&#39;</span><span class="p">,</span><span class="s">&#39;sr&#39;</span><span class="p">,</span><span class="s">&#39;sl&#39;</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">$</span><span class="n">rownums</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">data</span><span class="p">))</span> <span class="c1"># add rownums so resulting data can be re-integrated</span>
+    <span class="n">mergeddf</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">()</span>
+    <span class="nf">for </span><span class="p">(</span><span class="n">yr</span> <span class="n">in</span> <span class="n">yrs</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">if </span><span class="p">(</span><span class="n">question</span> <span class="o">==</span> <span class="s">&#39;definition&#39;</span> <span class="o">&amp;&amp;</span> <span class="nf">is.na</span><span class="p">(</span><span class="n">yr</span><span class="p">))</span>
+            <span class="n">qyr</span> <span class="o">&lt;-</span> <span class="n">question</span>
+        <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">yr</span><span class="p">))</span>
+            <span class="n">next</span>
+        <span class="n">else</span> <span class="p">{</span>
+            <span class="n">qyr</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span><span class="n">yr</span><span class="p">,</span> <span class="s">&#39;_&#39;</span><span class="p">,</span> <span class="n">question</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="nf">if </span><span class="p">(</span><span class="n">data</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="nf">starts_with</span><span class="p">(</span><span class="n">qyr</span><span class="p">))</span> <span class="o">%&gt;%</span> <span class="n">ncol</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span> <span class="n">next</span> <span class="p">}</span>
+        <span class="n">tempdf</span> <span class="o">&lt;-</span> <span class="nf">stripnames</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">qyr</span><span class="p">)</span>
+        <span class="nf">names</span><span class="p">(</span><span class="n">tempdf</span><span class="p">)</span><span class="n">[2]</span> <span class="o">&lt;-</span> <span class="n">question</span>
+        <span class="n">mergeddf</span> <span class="o">&lt;-</span> <span class="nf">bind_rows</span><span class="p">(</span><span class="n">mergeddf</span><span class="p">,</span> <span class="n">tempdf</span><span class="p">)</span>        
+    <span class="p">}</span>
+    <span class="n">mergeddf</span> <span class="o">&lt;-</span> <span class="n">mergeddf</span><span class="nf">[complete.cases</span><span class="p">(</span><span class="n">mergeddf</span><span class="p">),</span><span class="n">]</span>
+    <span class="n">mergeddf</span> <span class="o">&lt;-</span> <span class="n">mergeddf</span> <span class="o">%&gt;%</span> <span class="n">stripVars</span>
+    <span class="nf">rownames</span><span class="p">(</span><span class="n">mergeddf</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+    <span class="nf">return</span><span class="p">(</span><span class="n">mergeddf</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="alt-temp">alt temp<a class="anchor-link" href="#alt-temp"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">temp</span> <span class="o">&lt;-</span> <span class="n">demodfpcs</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="nf">matches</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;PC[&#39;</span><span class="p">,</span><span class="nf">paste0</span><span class="p">(</span><span class="nf">seq</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="nf">[seq</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="o">!=</span><span class="n">p]</span><span class="p">,</span> <span class="n">collapse</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">),</span><span class="s">&#39;]&#39;</span><span class="p">)))</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="nf">[ncol</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#39;pc&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="all-loop">all loop<a class="anchor-link" href="#all-loop"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">sig_contrasts.demos</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+<span class="n">sig_aov_posthoc</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+<span class="nf">dir.create</span><span class="p">(</span><span class="s">&#39;./results&#39;</span><span class="p">,</span> <span class="n">showWarnings</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">question</span> <span class="n">in</span> <span class="n">question_names[</span><span class="o">-</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="o">:</span><span class="m">6</span><span class="p">,</span><span class="m">9</span><span class="o">:</span><span class="m">14</span><span class="p">)</span><span class="n">]</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1"># directories</span>
+    <span class="nf">dir.create</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#39;./results&#39;</span><span class="p">,</span> <span class="n">question</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#39;/&#39;</span><span class="p">),</span> <span class="n">showWarnings</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+    
+    <span class="c1"># data subsetting, PC</span>
+    <span class="n">data_subset</span> <span class="o">&lt;-</span> <span class="nf">mergeQuestion</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">question</span><span class="p">)</span>
+    <span class="n">data_subset_rows</span> <span class="o">&lt;-</span> <span class="n">data_subset[[1]]</span>
+    <span class="n">data_subset</span> <span class="o">&lt;-</span> <span class="n">data_subset[</span><span class="m">-1</span><span class="n">]</span>
+    <span class="n">data_subset</span> <span class="o">&lt;-</span> <span class="n">data_subset[</span><span class="m">-1</span><span class="n">]</span>
+    <span class="n">percent</span> <span class="o">&lt;-</span> <span class="m">0.4</span>
+    <span class="n">data_subset</span> <span class="o">&lt;-</span> <span class="n">data_subset[</span> <span class="nf">lapply</span><span class="p">(</span> <span class="n">data_subset</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="m">0</span><span class="p">)</span> <span class="o">/</span> <span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="n">percent</span> <span class="n">]</span>
+    <span class="n">pd</span> <span class="o">&lt;-</span> <span class="nf">prcomp</span><span class="p">(</span><span class="n">data_subset</span><span class="p">,</span> <span class="n">retx</span><span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+
+    <span class="c1"># merge with demographic cols</span>
+    <span class="n">pcs</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">rownum</span> <span class="o">=</span> <span class="n">data_subset_rows</span><span class="p">,</span> <span class="n">pd</span><span class="o">$</span><span class="n">x[</span><span class="p">,</span><span class="nf">seq</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="n">]</span> <span class="o">%&gt;%</span> <span class="n">as.data.frame</span><span class="p">)</span>
+    <span class="n">rownums</span> <span class="o">&lt;-</span> <span class="n">pcs</span><span class="o">$</span><span class="n">rownum</span> <span class="o">%&gt;%</span> <span class="n">sort</span>
+    <span class="n">pcs</span> <span class="o">&lt;-</span> <span class="n">pcs</span> <span class="o">%&gt;%</span> <span class="nf">arrange</span><span class="p">(</span><span class="n">rownum</span><span class="p">)</span>
+    <span class="n">pcs</span> <span class="o">&lt;-</span> <span class="n">pcs[</span><span class="m">-1</span><span class="n">]</span>
+    <span class="n">demodfpcs</span> <span class="o">&lt;-</span> <span class="nf">bind_cols</span><span class="p">(</span><span class="n">df[rownums</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;key&#39;</span><span class="p">,</span><span class="n">real_demos</span><span class="p">)</span><span class="n">]</span><span class="p">,</span> <span class="n">pcs</span><span class="p">)</span>
+
+    <span class="c1"># weighting by # of responses per respondent</span>
+    <span class="n">resps_by_key</span> <span class="o">&lt;-</span> <span class="n">demodfpcs</span><span class="o">$</span><span class="n">key</span> <span class="o">%&gt;%</span> <span class="n">table</span> <span class="o">%&gt;%</span> <span class="n">as.data.frame</span>
+    <span class="nf">names</span><span class="p">(</span><span class="n">resps_by_key</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;key&#39;</span><span class="p">,</span><span class="s">&#39;n&#39;</span><span class="p">)</span>
+    <span class="n">resps_by_key</span> <span class="o">%&lt;&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">n</span><span class="o">!=</span><span class="m">0</span><span class="p">)</span>
+    <span class="nf">for</span><span class="p">(</span><span class="n">r</span> <span class="n">in</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">demodfpcs</span><span class="p">)))</span> <span class="p">{</span>
+        <span class="n">nresps</span> <span class="o">&lt;-</span> <span class="n">resps_by_key</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">demodfpcs[r</span><span class="p">,</span><span class="n">]</span><span class="o">$</span><span class="n">key</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="n">.$n</span>
+        <span class="n">demodfpcs[r</span><span class="p">,</span> <span class="nf">names</span><span class="p">(</span><span class="nf">select</span><span class="p">(</span><span class="n">demodfpcs</span><span class="p">,</span><span class="nf">matches</span><span class="p">(</span><span class="s">&#39;PC[12345]&#39;</span><span class="p">)))</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="n">nresps</span><span class="p">)</span> <span class="o">*</span>
+                                                            <span class="p">(</span><span class="n">demodfpcs[r</span><span class="p">,</span> <span class="nf">names</span><span class="p">(</span><span class="nf">select</span><span class="p">(</span><span class="n">demodfpcs</span><span class="p">,</span><span class="nf">matches</span><span class="p">(</span><span class="s">&#39;PC[12345]&#39;</span><span class="p">)))</span><span class="n">]</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">demodfpcs</span> <span class="o">&lt;-</span> <span class="n">demodfpcs</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="s">&#39;key&#39;</span><span class="p">)</span>
+    <span class="n">demodf</span> <span class="o">&lt;-</span> <span class="n">demodfpcs</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="nf">matches</span><span class="p">(</span><span class="s">&#39;PC[12345]&#39;</span><span class="p">))</span>
+    <span class="n">pcs</span> <span class="o">&lt;-</span> <span class="n">demodfpcs</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="nf">matches</span><span class="p">(</span><span class="s">&#39;PC[12345]&#39;</span><span class="p">))</span>
+
+    <span class="c1"># analysis</span>
+    <span class="nf">for</span><span class="p">(</span><span class="n">p</span> <span class="n">in</span> <span class="nf">seq</span><span class="p">(</span><span class="n">pcs</span><span class="p">))</span> <span class="p">{</span>
+        <span class="c1"># directories</span>
+        <span class="nf">dir.create</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#39;./results&#39;</span><span class="p">,</span> <span class="n">question</span><span class="p">,</span> <span class="nf">names</span><span class="p">(</span><span class="n">pcs</span><span class="p">)</span><span class="n">[p]</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#39;/&#39;</span><span class="p">),</span> <span class="n">showWarnings</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+        <span class="nf">dir.create</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#39;./results&#39;</span><span class="p">,</span> <span class="n">question</span><span class="p">,</span> <span class="nf">names</span><span class="p">(</span><span class="n">pcs</span><span class="p">)</span><span class="n">[p]</span><span class="p">,</span> <span class="s">&#39;emmeans&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#39;/&#39;</span><span class="p">),</span> <span class="n">showWarnings</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+        <span class="nf">dir.create</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&#39;./results&#39;</span><span class="p">,</span> <span class="n">question</span><span class="p">,</span> <span class="nf">names</span><span class="p">(</span><span class="n">pcs</span><span class="p">)</span><span class="n">[p]</span><span class="p">,</span> <span class="s">&#39;anova_tukey&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#39;/&#39;</span><span class="p">),</span> <span class="n">showWarnings</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+        <span class="nf">for</span><span class="p">(</span><span class="n">d</span> <span class="n">in</span> <span class="nf">seq</span><span class="p">(</span><span class="n">demodf</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">temp</span> <span class="o">&lt;-</span> <span class="nf">bind_cols</span><span class="p">(</span><span class="n">pcs[p]</span><span class="p">,</span> <span class="n">demodf[d]</span><span class="p">)</span>
+            <span class="nf">names</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;pc&#39;</span><span class="p">,</span><span class="s">&#39;demo&#39;</span><span class="p">)</span>
+            <span class="nf">if</span><span class="p">((</span><span class="n">temp</span><span class="o">$</span><span class="n">demo</span> <span class="o">%&gt;%</span> <span class="n">table</span> <span class="o">%&gt;%</span> <span class="n">as.data.frame</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">Freq</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="n">nrow</span><span class="p">)</span> <span class="o">==</span> <span class="m">1</span><span class="p">)</span> <span class="n">next</span>
+
+            <span class="c1"># emmeans contrasts</span>
+            <span class="n">lm.out</span> <span class="o">&lt;-</span> <span class="nf">lm</span><span class="p">(</span><span class="n">pc</span> <span class="o">~</span> <span class="n">demo</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">temp</span><span class="p">,</span> <span class="n">na.action</span> <span class="o">=</span> <span class="n">na.exclude</span><span class="p">)</span>
+            <span class="n">em.out</span> <span class="o">&lt;-</span> <span class="nf">emmeans</span><span class="p">(</span><span class="n">lm.out</span><span class="p">,</span> <span class="o">~</span> <span class="n">demo</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">temp</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="s">&#39;proportional&#39;</span><span class="p">)</span>
+            <span class="n">contrast.out</span> <span class="o">&lt;-</span> <span class="nf">contrast</span><span class="p">(</span><span class="n">em.out</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&quot;del.eff&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="n">tidy</span>
+
+            <span class="n">contrast.out</span><span class="o">$</span><span class="n">p.value</span> <span class="o">%&lt;&gt;%</span> <span class="nf">p.adjust</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s">&#39;holm&#39;</span><span class="p">)</span>
+            <span class="n">contrast.out</span> <span class="o">%&lt;&gt;%</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">question_name</span><span class="o">=</span><span class="n">question</span><span class="p">,</span>
+                                        <span class="n">PC_num</span> <span class="o">=</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;PC&#39;</span><span class="p">,</span><span class="n">p</span><span class="p">),</span> 
+                                        <span class="n">PC_pos</span> <span class="o">=</span> <span class="n">pca_labels</span> <span class="o">%&gt;%</span> 
+                                                  <span class="nf">filter</span><span class="p">(</span><span class="n">question_name</span><span class="o">==</span><span class="n">question</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+                                                  <span class="nf">select</span><span class="p">(</span><span class="nf">matches</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="s">&#39;_pos&#39;</span><span class="p">)))</span> <span class="o">%&gt;%</span>
+                                                  <span class="n">pull</span> <span class="o">%&gt;%</span> <span class="n">as.character</span><span class="p">,</span>
+                                        <span class="n">PC_neg</span> <span class="o">=</span> <span class="n">pca_labels</span> <span class="o">%&gt;%</span> 
+                                                  <span class="nf">filter</span><span class="p">(</span><span class="n">question_name</span><span class="o">==</span><span class="n">question</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+                                                  <span class="nf">select</span><span class="p">(</span><span class="nf">matches</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="s">&#39;_neg&#39;</span><span class="p">)))</span> <span class="o">%&gt;%</span>
+                                                  <span class="n">pull</span> <span class="o">%&gt;%</span> <span class="n">as.character</span><span class="p">,</span>
+                                        <span class="n">demographic</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">demodf</span><span class="p">)</span><span class="n">[d]</span>
+                                     <span class="p">)</span>            
+
+            <span class="c1"># anova tukey</span>
+            <span class="n">aov.out</span> <span class="o">&lt;-</span> <span class="nf">aov</span><span class="p">(</span><span class="n">pc</span> <span class="o">~</span> <span class="n">demo</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">temp</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="n">TukeyHSD</span> <span class="o">%&gt;%</span> <span class="n">tidy</span>
+            <span class="n">aov.out</span> <span class="o">%&lt;&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="n">term</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">question_name</span><span class="o">=</span><span class="n">question</span><span class="p">,</span>
+                                        <span class="n">PC_num</span> <span class="o">=</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;PC&#39;</span><span class="p">,</span><span class="n">p</span><span class="p">),</span> 
+                                        <span class="n">PC_pos</span> <span class="o">=</span> <span class="n">pca_labels</span> <span class="o">%&gt;%</span> 
+                                                  <span class="nf">filter</span><span class="p">(</span><span class="n">question_name</span><span class="o">==</span><span class="n">question</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+                                                  <span class="nf">select</span><span class="p">(</span><span class="nf">matches</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="s">&#39;_pos&#39;</span><span class="p">)))</span> <span class="o">%&gt;%</span>
+                                                  <span class="n">pull</span> <span class="o">%&gt;%</span> <span class="n">as.character</span><span class="p">,</span>
+                                        <span class="n">PC_neg</span> <span class="o">=</span> <span class="n">pca_labels</span> <span class="o">%&gt;%</span> 
+                                                  <span class="nf">filter</span><span class="p">(</span><span class="n">question_name</span><span class="o">==</span><span class="n">question</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+                                                  <span class="nf">select</span><span class="p">(</span><span class="nf">matches</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="s">&#39;_neg&#39;</span><span class="p">)))</span> <span class="o">%&gt;%</span>
+                                                  <span class="n">pull</span> <span class="o">%&gt;%</span> <span class="n">as.character</span><span class="p">,</span>
+                                        <span class="n">demographic</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">demodf</span><span class="p">)</span><span class="n">[d]</span>
+                                     <span class="p">)</span>
+            
+            <span class="c1"># bind rows</span>
+            <span class="nf">options</span><span class="p">(</span><span class="n">warn</span><span class="o">=</span><span class="m">-1</span><span class="p">)</span>
+            <span class="n">sig_contrasts.demos</span> <span class="o">%&lt;&gt;%</span> <span class="nf">bind_rows</span><span class="p">(</span><span class="n">contrast.out</span><span class="p">)</span>
+            <span class="n">sig_aov_posthoc</span> <span class="o">%&lt;&gt;%</span> <span class="nf">bind_rows</span><span class="p">(</span><span class="n">aov.out</span><span class="p">)</span>
+            <span class="nf">options</span><span class="p">(</span><span class="n">warn</span><span class="o">=</span><span class="m">0</span><span class="p">)</span>
+            
+            <span class="c1"># write csvs</span>
+            <span class="nf">write.csv</span><span class="p">(</span><span class="n">contrast.out</span><span class="p">,</span> <span class="nf">paste</span><span class="p">(</span><span class="s">&#39;./results&#39;</span><span class="p">,</span><span class="n">question</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">pcs</span><span class="p">)</span><span class="n">[p]</span><span class="p">,</span><span class="s">&#39;emmeans&#39;</span><span class="p">,</span><span class="nf">paste0</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">demodf</span><span class="p">)</span><span class="n">[d]</span><span class="p">,</span><span class="s">&#39;.csv&#39;</span><span class="p">),</span><span class="n">sep</span><span class="o">=</span><span class="s">&#39;/&#39;</span><span class="p">))</span>
+            <span class="nf">write.csv</span><span class="p">(</span><span class="n">aov.out</span><span class="p">,</span> <span class="nf">paste</span><span class="p">(</span><span class="s">&#39;./results&#39;</span><span class="p">,</span><span class="n">question</span><span class="p">,</span><span class="nf">names</span><span class="p">(</span><span class="n">pcs</span><span class="p">)</span><span class="n">[p]</span><span class="p">,</span><span class="s">&#39;anova_tukey&#39;</span><span class="p">,</span><span class="nf">paste0</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">demodf</span><span class="p">)</span><span class="n">[d]</span><span class="p">,</span><span class="s">&#39;.csv&#39;</span><span class="p">),</span><span class="n">sep</span><span class="o">=</span><span class="s">&#39;/&#39;</span><span class="p">))</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1"># # write rdas</span>
+<span class="nf">save</span><span class="p">(</span><span class="n">sig_contrasts.demos</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s">&#39;./results/emmeans_contrasts.rda&#39;</span><span class="p">)</span>
+<span class="nf">save</span><span class="p">(</span><span class="n">sig_aov_posthoc</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s">&#39;./results/anova_tukey.rda&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="begin-tidy-graphs">begin tidy graphs<a class="anchor-link" href="#begin-tidy-graphs"> </a></h2>
+</div>
+</div>
 </div>
 </div>
 

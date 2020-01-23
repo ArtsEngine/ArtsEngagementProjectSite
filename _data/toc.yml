@@ -48,33 +48,45 @@
 # Add a header and sample content section
 - title: Insights
   url: /insights/insights
-  not_numbered: true
   expand_sections: true
   sections:
-    - url: /insights/descriptivestats
-      not_numbered: true
-    - url: /insights/barriers
-      not_numbered: true
-    - url: /insights/othergrowth
-      not_numbered: true
-    - url: /insights/definition
-      not_numbered: true
-    - url: /insights/behavior
-      not_numbered: true
-    - url: /insights/aftercollege
-      not_numbered: true
-    - url: /insights/change
-      not_numbered: true
-    - url: /insights/childhood
-      not_numbered: true
-    - url: /insights/development
-      not_numbered: true
-    - url: /insights/role
-      not_numbered: true
-    - url: /insights/society
-      not_numbered: true
-    - url: /insights/transform
-      not_numbered: true
+  - url: /insights/descriptivestats
+  - url: /insights/barriers
+    expand_subsections: false
+    subsections:
+    - title: Barriers - Topic Descriptions
+      url: /insights/barriers/topics
+    - title: Barriers - Dimensions
+      url: /insights/barriers/dimensions
+    - title: Barriers - Demographic Contrasts
+      url: /insights/barriers/demographics
+  - url: /insights/othergrowth
+    expand_subsections: false
+    subsections:
+    - title: Growth - Topic Descriptions
+      url: /insights/othergrowth/topics
+    - title: Growth - Dimensions
+      url: /insights/othergrowth/dimensions
+    - title: Growth - Demographic Contrasts
+      url: /insights/othergrowth/demographics
+  - url: /insights/feel    
+    expand_subsections: false
+    subsections:
+    - title: Emotional Impacts - Topic Descriptions
+      url: /insights/feel/topics
+    - title: Emotional Impacts - Dimensions
+      url: /insights/feel/dimensions
+    - title: Emotional Impacts - Demographic Contrasts
+      url: /insights/feel/demographics
+#  - url: /insights/definition
+#  - url: /insights/behavior
+#  - url: /insights/aftercollege
+#  - url: /insights/experience
+#  - url: /insights/childhood
+#  - url: /insights/development
+#  - url: /insights/role
+#  - url: /insights/society
+#  - url: /insights/transform
 
   
 - divider: true
@@ -88,6 +100,10 @@
   sections:
   - url: /analysis/topics
     not_numbered: true
+    expand_subsections: true
+    subsections:
+    - url: /analysis/stm-workflow
+      not_numbered: true
   - url: /analysis/dictionaries
     not_numbered: true
   - url: /analysis/pca

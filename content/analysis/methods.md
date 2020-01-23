@@ -2,29 +2,22 @@
 
 This page covers approaches that we used to collect, clean, analyze, interpret, and communicate the Arts Engagement data.
 
-## Topic Modeling and Interpreting Open-Ended Responses
+## Analytical Techniques
 
-1. **Collecting the Data**. Jupyter Book expects a particular
-   collection of files and folders that work with the Static Site Generator
-   Jekyll. The [anatomy of a Jupyter Book](01-5_tour.html) section covers the
-   general structure of Jupyter Books, and the [create your book template](02_create.html)
-   guide shows how to create your own book structure.
-2. **Cleaning the resulting data**. We first create each page of
-   your book into HTML. This converts your `.ipynb`, `.md`, etc files into HTML
-   that can be understood by a website. It also uses your book's metadata to insert
-   tags and other layout elements into each page's HTML. See the [building each page's HTML](03_build.html)
-   section for more information.
-3. **Analysis**. Once we have HTML for each page, we
-   can stitch them together for a book. At the end of this step, you should have
-   standalone HTML that can be hosted online. See the [build your book's html](publish/book-html.html)
-   section for more information.
-4. **Host your book's HTML online**. Once your book's HTML is built, you can host
-   it online as a public website. This guide [covers a few ways to do this](04_publish.html).
+TOPIC MODELS
+: a text-mining tool for discovery of hidden semantic structures (topics) in a text or a corpus of texts
 
-To begin, check out the next section. You can follow this guide linearly, or use it as
-a reference later on.
+CLOSE READING AND INTERPRETATION
+: reading individual responses and interpreting the results and overall relationships — individually and through group discussion
+
+DICTIONARIES
+: organized collections of terms and phrases used to help classify, categorize, and calculate the frequency of words in text
+
+PRINCIPAL COMPONENTS ANALYSIS
+: extracts information about many different variables and integrates this information into fewer dimensions which may then be used to help interpret and describe patterns or make comparisons with other variables
+
+DEMOGRAPHIC COMPARISONS
+: analysis of variance using factors such as sex, grade point average, high school locale, ethnic group, income, etc.
 
 
-Now that you've got a Jupyter Book folder structure, we can create
-the HTML for each of your book's pages. That's covered in the next
-section.
+

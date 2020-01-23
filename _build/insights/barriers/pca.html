@@ -1,0 +1,555 @@
+---
+interact_link: content/insights/barriers/pca.ipynb
+kernel_name: python3
+kernel_path: content/insights/barriers
+has_widgets: false
+title: |-
+  Barriers - pca
+pagenum: 13
+prev_page:
+  url: /insights/barriers/principal-components.html
+next_page:
+  url: /insights/barriers/demographic-factors.html
+suffix: .ipynb
+search: topic barriers arts not liwc art lack dimensions involved major awareness majors campus university component aic classes responses img biplot pc class am clubs part take difficult didnt very components being any greater images click ennui relativ me just events because social talented feel sochildhood principal explaining variation here dimension loadings nobarriers cost distancebetweencampuses clout analytic personal location well group drawing much activities participate think organization play im competing example opportunities principle interests complexity student experience non variables scree plot src png title width accessibility departmentalsegregation except courseload course school schedule enough never too knowledge made clear great try get
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Barriers - pca</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Barriers-Dimensions"><em>Barriers</em> Dimensions<a class="anchor-link" href="#Barriers-Dimensions"> </a></h1><p><strong>Principal Components Results</strong></p>
+<p>A total of 27 variables and 3852 responses were included in the analysis of responses to the question,</p>
+<blockquote><p>“What did you see as the barriers preventing you from being involved in the arts at the University of Michigan (if you experienced any)?”</p>
+</blockquote>
+<p>Five dimensions (components) explaining a cumulative 51% of the variation were extracted for further description.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_popout">
+
+<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This scree plot shows the explained variance of each of the dimensions and that illustrates the criteria used for selecting the number of dimensions to be studied. Eight dimansions had an eigenvalue greater than 1, explaining 64% of the variation among the responses. Five dimensions explaining a cumulative 51% of the variation were extracted for further description.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/images/barriers/barriers_screeplot.png" title="Barriers Scree Plot" width="600">Barriers Scree Plot</img></p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Eight components had an eigenvalue greater than 1, explaining 64% of the variation among the responses. (click the + for eigenvalues)</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered tag_hide_input">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">|</span> <span class="n">Barriers</span> <span class="n">PC</span>    <span class="o">|</span> <span class="n">eigenvalue</span> <span class="o">|</span> <span class="n">variance</span><span class="o">.</span><span class="n">percent</span> <span class="o">|</span> <span class="n">cumulative</span><span class="o">.</span><span class="n">variance</span><span class="o">.</span><span class="n">percent</span> <span class="o">|</span>
+<span class="o">|</span><span class="p">:</span><span class="o">-------|</span><span class="p">:</span><span class="o">------------|</span><span class="p">:</span><span class="o">------------------|</span><span class="p">:</span><span class="o">-----------------------------|</span>
+<span class="o">|</span> <span class="n">Dim</span><span class="o">.</span><span class="mi">1</span> <span class="o">|</span> <span class="mf">4.85E+00</span>   <span class="o">|</span> <span class="mf">1.80E+01</span>         <span class="o">|</span> <span class="mf">17.95625</span>                    <span class="o">|</span>
+<span class="o">|</span> <span class="n">Dim</span><span class="o">.</span><span class="mi">2</span> <span class="o">|</span> <span class="mf">2.92E+00</span>   <span class="o">|</span> <span class="mf">1.08E+01</span>         <span class="o">|</span> <span class="mf">28.75957</span>                    <span class="o">|</span>
+<span class="o">|</span> <span class="n">Dim</span><span class="o">.</span><span class="mi">3</span> <span class="o">|</span> <span class="mf">2.39E+00</span>   <span class="o">|</span> <span class="mf">8.85E+00</span>         <span class="o">|</span> <span class="mf">37.60513</span>                    <span class="o">|</span>
+<span class="o">|</span> <span class="n">Dim</span><span class="o">.</span><span class="mi">4</span> <span class="o">|</span> <span class="mf">1.97E+00</span>   <span class="o">|</span> <span class="mf">7.30E+00</span>         <span class="o">|</span> <span class="mf">44.90487</span>                    <span class="o">|</span>
+<span class="o">|</span> <span class="n">Dim</span><span class="o">.</span><span class="mi">5</span> <span class="o">|</span> <span class="mf">1.65E+00</span>   <span class="o">|</span> <span class="mf">6.10E+00</span>         <span class="o">|</span> <span class="mf">51.00094</span>                    <span class="o">|</span>
+<span class="o">|</span> <span class="n">Dim</span><span class="o">.</span><span class="mi">6</span> <span class="o">|</span> <span class="mf">1.46E+00</span>   <span class="o">|</span> <span class="mf">5.40E+00</span>         <span class="o">|</span> <span class="mf">56.40384</span>                    <span class="o">|</span>
+<span class="o">|</span> <span class="n">Dim</span><span class="o">.</span><span class="mi">7</span> <span class="o">|</span> <span class="mf">1.14E+00</span>   <span class="o">|</span> <span class="mf">4.22E+00</span>         <span class="o">|</span> <span class="mf">60.61931</span>                    <span class="o">|</span>
+<span class="o">|</span> <span class="n">Dim</span><span class="o">.</span><span class="mi">8</span> <span class="o">|</span> <span class="mf">1.01E+00</span>   <span class="o">|</span> <span class="mf">3.74E+00</span>         <span class="o">|</span> <span class="mf">64.36249</span>                    <span class="o">|</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell tag_popout">
+
+<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="../insights/images/barriers/barriers_plotly12.html">Click here for an interactive biplot of dimension 1 &amp; 2 with responses for this topic.</a></p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/images/barriers/barriers_biplot12.png" title="Biplot for Dimensions 1 and 2 for 'Barriers'" width="600">Biplot for Dimensions 1 and 2 for 'Barriers</img></p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_popout">
+
+<div class="cell border-box-sizing text_cell rendered tag_popout"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="../insights/images/barriers/barriers_plotly34.html">Click here for an interactive biplot of dimension 3 &amp; 4 with responses for this topic.</a></p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/images/barriers/barriers_biplot34.png" title="Biplot for Dimensions 1 and 2 for 'Barriers'" width="600">Biplot for Dimensions 3 and 4 for 'Barriers</img></p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The table of loadings showing the loadings of all of the variables for each of the principal components studied. Loadings with absolute values greater than 0.2 have been considered the most important for interpreting and describing each principal component. (click the + for loadings table)</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing text_cell rendered tag_hide_input"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead><tr>
+<th style="text-align:left">BARRIERS</th>
+<th>PC1</th>
+<th>PC2</th>
+<th>PC3</th>
+<th>PC4</th>
+<th>PC5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">topic..Unwelcoming_Environment</td>
+<td>0.3362</td>
+<td>-0.0582</td>
+<td>0.0018</td>
+<td>0.0054</td>
+<td>0.0746</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..Competitive_Auditions</td>
+<td>0.2743</td>
+<td>-0.0765</td>
+<td>0.05</td>
+<td>-0.0571</td>
+<td>0.0684</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..University_Priorities</td>
+<td>0.2442</td>
+<td>-0.1282</td>
+<td>0.0322</td>
+<td>0.0968</td>
+<td>-0.1338</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..No_Barriers</td>
+<td>0.2257</td>
+<td>0.0489</td>
+<td>0.0092</td>
+<td>-0.0766</td>
+<td>0.0815</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..Accessibility</td>
+<td>0.2197</td>
+<td>-0.0943</td>
+<td>0.0242</td>
+<td>0.1639</td>
+<td>0.111</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..Departmental_Segregation</td>
+<td>0.2075</td>
+<td>-0.1743</td>
+<td>0.0117</td>
+<td>0.1163</td>
+<td>-0.3114</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..Ennui</td>
+<td>0.2038</td>
+<td>0.2043</td>
+<td>-0.004</td>
+<td>-0.0387</td>
+<td>0.2905</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..Lack_of_Familiarity</td>
+<td>0.1971</td>
+<td>-0.0193</td>
+<td>0.0167</td>
+<td>-0.3439</td>
+<td>-0.043</td>
+</tr>
+<tr>
+<td style="text-align:left">LIWC..function</td>
+<td>0.1867</td>
+<td>0.4365</td>
+<td>-0.0557</td>
+<td>0.1793</td>
+<td>-0.1162</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..Cost</td>
+<td>0.1835</td>
+<td>-0.0961</td>
+<td>-0.0104</td>
+<td>0.1493</td>
+<td>0.1898</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..University_Program_Requirements</td>
+<td>0.1819</td>
+<td>-0.0901</td>
+<td>0.0031</td>
+<td>0.0132</td>
+<td>-0.1386</td>
+</tr>
+<tr>
+<td style="text-align:left">LIWC..Tone</td>
+<td>0.1679</td>
+<td>0.0387</td>
+<td>0.0206</td>
+<td>-0.1664</td>
+<td>0.0339</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..Low_Confidence</td>
+<td>0.1475</td>
+<td>0.0209</td>
+<td>0.0163</td>
+<td>-0.4336</td>
+<td>-0.001</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..Awareness</td>
+<td>0.1378</td>
+<td>-0.041</td>
+<td>0.0271</td>
+<td>0.2838</td>
+<td>0.3595</td>
+</tr>
+<tr>
+<td style="text-align:left">AIC..DIAL</td>
+<td>0.0392</td>
+<td>-0.0563</td>
+<td>-0.5517</td>
+<td>-0.0197</td>
+<td>0.0338</td>
+</tr>
+<tr>
+<td style="text-align:left">AIC..IC</td>
+<td>0.0375</td>
+<td>-0.0624</td>
+<td>-0.6297</td>
+<td>-0.0468</td>
+<td>0.0202</td>
+</tr>
+<tr>
+<td style="text-align:left">AIC..ELAB</td>
+<td>0.0288</td>
+<td>-0.0453</td>
+<td>-0.5197</td>
+<td>-0.0595</td>
+<td>-0.0053</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..Fit_With_Major_and_Course_Scarcity</td>
+<td>0.0258</td>
+<td>-0.1584</td>
+<td>-0.0089</td>
+<td>0.1245</td>
+<td>-0.4329</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..Distance_Between_Campuses</td>
+<td>-0.0152</td>
+<td>-0.0935</td>
+<td>0.0266</td>
+<td>0.327</td>
+<td>0.2197</td>
+</tr>
+<tr>
+<td style="text-align:left">LIWC..Clout</td>
+<td>-0.0155</td>
+<td>-0.3862</td>
+<td>0.0645</td>
+<td>-0.1783</td>
+<td>-0.0194</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..Lack_of_Personal_Interest</td>
+<td>-0.0497</td>
+<td>0.1388</td>
+<td>0.0632</td>
+<td>-0.4678</td>
+<td>0.1248</td>
+</tr>
+<tr>
+<td style="text-align:left">LIWC..Analytic</td>
+<td>-0.0794</td>
+<td>-0.4316</td>
+<td>0.0696</td>
+<td>-0.1921</td>
+<td>0.0094</td>
+</tr>
+<tr>
+<td style="text-align:left">LIWC..Authentic</td>
+<td>-0.1148</td>
+<td>-0.1275</td>
+<td>-0.0298</td>
+<td>0.1215</td>
+<td>0.3833</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..No_Barriers,_Except</td>
+<td>-0.1487</td>
+<td>0.4273</td>
+<td>-0.0357</td>
+<td>-0.0424</td>
+<td>-0.011</td>
+</tr>
+<tr>
+<td style="text-align:left">LIWC..relativ</td>
+<td>-0.2378</td>
+<td>-0.2688</td>
+<td>-0.002</td>
+<td>-0.0717</td>
+<td>0.3031</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..Course_Load</td>
+<td>-0.3076</td>
+<td>-0.0645</td>
+<td>-0.0528</td>
+<td>0.1729</td>
+<td>-0.2681</td>
+</tr>
+<tr>
+<td style="text-align:left">topic..Time</td>
+<td>-0.3983</td>
+<td>0.0786</td>
+<td>-0.032</td>
+<td>-0.053</td>
+<td>0.08</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dimension-1:-Climate-of-Exclusion-&amp;-Personal-Capacity">Dimension 1: Climate of Exclusion &amp; Personal Capacity<a class="anchor-link" href="#Dimension-1:-Climate-of-Exclusion-&amp;-Personal-Capacity"> </a></h2><p>For dimension one (the first principal component) the topic variables of <em>Unwelcoming Environment, Competitive Auditions, University Priorities, Accessibility, and Departmental Segregation</em> contrasted with the individually managed barriers topics of <em>Time, Course Load, Location</em>, as well as <em>LIWC.relativ</em> (a spatial language variable).</p>
+<p><code>topic..Time
+topic..Unwelcoming_Environment
+topic..Course_Load
+topic..Competitive_Auditions
+topic..University_Priorities
+LIWC..relativ
+topic..No_Barriers
+topic..Accessibility
+topic..Departmental_Segregation
+topic..Ennui</code></p>
+<p>Barriers PC1 Demographics: income; school</p>
+<p>(click the + for representative quotes)</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing text_cell rendered tag_hide_input"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>"Time schedule conflicting with class or other extracurriculars"</p>
+<p>"Not enough time in my schedule to be in a club or group for pure enjoyment."</p>
+<p>"From my perspectives, one of the major issues that is preventing me from being involved in the arts is time. I enjoy drawing, but I can never find the time to do so. There is just too much academic work. Another reason is that I am not an art major. There’s so many clubs/activities that I can participate and art is not being one of them. I am interested in majoring in computer science and I think that it would be better for me to participate in computer related clubs as opposed to art related clubs. However, if the time management situation wasn't a part of my issue, I would definitely take some art class or join clubs that will help improve my drawing skills."</p>
+<p>"Not my major concentration so at times it was difficult to attend/participate in events because of time and schedule conflicts"</p>
+<p>"Social cliques, lack of knowledge about what university resources to utilize and occasional university staff who made it clear they didn't see the point of my organization"</p>
+<p>"The great and sad part of UM is the wealth of talented individuals who go here-- makes it hard for me, a moderately talented individual in a number of fields, to try out for a play or musical group and actually make it because I'm competing with, for example, percussion majors for Groove and theatre majors for a part in a play."</p>
+<p>"Social cliques, lack of knowledge about what university resources to utilize and occasional university staff who made it clear they didn't see the point of my organization"</p>
+<p>"The great and sad part of UM is the wealth of talented individuals who go here-- makes it hard for me, a moderately talented individual in a number of fields, to try out for a play or musical group and actually make it because I'm competing with, for example, percussion majors for Groove and theatre majors for a part in a play."</p>
+<p>"As an engineer, I feel there could be more opportunities to get involved in the arts. I feel too intimidated by art majors or minors to take an art class for fun, which I otherwise would do."</p>
+<p>"Fear of judgement"</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Principle Component 2: 
+Other Interests (+)
+Identified Barriers: Time, Major, Location, Cost (-)</p>
+<p>Other Interests (+): Focus on self – pronoun ‘I’, Ennui, and No Barriers, except… 
+personal narratives.
+Lower status
+Higher use of singular first person pronouns
+(Kacewicz et al, 2013)</p>
+<p>Identified Barriers: Time, Major, Location, Cost (-): Clout, Analytic, and relative all negative weighted. Clout is associated with status and lower use of first person pronouns</p>
+<p>Analytic: Categorical language is a style that combines heightened abstract thinking (associated with greater article use) and cognitive complexity (associated with greater use of prepositions). (Pennebaker et al., 2014)</p>
+<p>LIWC..function
+LIWC..Analytic
+topic..No_Barriers,_Except
+LIWC..Clout
+LIWC..relativ
+topic..Ennui</p>
+<p>"Cost, time"</p>
+<p>"Money, time"</p>
+<p>"Do not have the time and I have other interests"</p>
+<p>"No barriers. Just my other interests are higher than my desire to be involved in the arts most of the time"</p>
+<p>"The only barriers I see is the impracticality of being involved in the arts as a pre-medical mathematics major."</p>
+<p>Demographic: sex; parented; income; sr_participated; so_childhood5; so_childhood3; so_childhood1; hstype; hs_fees; hs_encouragement; hs_arts_freq; artsincollege</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Principle Component 3: 
+Integrative Complexity (-)</p>
+<p>Negatively weighted to AIC -&gt; scores high on this component were low integrative complexity
+Also: Competing Commitments and Priorities?
+Dialectical Complexity &amp; Competing Themes</p>
+<p>AIC..IC
+AIC..DIAL
+AIC..ELAB</p>
+<p>"It's difficult to find time to do art, I have too much schoolwork and the only way I can do art is if I incorporate it into my schoolwork. Another barrier is I'm get intimidated by other's arts, so I keep my art to myself most of the time."</p>
+<p>"The main reason was I was not very involved in the arts while in college was that I became busy with things that do not often incorporate the arts. I am a mechanical engineering student which did not allow for much if any artistic components in my coursework, and at the same time do not think that I was surrounded by many class-mates who were interested in the arts. I also joined a social fraternity which emphasized aspects such as social, philanthropy, and sports, but overall was not an environment that emphasized the arts. I think that the barriers were therefore by personal choice and mainly due to incompatibilities with my activities."</p>
+<p>"There are monetary costs for attending art events and performances, as well as other social group-based disparities. A lack of an academic focus in the arts, I think, may have limited my involvement in college as compared to high school where some art was required."</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Principle Component 4: 
+Distance_Between_Campuses + Awareness (+)
+Lack of Personal Interest, Low Confidence, Lack of Familiarity (-)</p>
+<p>topic..Lack_of_Personal_Interest
+topic..Low_Confidence
+topic..Lack_of_Familiarity
+topic..Distance_Between_Campuses
+topic..Awareness</p>
+<p>"Cello difficult to take to rehearsal area all the way near Ebel Field"</p>
+<p>"Distance - Especially in the winter. I live in Central Campus and the practices were held in North Campus at nights"</p>
+<p>"It was always on central campus and I live more on the Hill part of campus so I wouldn't want to walk a distance at night just to go do something. I did however do stuff on my own at my apartment."</p>
+<p>"Distance of home from campus. Commute time made it difficult to participate in student orgs/activities outside of class."</p>
+<p>"The north campus/central campus thing. I feel like there is a great divide, and I often end up missing events that happen because I don't know about them"</p>
+<p>"I feel that things either aren't very well advertised or advertised in such a way that doesn't feel accessible to someone who is not a member of the coordinating organization"</p>
+<p>"Never really saw an opportunity."</p>
+<p>"Lack of information, lack of enthusiasm from other students, lack of organization"</p>
+<p>"Does not help me build my resume"</p>
+<p>"I didn't experience any barriers, I just didn't have a very strong interest in the arts coming into college so I didn't choose to involve myself much in the arts."</p>
+<p>"I'm not talented enough."</p>
+<p>"Because I am not skilled in the arts. I feels as though I wouldn't be able to benefit in being a participant in the arts such as plays or visual art displays"</p>
+<p>Demographic: sex; so_childhood3; so_childhood1; sr_participated; hs_arts_freq; artsincollege</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Principle Component 5: 
+Access: Location and Awareness (+)
+Course Availability (-)</p>
+<p>topic..Fit_With_Major_and_Course_Scarcity
+LIWC..Authentic
+topic..Awareness
+topic..Departmental_Segregation
+LIWC..relativ
+topic..Ennui
+topic..Course_Load
+topic..Distance_Between_Campuses</p>
+<p>"There aren't a lot of arts opportunities (that I have been informed of) available for science majors or others who are not necessarily majoring or well-trained in arts but still do want to be involved. For example, I am a Neuroscience major, but I enjoy creating visual art and have recently gotten involved in graphic design to promote a non-arts club I am in. There should be more opportunities to be parts of less intensive arts groups, if that is possible!"</p>
+<p>"Not enough classes tailored for raw beginners. For example, if there had been free-hand drawing classes that were designed specifically for people who may not have nearly any experience with drawing (or who may not be very good), I would probably have takn one. Maybe these classes did exist, and I just didn't find them, but if that's true, the course guide should probably be more clear about which classes are for absolute beginners with very little experience or skill."</p>
+<p>"Cannot find beginner art class (for nonmajors) that I could take"</p>
+<p>"My major is in a non-arts field, and is not in LS&amp;A, which limits my exposure to and eligibility for participation in certain LS&amp;A activities."</p>
+<p>"The theater scene is very limited to non-theater majors. Non-theater majors are rarely cast in any student productions and almost never in University Productions."</p>
+<p>"Sometimes try-outs make it difficult for more novice dancers to get the experience they need to improve their skills. also, you must be a dance major to take upper-level dance classes, which is not fair."</p>
+<p>"Stupid credit requirements. The school of music doesn’t realize the problems they have caused by requiring students to take Glee clubs for credits"</p>
+<p>"Knowledge/awareness of groups, knowing how to join"</p>
+<p>"Unawareness. People who live off-campus don't seem to be aware of a lot of awesome things/cultural/arts events."</p>
+<p>"Lack of awareness. I find it easy to be involved in the Arts as an RC student. I find that many students don't know about the opportunities available like classes, clubs and events."</p>
+<p>"Lack of awareness, and time conflicts with difficult classes. Availability"</p>
+<p>Demographic: sex; sr_highestdegreeplanned</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+    </main>
+    
