@@ -54,31 +54,37 @@
   - url: /insights/barriers
     expand_subsections: false
     subsections:
+    - title: Barriers - Topic Tree
+      url: /insights/barriers/tree
     - title: Barriers - Topic Descriptions
       url: /insights/barriers/topics
-    - title: Barriers - Dimensions and Demographic Contrasts
-      url: /insights/barriers/dimensions-and-demographic-contrasts
+    - title: Barriers - Underlying Factors
+      url: /insights/barriers/dimensions
   - url: /insights/othergrowth
     expand_subsections: false
     subsections:
+    - title: Growth - Topic Tree
+      url: /insights/othergrowth/tree
     - title: Growth - Topic Descriptions
       url: /insights/othergrowth/topics
-    - title: Growth - Dimensions
+    - title: Growth - Underlying Factors
       url: /insights/othergrowth/dimensions
   - url: /insights/feel    
     expand_subsections: false
     subsections:
+    - title: Emotional Impacts - Topic Tree
+      url: /insights/feel/tree
     - title: Emotional Impacts - Topic Descriptions
       url: /insights/feel/topics
-    - title: Emotional Impacts - Dimensions
+    - title: Emotional Impacts - Underlying Factors
       url: /insights/feel/dimensions
 #  - url: /insights/definition
 #  - url: /insights/behavior
 #  - url: /insights/aftercollege
 #  - url: /insights/experience
 #  - url: /insights/childhood
-#  - url: /insights/development
-#  - url: /insights/role
+#   - url: /insights/development
+#   - url: /insights/role
 #  - url: /insights/society
 #  - url: /insights/transform
 
