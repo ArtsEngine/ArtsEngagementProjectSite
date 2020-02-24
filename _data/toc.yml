@@ -50,7 +50,7 @@
   url: /insights/insights
   expand_sections: true
   sections:
-  - url: /insights/descriptivestats
+# - url: /insights/descriptivestats
   - url: /insights/barriers
     expand_subsections: false
     subsections:
