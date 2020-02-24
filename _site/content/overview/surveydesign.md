@@ -1,5 +1,8 @@
 # Survey Design
 
+Survey Design
+Five main cohort surveys have been developed, with sections/modules reflecting the various research questions to be explored.  They also focus on reflections on different parts of the student’s life and experience with the arts – stretching from childhood to their post-college life and careers.  
+
 As there was almost no research looking at college age arts integration to use as a model, we consulted examples of surveying used to gauge impact through community service. Through developing the initial research questions, most of which were focused toward the expected story-telling and case-making that could be done to the U-M community initially, we created survey sections with questions asked in a variety of formats in the hopes of capturing not just the expected data, but that which might lead to new areas of inquiry. 
 
 [Sample Survey Instrument of Questions Used (pdf)](../overview/QuestionTypes-SeniorLate.pdf). 

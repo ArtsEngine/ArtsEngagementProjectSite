@@ -11,28 +11,42 @@ Navigate in the left-hand panel to browse results and the methods used. Addition
 
 
 ## Future Project Development
-This project is currently only looking at University of Michigan Students, but the study design and analysis methods could be used on other campuses to look at a broader range of students and their arts experiences. For instance, arts administrators in higher education may be interested in partnering with us, creating a larger network of research projects on this topic. Additional wok is being done to document and describe the workflows used to develop the insights here, possibly providing an end-to-end workflow for quickly making sense of large collections of interviews about emerging topics. 
+This project studied only University of Michigan Students, but the study design and analysis methods could be used on other campuses to look at a broader range of students and their arts experiences. For instance, arts administrators in higher education may be interested in partnering with us, creating a larger network of research projects on this topic. Additional wok is being done to document and describe the workflows used to develop the insights here, possibly providing an end-to-end workflow for quickly making sense of large collections of interviews about emerging topics. 
 
+The results of this work have been used to add an array of categories of impacts to [A2RU's Impacts Map.](https://www.a2ru.org/projects/impacts-map/)
+ 
 
 ## Study Funding/Support
 
-Funding and support for the Arts Engagement project has come from a number of sources over the years, beginning with an ask for the pilot year (and beyond) in Spring 2011from the Sr. Vice Provost Lester Monts, who also was Special Counsel to the President for the Arts.  At the time of the project’s conception, I was Program Director for Arts at Michigan, and undergraduate co-curricular Arts 
+Funding and support for the Arts Engagement project has come from a number of sources.  The pilot year (and beyond) in Spring 2011 was supported by University of Michigan Sr. Vice Provost Lester Monts, who also was Special Counsel to the President for the Arts. 
 
-•	Office of the Sr. Vice Provost 
-•	Office of New Student Programs
-•	UROP
-•	Exploring Learning Analytics grant
-•	ArtsEngine
-•	NEA ArtWorks Grant
+- U-M Office of the Sr. Vice Provost 
+- U-M Office of New Student Programs
+- U-M Undergraduate Research Opportunity Program (UROP)
+- U-M Exploring Learning Analytics grant
+- ArtsEngine at U-M 
+- Alliance for the Arts in Research Universities (A2RU)
+- National Endowment for the Arts ArtWorks Research Grant
+- [Folger Shakespeare Library / Andrew W. Mellon Foundation Visualizing English Print 
+(Seminar)](https://folgerpedia.folger.edu/Visualizing_English_Print_(Seminar\)) 
+
 
 
 ## Acknowledgements
 
 (Put list of people, Offices, Funders involved here)
 
-Deb Mexicotte, P.I.  Program Director Arts at Michigan 2007-2015, Managing Director ArtsEngine 2015 - Present 
-Gabriel Harp, Research Director, ArtsEngine/a2ru, 2016-present
-Veronica Stanich, Program Manager, 
+Deb Mexicotte, Principal Investigator ArtsEngagement Project
+Program Director Arts at Michigan 2007-2015
+Managing Director ArtsEngine 2015-Present 
+
+Gabriel Harp, Principal Investigator NEA Impacts Project 
+Research Director, ArtsEngine/A2RU, 2016-present
+
+Jack Bowman, Research Assistant, ArtsEngine, 2018-2020 
+Mengdan Yuan, Research Assistant, ArtsEngine, 2018-2020 
+
+Veronica Stanich, Research Program Manager, A2RU, 2017-current
 
 Madeleine Debot, AAM Gradate Intern, Lead Survey Design
 Justin Meyers
@@ -44,8 +58,6 @@ Tian Gu
 Margaret Banker
 Lauren Ziemmba
 
-Mengdan Yuan
-Jack Bowman
 
 Lester Monts, Sr. Vice Provost
 Ann Hower, Director, ONSP
