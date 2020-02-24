@@ -6,3 +6,4 @@ Drawing from a subset of open-ended questions and responses, we created ontologi
 
 The results — particularly when coupled with an analysis of their relationship the demographic profiles of the respondents — provided important insights for the design of arts-based experiences in higher education, as well as the impacts of the arts on student learning and engagement. 
 
+

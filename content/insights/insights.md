@@ -2,7 +2,7 @@
 
 Insights and results from this study draw from a variety of different analytical methods. Because the The Arts Engagement project is primarily a survey with many multiple choice options, there is a wide range of analyses and summary statistics for those responses. 
 
-In addition to multiple choice questions, a set of open-ended questions built upon many of the multiple choice options, providing important insights into the diverse frames of students' experiences with the arts at UM and in their lives. 
+In addition to multiple choice questions, a set of open-ended questions built upon many of the multiple choice options, providing important insights into the diverse frames of students` experiences with the arts at UM and in their lives. 
 
 ##Student Development##
 - How did your behavior or thinking change (as a result of engaging in the arts)? (behavior2) 
@@ -26,3 +26,21 @@ In addition to multiple choice questions, a set of open-ended questions built up
 
 These results — particularly when analyzed in conjunction with demographic factors — begin to provide important insights for the design of arts-based experiences in higher education, as well as the impacts of the arts on student learning and engagement. 
 
+`ethnic_group`
+`sex`
+`school`
+`parented`
+`income`
+`artsincollege`
+`hstype`
+`hssize`
+`hslocation`
+`hs_arts_freq`
+`hs_encouragement`
+`hs_required`
+`hs_fees`
+`so_childhood1`
+`so_childhood3`
+`so_childhood5`
+`sr_participated`
+`sr_highestdegreeplanned`
