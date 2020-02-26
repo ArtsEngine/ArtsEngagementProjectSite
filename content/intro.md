@@ -28,7 +28,7 @@ Funding and support for the Arts Engagement project has come from a number of so
 - Alliance for the Arts in Research Universities (A2RU)
 - National Endowment for the Arts ArtWorks Research Grant
 - [Folger Shakespeare Library / Andrew W. Mellon Foundation Visualizing English Print 
-(Seminar)](https://folgerpedia.folger.edu/Visualizing_English_Print_(Seminar\)) 
+(Seminar)](https://tinyurl.com/qn7y7gu) 
 
 
 
@@ -36,14 +36,15 @@ Funding and support for the Arts Engagement project has come from a number of so
 
 (Put list of people, Offices, Funders involved here)
 
-Deb Mexicotte, Principal Investigator ArtsEngagement Project
+Deb Mexicotte, Managing Director ArtsEngine 2015-Present 
 Program Director Arts at Michigan 2007-2015
-Managing Director ArtsEngine 2015-Present 
+Principal Investigator ArtsEngagement Project
 
-Gabriel Harp, Principal Investigator NEA Impacts Project 
-Research Director, ArtsEngine/A2RU, 2016-present
+Gabriel Harp, Research Director, ArtsEngine/A2RU, 2016-present
+Principal Investigator NEA Impacts Project 
 
 Jack Bowman, Research Assistant, ArtsEngine, 2018-2020 
+
 Mengdan Yuan, Research Assistant, ArtsEngine, 2018-2020 
 
 Veronica Stanich, Research Program Manager, A2RU, 2017-current

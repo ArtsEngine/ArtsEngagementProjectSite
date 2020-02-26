@@ -78,12 +78,25 @@
       url: /insights/feel/topics
     - title: Emotional Impacts - Underlying Factors
       url: /insights/feel/dimensions
+  - url: /insights/development   
+    expand_subsections: false
+    subsections:
+    - title: Developmental Role - Topic Tree
+      url: /insights/development/tree
+    - title: Developmental Role - Topic Descriptions
+      url: /insights/development/topics
+  - url: /insights/role   
+    expand_subsections: false
+    subsections:
+    - title: College Experience - Topic Tree
+      url: /insights/role/tree
+    - title: College Experience - Topic Descriptions
+      url: /insights/role/topics
 #  - url: /insights/definition
 #  - url: /insights/behavior
 #  - url: /insights/aftercollege
 #  - url: /insights/experience
 #  - url: /insights/childhood
-#   - url: /insights/development
 #   - url: /insights/role
 #  - url: /insights/society
 #  - url: /insights/transform
