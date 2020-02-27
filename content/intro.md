@@ -22,9 +22,9 @@ Funding and support for the Arts Engagement project has come from a number of so
 - U-M Office of New Student Programs
 - U-M Undergraduate Research Opportunity Program (UROP)
 - U-M Exploring Learning Analytics grant
-- ArtsEngine at U-M 
-- Alliance for the Arts in Research Universities (A2RU)
-- National Endowment for the Arts ArtWorks Research Grant
+- [ArtsEngine at U-M](https://artsengine.engin.umich.edu/)
+- [Alliance for the Arts in Research Universities (A2RU)](https://www.a2ru.org/insights)
+- [National Endowment for the Arts, ArtWorks Research Grant](https://www.arts.gov/grants-organizations/research-awards) 
 - [Folger Shakespeare Library / Andrew W. Mellon Foundation Visualizing English Print 
 (Seminar)](https://tinyurl.com/qn7y7gu) 
 
