@@ -885,19 +885,19 @@ function createDataTipClust(x, y, name, words, topics, id, d) {
             datatip_cluster += '<div class="header-rule-short"></div>' + '<div class="thought-container"><div class="thoughts"><doc' + i.toString() + '></div><div class="overlay-text"><proportion' + i.toString() + '>% representative of this topic cluster, with <variance' + i.toString() + '>% total variance between topics</div></div>'
         }
         for (var i = 0; i < d.thoughts.length; i++) {
-            html = html.replace("<doc" + (i + 1).toString() + ">", d.thoughts[i]);
-            html = html.replace("<proportion" + (i + 1).toString() + ">", (d.thought_proportions[i] * 100).toFixed(1));
-            html = html.replace("<variance" + (i + 1).toString() + ">", (d.thought_variances[i] * 100).toFixed(1))
+            datatip_cluster = datatip_cluster.replace("<doc" + (i + 1).toString() + ">", d.thoughts[i]);
+            datatip_cluster = datatip_cluster.replace("<proportion" + (i + 1).toString() + ">", (d.thought_proportions[i] * 100).toFixed(1));
+            datatip_cluster = datatip_cluster.replace("<variance" + (i + 1).toString() + ">", (d.thought_variances[i] * 100).toFixed(1))
         }
     } else {
         datatip_cluster += '<div class="header2" style="font-weight:bold;">No Representative Documents Found<sup style="color:#999" title="The documents containing the highest percentage of this topic (documents can contain multiple topics)">?</sup></div>'
     }
     datatip_cluster += '</div>' + '</div>';
-    var html = datatip_cluster.replace("<name>", name);
-    html = html.replace("<id>", id);
-    html = html.replace("<words>", words);
+    datatip_cluster = datatip_cluster.replace("<name>", name);
+    datatip_cluster = datatip_cluster.replace("<id>", id);
+    datatip_cluster = datatip_cluster.replace("<words>", words);
     toolTipIdStack.push(id);
-    d3.select("body").append("div").attr("class", "vz-weighted_tree-tip" + id.toString()).attr('id', 'labeler').style("position", "fixed").style("top", "15%").style("left", "40%").style("opacity", 0).html(html).transition().style("opacity", 1);
+    d3.select("body").append("div").attr("class", "vz-weighted_tree-tip" + id.toString()).attr('id', 'labeler').style("position", "fixed").style("top", "15%").style("left", "40%").style("opacity", 0).html(datatip_cluster).transition().style("opacity", 1);
 
     function isOverflown(element) {
         return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth
@@ -1089,9 +1089,6 @@ function changeSize(width, height) {
 
    window.addEventListener("resize", changeSize);
 </script>
-
-<p id="stm-info">
-</p>
 
 <p class="after-tree">
 </p>
