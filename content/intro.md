@@ -33,19 +33,19 @@ Funding and support for the Arts Engagement project has come from a number of so
 ## Acknowledgements
 
 **Deb Mexicotte**
-	- Principal Investigator, Arts Engagement Project
-	- Managing Director ArtsEngine 2015-Present 
-	- Program Director Arts at Michigan 2007-2015
+* Principal Investigator, Arts Engagement Project
+* Managing Director ArtsEngine 2015-Present 
+* Program Director Arts at Michigan 2007-2015
 
 **Gabriel Harp** 
-	- Principal Investigator, NEA Impacts Project 
-	- Research Director, ArtsEngine/A2RU, 2016-present
+* Principal Investigator, NEA Impacts Project 
+* Research Director, ArtsEngine/A2RU, 2016-present
 
 **Jack Bowman**
-	- Research Assistant, ArtsEngine, 2018-2020 
+* Research Assistant, ArtsEngine, 2018-2020 
 
 **Mengdan Yuan**
-	- Research Assistant, ArtsEngine, 2018-2020 
+* Research Assistant, ArtsEngine, 2018-2020 
 
 Veronica Stanich, Research Program Manager, A2RU, 2017-current
 
