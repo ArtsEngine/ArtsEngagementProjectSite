@@ -1,1136 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,minimum-scale=1">
+# Role Topics
 
-  <title>Barriers - Topic Tree</title>
-  <meta name="description" content="        Barriers - Topic Tree    Barriers Topics This is a structural topic model visualization, with hierarchical topic clusters. This tree map shows the di...">
+This is a structural topic model visualization, with hierarchical topic clusters. This tree map shows the distribution of topics among the responses to the question, *"What role did the arts play in your college experience, both positive and negative?"*. The topics identified are located at the ends of the braches, also called leaf nodesm, and the branching nodes are topic clusters, or parent nodes. Topic branches that are more likely to co-occur together in a single response are clustered together since each response often contains a mixture of multiple topics. We inferred the topic for each of the parent nodes using the leaf node topics and working towards the base of th tree from right to left. Category descriptions become more general towards the base of the tree and more specific towards the leaves. The numbers are the total prevalence (0-100%) of the topic or cluster as a percentage all the documents/responses. Prevalence is also reflected in the visual weight of the branches helping show the relative proportion of topics. It is important to keep in mind too that the proportions of topics may be different for different groups, but that the overall types are topics may be more stable across sampled populations. The leaf node topic prevalences are directly estimated, while the parent topic prevalences are a summation of their children/leaf topics.  Because of rounding, the total topic prevalance may add up to slightly more than 100%.  
 
-  <link rel="canonical" href="http://artsengagementproject.site//insights/barriers/tree.html">
-  <link rel="alternate" type="application/rss+xml" title="The Arts Engagement Project at The University of Michigan" href="http://artsengagementproject.site//feed.xml">
+***Click on any node on the tree below for more information.*** Each node contains descriptions of each topic, key words for interpreting the topic, and representative responses that were used to interpret each topic's identity and description. 
+ 
+*Note: If the tree doesn't appear, try refreshing your browser. 
 
-  <meta property="og:url"         content="http://artsengagementproject.site//insights/barriers/tree.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Barriers - Topic Tree" />
-<meta property="og:description" content="        Barriers - Topic Tree    Barriers Topics This is a structural topic model visualization, with hierarchical topic clusters. This tree map shows the di..." />
-<meta property="og:image"       content="http://artsengagementproject.site//images/logo/logo.png" />
-
-<meta name="twitter:card" content="summary">
-
-
-  <script type="application/ld+json">
-  {
-  "@context": "http://schema.org",
-  "@type": "NewsArticle",
-  "mainEntityOfPage": "http://artsengagementproject.site//insights/barriers/tree.html",
-  "headline": "Barriers - Topic Tree",
-  "datePublished": "2020-02-28T13:40:39-05:00",
-  "dateModified": "2020-02-28T13:40:39-05:00",
-  "description": "        Barriers - Topic Tree    Barriers Topics This is a structural topic model visualization, with hierarchical topic clusters. This tree map shows the di...",
-  "author": {
-    "@type": "Person",
-    "name": "Gabriel Harp"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Data 100 at UC Berkeley",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "http://artsengagementproject.site/",
-      "width": 60,
-      "height": 60
-    }
-  },
-  "image": {
-    "@type": "ImageObject",
-    "url": "http://artsengagementproject.site/",
-    "height": 60,
-    "width": 60
-  }
-}
-
-  </script>
-  <link rel="stylesheet" href="/assets/css/styles.css">
-
-  <!-- <link rel="manifest" href="/manifest.json"> -->
-  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-  <meta name="theme-color" content="#233947">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.ico">
-
-  <!-- MathJax Config -->
-  <!-- Allow inline math using $ and automatically break long math lines -->
-<!-- (mostly) copied from nbconvert configuration -->
-<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-        processEscapes: true,
-        processEnvironments: true
-    },
-    // Center justify equations in code and markdown cells. Elsewhere
-    // we use CSS to left justify single line equations in code cells.
-    displayAlign: 'center',
-    "HTML-CSS": {
-        styles: {'.MathJax_Display': {"margin": 0}},
-        linebreaks: { automatic: true },
-    },
-    
-});
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
-
-
-  <!-- DOM updating function -->
-  <script src="/assets/js/page/dom-update.js"></script>
-
-  <!-- Selectors for elements on the page -->
-  <script src="/assets/js/page/documentSelectors.js"></script>
-
-  <!-- Define some javascript variables that will be useful in other javascript -->
-  <script>
-    const site_basename = '';
-  </script>
-
-  <!-- Add AnchorJS to let headers be linked -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
-  <script src="/assets/js/page/anchors.js" async></script>
-
-  <!-- Include Turbolinks to make page loads fast -->
-  <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
-  <meta name="turbolinks-cache-control" content="no-cache">
-
-  <!-- Load nbinteract for widgets -->
-  
-
-  <!-- Load Thebelab for interactive widgets -->
-  <!-- Include Thebelab for interactive code if it's enabled -->
-
-
-
-  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.8.1/tocbot.min.js" async></script>
-  <script src="/assets/js/page/tocbot.js"></script>
-
-  <!-- Google analytics -->
-  
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', '');
-</script>
-
-
-
-  <!-- Clipboard copy button -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
-
-  <!-- Load custom website scripts -->
-  <script src="/assets/js/scripts.js" async></script>
-
-  <!-- Load custom user CSS and JS  -->
-  <script src="/assets/custom/custom.js" async></script>
-  <link rel="stylesheet" href="/assets/custom/custom.css">
-
-  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
-  
-
-  <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
-  <script>var initQuery = function() {
-  // See if we have a search box
-  var searchInput = document.querySelector('input#lunr_search');
-  if (searchInput === null) {
-    return;
-  }
-
-  // Function to parse our lunr cache
-  var idx = lunr(function () {
-    this.field('title')
-    this.field('excerpt')
-    this.field('categories')
-    this.field('tags')
-    this.ref('id')
-
-    this.pipeline.remove(lunr.trimmer)
-
-    for (var item in store) {
-      this.add({
-        title: store[item].title,
-        excerpt: store[item].excerpt,
-        categories: store[item].categories,
-        tags: store[item].tags,
-        id: item
-      })
-    }
-  });
-
-  // Run search upon keyup
-  searchInput.addEventListener('keyup', function () {
-    var resultdiv = document.querySelector('#results');
-    var query = document.querySelector("input#lunr_search").value.toLowerCase();
-    var result =
-      idx.query(function (q) {
-        query.split(lunr.tokenizer.separator).forEach(function (term) {
-          q.term(term, { boost: 100 })
-          if(query.lastIndexOf(" ") != query.length-1){
-            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
-          }
-          if (term != ""){
-            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
-          }
-        })
-      });
-
-      // Empty the results div
-      while (resultdiv.firstChild) {
-        resultdiv.removeChild(resultdiv.firstChild);
-      }
-
-    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
-    for (var item in result) {
-      var ref = result[item].ref;
-      if(store[ref].teaser){
-        var searchitem =
-          '<div class="list__item">'+
-            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
-              '<h2 class="archive__item-title" itemprop="headline">'+
-                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
-              '</h2>'+
-              '<div class="archive__item-teaser">'+
-                '<img src="'+store[ref].teaser+'" alt="">'+
-              '</div>'+
-              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
-            '</article>'+
-          '</div>';
-      }
-      else{
-    	  var searchitem =
-          '<div class="list__item">'+
-            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
-              '<h2 class="archive__item-title" itemprop="headline">'+
-                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
-              '</h2>'+
-              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
-            '</article>'+
-          '</div>';
-      }
-      resultdiv.insertAdjacentHTML('beforeend', searchitem);
-    }
-  });
-};
-
-initFunction(initQuery);
-</script>
-
-  <!-- Load JS that depends on site variables -->
-  <script src="/assets/js/page/copy-button.js" async></script>
-
-  <!-- Hide cell code -->
-  <script src="/assets/js/page/hide-cell.js" async></script>
-
-  <!-- Printing the screen -->
-  <!-- Include nbinteract for interactive widgets -->
-<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
-<script>
-printContent = () => {
-    // MathJax displays a second version of any math for assistive devices etc.
-    // This prevents double-rendering in the PDF output.
-    var ignoreAssistList = [];
-    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
-        var thisId = 'MathJax-assistive-' + index.toString();
-        element.setAttribute('id', thisId);
-        ignoreAssistList.push(thisId)
-    });
-
-    // Print the actual content object
-    printJS({
-        printable: 'textbook_content',
-        type: 'html',
-        css: "/assets/css/styles.css",
-        style: "#textbook_content {padding-top: 40px};",
-        scanStyles: false,
-        targetStyles: ["*"],
-        ignoreElements: ignoreAssistList,
-        documentTitle: "Made with Jupyter Book"
-    })
-};
-
-initPrint = () => {
-    document.querySelector('#interact-button-print').addEventListener('click', printContent)
-}
-
-initFunction(initPrint)
-</script>
-
-</head>
-
-  <body>
-    <!-- Include the ThebeLab config so it gets reloaded on each page -->
-    <script type="text/x-thebe-config">{
-    requestKernel: true,
-    binderOptions: {
-    repo: "YOUR-ORG/YOUR-REPO",
-    ref: "gh-pages",
-    },
-    codeMirrorConfig: {
-    theme: "abcdef",
-    mode: "python"
-    },
-    kernelOptions: {
-    kernelName: "python3",
-    path: ""
-    }
-}
-</script>
-
-    <!-- .js-show-sidebar shows sidebar by default -->
-    <div id="js-textbook" class="c-textbook js-show-sidebar">
-      
-
-
-
-<nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="https://artsengagementproject.site"><img src="/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
-  <h2 class="c-sidebar__title">The Arts Engagement Project at The University of Michigan</h2>
-  <ul class="c-sidebar__chapters">
-    
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/intro">
-        <a class="c-sidebar__entry"
-          href="/intro.html"
-        >
-          
-          Overview
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-        
-
-        
-
-        <ul class="c-sidebar__sections">
-          
-            
-            
-
-            
-            
-            
-            
-
-            <li class="c-sidebar__section" data-url="/overview/background">
-              <a class="c-sidebar__entry"
-                href="/overview/background.html"
-              >
-                
-                Background
-              </a>
-            </li>
-            
-            
-          
-            
-            
-
-            
-            
-            
-            
-
-            <li class="c-sidebar__section" data-url="/overview/studydesign">
-              <a class="c-sidebar__entry"
-                href="/overview/studydesign.html"
-              >
-                
-                Study Design
-              </a>
-            </li>
-            
-              
-              <ul class='c-sidebar__subsections u-hidden-visually'>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/overview/studylogistics">
-                  <a class="c-sidebar__entry"
-                    href="/overview/studylogistics.html"
-                  >
-                    
-                    Study Logistics
-                  </a>
-                </li>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/overview/surveydesign">
-                  <a class="c-sidebar__entry"
-                    href="/overview/surveydesign.html"
-                  >
-                    
-                    Survey Design
-                  </a>
-                </li>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/overview/datacollection">
-                  <a class="c-sidebar__entry"
-                    href="/overview/datacollection.html"
-                  >
-                    
-                    Data Collection
-                  </a>
-                </li>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/overview/datadescription">
-                  <a class="c-sidebar__entry"
-                    href="/overview/datadescription.html"
-                  >
-                    
-                    Data Description
-                  </a>
-                </li>
-              
-              </ul>
-            
-            
-          
-            
-            
-
-            
-            
-            
-            
-
-            <li class="c-sidebar__section" data-url="/overview/presentations">
-              <a class="c-sidebar__entry"
-                href="/overview/presentations.html"
-              >
-                
-                Presentations
-              </a>
-            </li>
-            
-            
-          
-        </ul>
-      
-
-      
-    
-      
-      
-        <li class="c-sidebar__divider"></li>
-        
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/insights/insights">
-        <a class="c-sidebar__entry"
-          href="/insights/insights.html"
-        >
-          
-          Insights
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-        
-
-        
-
-        <ul class="c-sidebar__sections">
-          
-            
-            
-
-            
-            
-            
-            
-
-            <li class="c-sidebar__section" data-url="/insights/barriers">
-              <a class="c-sidebar__entry"
-                href="/insights/barriers.html"
-              >
-                
-                Barriers to Involvement
-              </a>
-            </li>
-            
-              
-              <ul class='c-sidebar__subsections u-hidden-visually'>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/insights/barriers/tree">
-                  <a class="c-sidebar__entry"
-                    href="/insights/barriers/tree.html"
-                  >
-                    
-                    Barriers - Topic Tree
-                  </a>
-                </li>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/insights/barriers/topics">
-                  <a class="c-sidebar__entry"
-                    href="/insights/barriers/topics.html"
-                  >
-                    
-                    Barriers - Topic Descriptions
-                  </a>
-                </li>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/insights/barriers/dimensions">
-                  <a class="c-sidebar__entry"
-                    href="/insights/barriers/dimensions.html"
-                  >
-                    
-                    Barriers - Underlying Factors
-                  </a>
-                </li>
-              
-              </ul>
-            
-            
-          
-            
-            
-
-            
-            
-            
-            
-
-            <li class="c-sidebar__section" data-url="/insights/othergrowth">
-              <a class="c-sidebar__entry"
-                href="/insights/othergrowth.html"
-              >
-                
-                Personal Growth
-              </a>
-            </li>
-            
-              
-              <ul class='c-sidebar__subsections u-hidden-visually'>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/insights/othergrowth/tree">
-                  <a class="c-sidebar__entry"
-                    href="/insights/othergrowth/tree.html"
-                  >
-                    
-                    Growth - Topic Tree
-                  </a>
-                </li>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/insights/othergrowth/topics">
-                  <a class="c-sidebar__entry"
-                    href="/insights/othergrowth/topics.html"
-                  >
-                    
-                    Growth - Topic Descriptions
-                  </a>
-                </li>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/insights/othergrowth/dimensions">
-                  <a class="c-sidebar__entry"
-                    href="/insights/othergrowth/dimensions.html"
-                  >
-                    
-                    Growth - Underlying Factors
-                  </a>
-                </li>
-              
-              </ul>
-            
-            
-          
-            
-            
-
-            
-            
-            
-            
-
-            <li class="c-sidebar__section" data-url="/insights/feel">
-              <a class="c-sidebar__entry"
-                href="/insights/feel.html"
-              >
-                
-                Emotional Impact
-              </a>
-            </li>
-            
-              
-              <ul class='c-sidebar__subsections u-hidden-visually'>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/insights/feel/tree">
-                  <a class="c-sidebar__entry"
-                    href="/insights/feel/tree.html"
-                  >
-                    
-                    Emotional Impacts - Topic Tree
-                  </a>
-                </li>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/insights/feel/topics">
-                  <a class="c-sidebar__entry"
-                    href="/insights/feel/topics.html"
-                  >
-                    
-                    Emotional Impacts - Topic Descriptions
-                  </a>
-                </li>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/insights/feel/dimensions">
-                  <a class="c-sidebar__entry"
-                    href="/insights/feel/dimensions.html"
-                  >
-                    
-                    Emotional Impacts - Underlying Factors
-                  </a>
-                </li>
-              
-              </ul>
-            
-            
-          
-            
-            
-
-            
-            
-            
-            
-
-            <li class="c-sidebar__section" data-url="/insights/development">
-              <a class="c-sidebar__entry"
-                href="/insights/development.html"
-              >
-                
-                Developmental Role
-              </a>
-            </li>
-            
-              
-              <ul class='c-sidebar__subsections u-hidden-visually'>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/insights/development/tree">
-                  <a class="c-sidebar__entry"
-                    href="/insights/development/tree.html"
-                  >
-                    
-                    Developmental Role - Topic Tree
-                  </a>
-                </li>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/insights/development/topics">
-                  <a class="c-sidebar__entry"
-                    href="/insights/development/topics.html"
-                  >
-                    
-                    Developmental Role - Topic Descriptions
-                  </a>
-                </li>
-              
-              </ul>
-            
-            
-          
-            
-            
-
-            
-            
-            
-            
-
-            <li class="c-sidebar__section" data-url="/insights/role">
-              <a class="c-sidebar__entry"
-                href="/insights/role.html"
-              >
-                
-                College Experience
-              </a>
-            </li>
-            
-              
-              <ul class='c-sidebar__subsections u-hidden-visually'>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/insights/role/tree">
-                  <a class="c-sidebar__entry"
-                    href="/insights/role/tree.html"
-                  >
-                    
-                    College Experience - Topic Tree
-                  </a>
-                </li>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/insights/role/topics">
-                  <a class="c-sidebar__entry"
-                    href="/insights/role/topics.html"
-                  >
-                    
-                    College Experience - Topic Descriptions
-                  </a>
-                </li>
-              
-              </ul>
-            
-            
-          
-        </ul>
-      
-
-      
-    
-      
-      
-        <li class="c-sidebar__divider"></li>
-        
-      
-      
-
-      
-      
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter" data-url="/analysis/methods">
-        <a class="c-sidebar__entry"
-          href="/analysis/methods.html"
-        >
-          
-          Analyses
-        </a>
-      </li>
-
-      
-      
-
-      
-
-      
-      
-
-      
-        
-
-        
-
-        <ul class="c-sidebar__sections">
-          
-            
-            
-
-            
-            
-            
-            
-
-            <li class="c-sidebar__section" data-url="/analysis/topics">
-              <a class="c-sidebar__entry"
-                href="/analysis/topics.html"
-              >
-                
-                Topic Modeling and Interpretation
-              </a>
-            </li>
-            
-              
-              <ul class='c-sidebar__subsections'>
-              
-                
-                
-                
-                
-                <li class="c-sidebar__subsection" data-url="/analysis/stm-workflow">
-                  <a class="c-sidebar__entry"
-                    href="/analysis/stm-workflow.html"
-                  >
-                    
-                    Comprehensive STM Workflow
-                  </a>
-                </li>
-              
-              </ul>
-            
-            
-          
-            
-            
-
-            
-            
-            
-            
-
-            <li class="c-sidebar__section" data-url="/analysis/dictionaries">
-              <a class="c-sidebar__entry"
-                href="/analysis/dictionaries.html"
-              >
-                
-                Dictionaries of Language Patterns
-              </a>
-            </li>
-            
-            
-          
-            
-            
-
-            
-            
-            
-            
-
-            <li class="c-sidebar__section" data-url="/analysis/pca">
-              <a class="c-sidebar__entry"
-                href="/analysis/pca.html"
-              >
-                
-                Principal Components Analysis
-              </a>
-            </li>
-            
-            
-          
-            
-            
-
-            
-            
-            
-            
-
-            <li class="c-sidebar__section" data-url="/analysis/demographics">
-              <a class="c-sidebar__entry"
-                href="/analysis/demographics.html"
-              >
-                
-                Demographic Analysis
-              </a>
-            </li>
-            
-            
-          
-        </ul>
-      
-
-      
-    
-      
-      
-        <li class="c-sidebar__divider"></li>
-        
-  </ul>
-  <p class="sidebar_footer">Powered by <a href="https://jupyterbook.org">Jupyter Book</a></p>
-</nav>
-
-      
-      <div class="c-topbar" id="top-navbar">
-  <!-- We show the sidebar by default so we use .is-active -->
-  <div class="c-topbar__buttons">
-    <button
-      id="js-sidebar-toggle"
-      class="hamburger hamburger--arrowalt is-active"
-    >
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>
-    <div class="buttons">
-<div class="download-buttons-dropdown">
-    <button id="dropdown-button-trigger" class="interact-button"><img src="/assets/images/download-solid.svg" alt="Download" /></button>
-    <div class="download-buttons">
-        
-        <a id="interact-button-print"><button id="interact-button-download" class="interact-button">.pdf</button></a>
-    </div>
-</div>
-
-
-</div>
-
-  </div>
-  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
-  <aside class="sidebar__right">
-    <header><h4 class="nav__title"><img src="/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
-    <nav class="onthispage">
-    </nav>
-  </aside>
-  <a href="/search.html" class="topbar-right-button" id="search-button">
-    <img src="/assets/images/search-solid.svg" alt="Search" />
-  </a>
-</div>
-
-      <main class="c-textbook__page" tabindex="-1">
-            <div class="c-textbook__content" id="textbook_content">
-                  <main class="jupyter-page">
-    <div id="page-info"><div id="page-title">Barriers - Topic Tree</div>
-</div>
-    <div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Barriers-Topics">Barriers Topics<a class="anchor-link" href="#Barriers-Topics"> </a></h1><p>This is a structural topic model visualization, with hierarchical topic clusters. This tree map shows the distribution of topics among the responses to the question, “What did you see as the barriers preventing you from being involved in the arts at the University of Michigan (if you experienced any)?”. The topics identified are located at the ends of the braches, also called leaf nodesm, and the branching nodes are topic clusters, or parent nodes. Topic branches that are more likely to co-occur together in a single response are clustered together since each response often contains a mixture of multiple topics. We inferred the topic for each of the parent nodes using the leaf node topics and working towards the base of th tree from right to left. Category descriptions become more general towards the base of the tree and more specific towards the leaves. The numbers are the total prevalence (0-100%) of the topic or cluster as a percentage all the documents/responses. Prevalence is also reflected in the visual weight of the branches helping show the relative proportion of topics. It is important to keep in mind too that the proportions of topics may be different for different groups, but that the overall types are topics may be more stable across sampled populations. The leaf node topic prevalences are directly estimated, while the parent topic prevalences are a summation of their children/leaf topics. Because of rounding, the total topic prevalance may add up to slightly more than 100%.</p>
-<p>Click on any node on the tree below for more information. Each node contains descriptions of each topic, key words for interpreting the topic, and representative responses that were used to interpret each topic's identity and description.</p>
-<p>*Note: If the tree doesn't appear, try refreshing your browser.</p>
-<p><link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'></p>
-<p><link href='https://fonts.googleapis.com/css?family=Roboto|Raleway:600,400,200' rel='stylesheet' type='text/css'></p>
-<p><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></p>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto|Raleway:600,400,200' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script><script>
-   var stm_data = {"children":[{"name":["University Context"],"children":[{"name":["Social Climate"],"children":[{"name":["Apprehension"],"children":[{"name":["Low Confidence"],"summary":["Student responses related to Low Confidence are typically about their perception that they are not as talented, “artsy,” experienced, or able to benefit from participation in the arts as other students who are participating.  As a large and elite institution, U-M draws a bigger pool of talented, arts-focused individuals, creating an entire category of students who would like to participate but believe they will be  “out-competed” for opportunities by others.  This personal evaluation seems to discourage students from even attempting to participate."],"size":[1800],"topic_no":[11],"thoughts":["Fear of auditions, fear of ability and talents compared to others'","Because I am not skilled in the arts. I feels as though I wouldn't be able to benefit in being a participant in the arts such as plays or visual art displays","The great and sad part of UM is the wealth of talented individuals who go here-- makes it hard for me, a moderately talented individual in a number of fields, to try out for a play or musical group and actually make it because I'm competing with, for examle, percussion majors for Groove and theatre majors for a part in a play.","I felt that my talents were not on the same high level as those at the University of Michigan or that my interest in the arts was personal and not as a part of my major, therefore I felt less qualified to participate than others.","Lack of talent bars me from being able to participate.  I can still engage and participate though","I felt that I did not have the experience and talent of others participating in the arts.","Feeling inexperienced or not talented compared to the rest of participants.","My poor abilities in the arts (not a great dancer, not a great artist, etc)","No barriers, but many other things to do. Also, UMich has many other talented artists which discourage people who aren't as naturally talented from participating because they aren't naturally \"artsy;\" I don't think it's a problem you can fix because it's  benefit to have those who are naturally talented.","I have not found a group that is tailored to my interest, more in art of the literary form than the actual artistic form"],"thought_proportions":[0.539,0.5192,0.457,0.4456,0.4018,0.3968,0.3959,0.3892,0.3574,0.3471],"prob":["talent, skill, artist, part, level, abil, particip"],"frex":["talent, skill, artist, abil, field, level, part"],"lift":["artist, field, abil, fear, product, skill, talent"],"score":["talent, product, artist, skill, level, abil, part"],"proportion":["0.03"]},{"name":["Lack of Familiarity"],"summary":["Related to, but differing from the Low Confidence topic that reflects student fears around lack of ability, responses in the Lack of Familiarity area address their desire to try something new in college, but not having the prior arts experiences that would make that possible.  Exposing that inexperience, or having it indeed shut a student out of participation, leads directly to students’ anxiety surrounding college arts participation."],"size":[1800],"topic_no":[15],"thoughts":["My overall experience with the Arts was limited prior to college. As a result, I had limited interest in becoming involved in the arts at the University of Michigan.","My own inhibition. Art is new and novel to me--it was highly emphasized at my high school, so it was something that I appreciated, but I was afraid to try.","I do not have the time. On top of my massive study load and two jobs there is very little time left for enjoyment in something I had previously done in high school. In order to keep a scholarship (and therefore my spot in UM) I need to keep a very high GP. Unfortunately that means sacrificing things I used to enjoy.","Sometimes it is hard for students to try something new with no prior experience in high school (for example writing for a publication without having written for their high school newspaper). Auditions or interviews might scare away prospective students loking to involve themselves in something new. Also, sometimes activities in the arts come last on a students' priority list and since the University fosters great professional and academic competitiveness in their students, art as a hobby can often fall bythe wayside. Lastly, there might be limited access to certain activities in the arts such as performances with fees.","Limited prior experience","Nervousness about doing something new.","I did not have any previous experience with the arts or else very minimal exposure prior to attending U of M, therefore I didn't feel comfortable joining something that I wasn't good at or was just a beginner.","Just prior experience from high school.","Time restraints, comfortability exploring new frontiers.","Yes, not having a lot of previous experience in one area."],"thought_proportions":[0.3434,0.3298,0.2727,0.2566,0.2467,0.2467,0.2286,0.1968,0.171,0.17],"prob":["experi, limit, high, someth, colleg, new, area"],"frex":["limit, experi, high, prior, isnt, area, previous"],"lift":["isnt, limit, prior, compet, experi, previous, high"],"score":["experi, compet, limit, high, someth, prior, new"],"proportion":["0.03"]}],"topic_no":[11,15]},{"name":["Exclusiveness"],"summary":["Responses under Exclusiveness relate to students’ perceptions of the lack of non-competitive arts entry points, existing social bonds that allow only certain students to gain access to opportunities, and the unwillingness for student art organizations to take on less experienced members who are looking for new or growth opportunities.  There is also a frustration reported in having tried to access opportunities multiple times, only to have experienced serial and discouraging rejections, or having to settle for less desirable options."],"children":[{"name":["Competitive Auditions"],"summary":["Competitive Auditions are a fact of life in many arts activities, especially those in the performance areas.  This is a typical barrier for participation, but students report that in some instances, they present the only option for participation in their desired activity.  The high ability levels of peers competing for these opportunities is also a factor (See Low Confidence).  Students report wishing there were more informal or broadly accessible opportunities for participation in the arts."],"size":[1800],"topic_no":[2],"thoughts":["Tryouts for dance teams prevented me from joining certain groups.","I only really enjoy dancing, so making the dance teams only by trying out.  I never tried out because I was too scared of trying out.","I tried out for so many a cappella groups and didn't make any of them :(  I also tried out for a dance group that I didn't make.  I tried to join Arts Chorale but it was too much time for only one credit.  I just want to sing in a choir, but I can't get ito any groups or make time for any!","Too much competition (specifically, as a freshman, I tried out for and got rejected by the Men's Glee Club and other a cappella groups; I've also been rejected for several theatrical performances that I have tried out for)","I wanted to be in an acapella group and had tried out for 4-5 my sophomore and freshman year. I got called back from two different groups but didn't make it from there. It was hard because I really wanted to be in an acapella group and not in a choir, so herefore I haven't gotten to sing here, which makes me sad.","I wanted to be in an a capella group but I wasn't selected - there are a lot of talented students at Michigan so singing groups are very competitive. I joined a choir except I did not identify with or enjoy the music selections at all","Time\r\nAbility (I would have loved to be in a dance group, but it's intensely competitive, and in HS I couldn't get experience due to finances... therefore I couldn't join)","I would really love to be in a choir, but all of the singing groups that I know of on campus are very selective.","The groups are very segregated, you are all in or all out. I feel that you have to give your life to a group, you cant do multiple things or groups, you have to choose one and jump in fully. For example, I am in the Marching Band, while this is a very diferent kind of org, it takes up all of your time and you have to love it. This is how it is with many other clubs too.","I was interested in joining a dance group. There are not that many groups in my style of dance on campus and auditions were competitive. There is simply not enough space for all the talented dancers on campus so I started my own group which was very diffiult but extremely rewarding. Now funding (or lack thereof) is a huge barrier."],"thought_proportions":[0.4608,0.4109,0.3862,0.3812,0.3778,0.3752,0.3552,0.3416,0.3327,0.3274],"prob":["group, thing, join, danc, audit, tri, competit"],"frex":["group, audit, danc, join, competit, sing, choir"],"lift":["audit, group, sing, choir, process, select, danc"],"score":["group, process, danc, audit, join, thing, competit"],"proportion":["0.04"]},{"name":["Unwelcoming Environment"],"summary":["In the Unwelcoming Environment category, students report on the social barriers in place and the judgement they perceived from those already involved with an arts activity.  Those who were already skilled and passionate were seen as unwelcoming to those who were new, less skilled, less committed, or non-arts majors.  Students reported feeling awkward or intimidated about interjecting themselves into an established “clique” or into arts “territory.” Finally, the expected level of engagement in arts activities was often too high for a more casual participant looking to experiment or just have fun."],"size":[1800],"topic_no":[14],"thoughts":["I feel like the people that are involved are super passionate about the arts and sometimes I feel awkward going into their territory","I haven't personally experienced any, but I feel like to be involved you have to be good at the \"arts\" and some people might find that deterring","Very clique-y. Unless you are in the art school/performance school there aren't too many ways to get involved because of perception. If you say you are an actor people assume you are good. If you say you are a econ major for example, people assume you are't talented enough. Majors tend to define people here.","I know a lot of people who want to join choirs/dance clubs/art clubs but feel intimidated that they are too \"novice\" for them.","There are no informal clubs for people that just want to learn about cool media areas of art. There should be a hip-hop music computer creation club and a music video creation club that are informal, hip, modern, and fun.","I feel like they are only for people who are either really good or extremely passionate about the arts not just those who are looking to experiment.","People are rude sometimes, they believe that some people cannot join b/c they're not good at it.","Not being particularly skilled in the area you wish to participate in.  People at UofM tend to be very good at what they do and this may intimidate others.","It seems like theyre already a close knit group of people","Intimidation from people being more experienced than I am."],"thought_proportions":[0.3125,0.3057,0.298,0.2975,0.2828,0.2572,0.2538,0.2408,0.2397,0.2385],"prob":["like, peopl, want, club, feel, good, arent"],"frex":["peopl, experienc, club, want, like, intimid, fun"],"lift":["real, experienc, passion, type, peopl, fun, intimid"],"score":["peopl, want, like, real, club, feel, good"],"proportion":["0.04"]}],"topic_no":[2,14]}],"topic_no":[11,15,2,14]},{"name":["University Structure"],"summary":["University Structure refers to reported barriers such as those related to curriculum requirements, class scheduling, and major/minor programs; the lack of value, support or encouragement for engaging in creative or artistic endeavors; poor arts integration across disciplines; the controlled access to specialized major resources or facilities; the high rigor or access requirements for arts-related coursework and activities; and the general paucity of and long wait-lists for arts courses open to non-arts majors."],"children":[{"name":["Academic Program Requirements"],"summary":["Academic Program Requirements are an arts participation barrier, with respondents citing arts-major programs not allowing access to non-majors who want to explore the arts - either through the addition of minors or by making it easy to select outside arts courses. Non-arts academic programs did not include the arts in their required coursework, or enough unstructured time to participate in extra-curricular arts activities.  Schools and colleges  in the arts did not increase the curricular arts options open to non-majors either because of enrollment restrictions or the limited number of courses offered.  Students also reported having to gain acceptance into specialized programs to access lab and studio equipment, which stymied their full arts ambitions.  Finally, the University did not encourage or prioritize robust arts participation through its limited Creative Expression requirements."],"size":[1800],"topic_no":[20],"thoughts":["One barrier I would say is with the creative writing program. I applied to be a subconcentrator and did not make it into the program. Then, the creative writing minor was brought in as a program that I couldn't participate in because I'm already an Englis major. As a result, I was closed off from some writing classes and opportunities not because I was disinterested, but because with my major I wasn't allowed to add on the minor. This was very frustrating for me, as creative writing is the focus of my stuies and my goals in life.","Poor information about art programs in attracting my attention. Poor promotion and marketing. Prohibitive exclusivity due to the nature of the arts.","There is not enough of a focus on the arts at U-M. Everyone in LSA must obtain a few creative expression requirements, it is a tiny portion of the overall credits needed for graduation.","I was in the School of Art and Design, which seemed like a particular sector of the arts.  It seemed like the arts were somewhat separated, for instance the RC's art program seemed sort of random and narrow.  But though I'm not in the School of Art & Desin any longer, it sounds like they're getting much better with integration in other fields--i.e. computer programming, people from school of engineering.  I think that would boost the arts quite a bit.","I think with such a strong arts,theater and music program there aren't many easy, relaxed programs.","Classes needed for the arts are offered at very specific times every semester, which is fine. However, my involvement then precluded enrollment in many classes that were options (of very few classes total) to fulfill my degree requirements for Neuroscienc. I ended up taking classes I was much less interested in so that I could still be involved in band. Other majors are not as flexible as my own, so other students who were involved in the band had to quit in order to take classes they needed, as the deparments offering the classes would not reschedule the classes to better accomodate these students.","I feel that things either aren't very well advertised or advertised in such a way that doesn't feel accessible to someone who is not a member of the coordinating organization","With many art programs, you need a foot in the door.  One can't simply join an A Capella group at random, without quite a bit of former music training.  That might be an interesting concept, acclimatizing newer students to some of the programs.","Needs a much more centered community for artists attending the university.... sort of a group collaborative that allows your peers and other advisors to critique and push your work. In addition, artists need funding for developing their work... this needsto be offered more and promoted more in order to make Ann Arbor a creative mecca.","A lot of UM groups are pretty closed when you try to join. There doesn't seem to be any room for new members."],"thought_proportions":[0.5853,0.3965,0.3299,0.2328,0.2306,0.2162,0.2126,0.2097,0.2092,0.2088],"prob":["seem, need, advertis, program, creativ, week, exclus"],"frex":["program, advertis, need, seem, exclus, exposur, week"],"lift":["challeng, exposur, program, advertis, quit, need, orient"],"score":["challeng, program, advertis, seem, creativ, need, exposur"],"proportion":["0.03"]},{"name":["University Priorities"],"summary":["Student experience what we are calling University Priorities as a barrier to their arts participation.  As a research university, there is little emphasis placed on creativity as a shared value and a desired outcome of student’s educational journey here.  This is evidenced by the perception that a majority of funding, attention and pride flows to business and engineering, versus, say, our top musical theatre programs - both from U-M and the State of Michigan. The small number of arts-related course offerings, each with long waitlists, would indicate the need for more such courses, but that is not viewed as a priority.  Engaging in arts activities, or anything that is not traditionally regarded resume-building, is discouraged."],"size":[1800],"topic_no":[6],"thoughts":["The University of Michigan is not a school that particularly encourages creative development. Every CE class has an enormous waiting list within a few days of registration. This should lead to the creation of more CE classes. I wish I could have taken oneevery semester.","Michigan is such a research based university...our \"creativity\" is not something the university prides itself on. They're way more about technological innovation. The funding seems to all funnel towards business and engineering programs. For example, I reently learned Michigan has one of the highest ranked musical theatre programs in the country with one ten males and females per grade....but I feel like nobody even knows that!","I am an engineer, and many of my peers are only involved in engineering organizations.  For my first two years at Michigan, I felt pressured to only join organizations that would look good on my resume when applying for engineering jobs. However, I decide to join the Irish dance team during my junior year because I had always wanted to learn Irish dance, and it was one of the best decisions I have made in college.","Sometimes, before my job at UMS, I would have difficulty with being informed about when, where, and what was happening around campus. I think this may also be remedied with experience of spending time here in college. You get to know where to look for thigs. Also, more contemporary, popular music is hard to come by in Ann Arbor. I have to go to Detroit or Royal Oak to see Sufjan Stevens or The Decemberists or Titus Andronicus. The Blind Pig has some cool stuff every now and again, but it's too few and farbetween. I am trying to convince UMS to do more in this department, but the University as a whole should make efforts. I love Lupe Fiasco, but his one show is not enough, and we need more than hip-hop. In terms of non-music efforts, I think Ann Arbor is ding a fantastic job. The Michigan and State Theaters are absolute gems to the community, and UMMA's new corner glass room display is always exciting to look at while walking to class. The summer Art Fair is a lot of fun as well, though it's not put on by he University. Regardless, Ann Arbor and U-M are full of art opportunities; you just have to know where to look. Informing people might be the main place to look for improvement.","Funding cuts. The state of Michigan leads the nation in cuts to arts funding so I feel that these cuts to the arts at a local, state, and nationwide level have in some way or another \"prevented\" me from being involved in the arts whether it be preventing e from going on a field trip for a class or preventing the funding of an arts related organization or event on campus. But even though there is a lack of funding to the arts, I still fill my time by being involved in as many arts organizations as possiblein order to keep the arts thriving on this campus & in the Ann Arbor community.","Alot of opportunities are open to people who are already capable of proving qualifications through resumes and auditions. For those who are looking to start that new thing, there are not as many chances. In order to create an experience open to anyone, I ecame a founding member of a group that offered that.","As a non-art student I have found it difficult to gain access to art equipment.  I lead a Peer Mentor group on campus and have tried several times organize a for-fun activity getting students to try creating art.  For example, I wanted to host a photograpy event where students could shoot a roll of fill, I would send it into the School of Art & Design to have it developed, then we would create prints from the film, but the photo development services are only for Art majors.  Also, I tried hosting a clay mking event where students could make something out of clay and have it fired for them.  Apparently these labs are only for art students as well.  It would be nice if services like these were open to the greater student population so that they could (even f there is an associated cost) so that non-art students can engage in and create art.  Feel free to contact me (ablaty@umich.edu) if there is some way to do events like this.","I have taken two Intro to Dance courses at the University of Michigan. I would really like to be able to take classes within the dance department - even though I am not a dance or performance major.","I am not very talented in the arts and I wish the University of Michigan would help me develop that skill more.","Busy with other activities/challenging coursework, greater emphasis placed on achieving good grades, prepping resumes with internships/professional organizations than on arts"],"thought_proportions":[0.4057,0.3478,0.3463,0.3155,0.2854,0.283,0.2756,0.2711,0.2655,0.2552],"prob":["univers, michigan, wish, offer, open, look, come"],"frex":["michigan, univers, offer, communiti, open, look, wish"],"lift":["emphasi, background, fill, resum, michigan, univers, communiti"],"score":["resum, univers, michigan, open, look, encourag, offer"],"proportion":["0.03"]},{"name":["Departmental Segregation"],"name":["Student respondents found that the Departmental Segregation--that is, not being allowed to enroll in or have ready access to arts courses offered outside their school, college or academic discipline--kept them from engaging in the arts at U-M.  There is a lack of access to studio space or resources for students not enrolled in specific arts programs or schools, and when enrolled in arts courses, the social isolation of being one of the only “outside” students in an arts course was uncomfortable. There were few “general” arts options for students wanting to explore, and without gaining access to highly competitive student arts organizations, there was an expressed fear that students would not have been able to participate in arts activities at all at college."],"size":[1800],"topic_no":[10],"thoughts":["being pre-med and not being in the art & design school or being a part of music or theatre, etc","For the most part there are not enough avenues for students interested in visual arts such as woodworking, ceramics, etc to gain studio access or resources to engage their visual art of choice.\r\n","Being in LSA school, it is harder to feel comfortable taking classes within the Art and design school.","Because the School of Music and LSA are separate, and on different campuses, it was hard taking classes as a LSA student within the School of Music because I didn't have as frequent access to the resources and I rarely knew anyone in my classes.","the separation between LSA ( history of art) and the Art and Design school  - was very frustrating","I didn't necessarily experience any, but if I hadn't gotten into the Michigan Pops Orchestra, I might have been too intimidated to tryout for the orchestras run by the school of music and then would not have been involved in the arts at all.  More studentrun orchestras would thus be a benefit.","The options are almost too specific, I miss the general options in high school that made everyone feel welcome","Difficulty finding recreational music groups (i.e. ones not necessarily affiliated with the school of music) and limited music classes for non-music majors.","Its a bit harder in LSA to get into the Arts but I transferred so once I got into the mainframe of the Music School is wasn't hard.","a lot of the arts are for students in the art school, and not for those in LSA or other school who truly love art"],"thought_proportions":[0.3968,0.3644,0.3631,0.3521,0.35,0.3309,0.3053,0.2959,0.2923,0.288],"prob":["student, activ, music, school, etc, option, theater"],"frex":["student, music, lsa, design, etc, graphic, option"],"lift":["atmospher, graphic, lsa, paint, somewhat, design, student"],"score":["student, music, activ, atmospher, school, theatr, etc"],"proportion":["0.04"]}],"topic_no":[6,10]},{"name":["Publicity"],"summary":["Student respondents expressed frustration with the difficulty in finding, obtaining and acting on information and Publicity around arts events and activities.  Having to actively look in multiple places for information, not receiving information in advance of events, and the sheer number of activities and events to sort through hampered their participation.  They also cited the geographic problems with the “split campus” from an information flow standpoint, as they perceived that many arts events occurred on the campus they were less likely to frequent.  Not being a member of a particular school or college also restricted access to information.  Finally, the arts were perceived as being less well-marketed to the students than other types of activities."],"children":[{"name":["Awareness"],"summary":["Not having a good Awareness of arts events and activities reportedly kept students from participating in the arts to the extent they would have liked.  Contributing to this barrier area was the lack of coordination between events organizers, calendars, and databases - there was not one good place to see the full picture of arts activities. Clear mechanisms to get both day-of and advance notice of events and activities was desired. Arts marketing efforts do not easily cross the campus divide, and there was a perception that arts activities and events were simply not as comprehensively marketed as other kinds of activities."],"size":[1800],"topic_no":[23],"thoughts":["Knowledge of functions...other than emails and flyers, there seems to be no popular domain with which to post campus-wide events for not only the arts, but other important events and happenings as well. A program to encourage the existing databases and caendars or the formation of a new one would be greatly beneficial.","The arts are not as well publicized as other campus events and it is easy to miss wonderful events simply because you didn't hear about them.","Events are often not publicized well.","The north campus/central campus thing. I feel like there is a great divide, and I often end up missing events that happen because I don't know about them","not knowing about the events going on...lack on knowledge I guess.","I don't hear about it enough and I feel that many events are clustered and messy and it's hard to know when there are events happening. Maybe if there was a website with all the events on a day...","Information regarding events- sometimes I hear about events after the fact.","I guess knowledge about events going on as well as keeping costs to a minimum","knowledge of art-related events","Events are often not publicized enough. I'd like to hear about events some time in advance as to allow it to fit in my schedule."],"thought_proportions":[0.4183,0.3884,0.3827,0.367,0.3534,0.3293,0.3153,0.2836,0.2788,0.2589],"prob":["event, know, knowledg, well, often, public, hear"],"frex":["knowledg, public, hear, event, often, help, well"],"lift":["hear, help, public, knowledg, websit, occasion, email"],"score":["event, help, know, knowledg, often, well, public"],"proportion":["0.03"]},{"name":["Accessibility"],"summary":["Students reported needing to actively seek out information about arts events, creating Accessibility problems.  Not only is information hard to find, requiring real dedicated effort, but often very little information actually exists.  Conversely, so many seemingly similar choices made it hard to figure out what organization or activity might be right for those looking to participate."],"size":[1800],"topic_no":[8],"thoughts":["finding the right one. There are so many different organizations that finding the right one can be difficult.","Not enough time or not actively searching. Also most of the information is not given, instead has to be actively searched for, making it a little harder to know what's available","Being in LSA I sometimes find it difficult to find art classes for nonmajors. I'm very interested in taking some photography, pottery, and yoga classes through the schools of art and dance, but I cannot always find ones offered for nonmajors.","If you do not seek it, it is hard to find","can hardly find any information about art events","Mostly just time. It is always hard to find enough time both because of conflicts with class or group meetings and in terms of balancing homework with all the other club and leadership activities that I have.  It is also no always easy to find out about at events around Ann Arbor.","It's hard to get involved in a performing ensemble if you're not already a proficient musician.  There's very little for beginners","There are almost too many organizations that it's hard to find one that I could get involved with.","hard to make time to take a class. \r\n\r\nhard finding people to go or to participate with you.","There are so many groups one can join that it is easy to find yourself committed to one or two that are not in the arts and then have less time to devote to the arts. This is not always a bad thing, but it's a challenge."],"thought_proportions":[0.358,0.2492,0.2192,0.2143,0.214,0.208,0.2061,0.2026,0.19,0.1832],"prob":["hard, find, one, make, inform, alway, littl"],"frex":["find, hard, alway, inform, your, easi, one"],"lift":["discourag, your, find, search, easi, hard, alway"],"score":["find, discourag, hard, inform, one, alway, easi"],"proportion":["0.03"]}],"topic_no":[23,8]}],"topic_no":[11,15,19,22,20,6,10,8,2,14,23]},{"name":["Priorities & Tradeoffs"],"summary":["In the node of Priorities and Tradeoffs, students cite their heavy Course Load as one of the greatest barriers.  They also state that the arts are not important enough to their majors or their careers to warrant participation. Time, Distance Between Campuses, and Cost (Logistics) were also major barriers. Finally, some students indicate they were just Not Engaged in the arts, or reported they had encountered few or No Barriers to participate at the level they desired. "],"children":[{"name":["Academic Priorities"],"summary":["In addition to the formidable barrier of Course Load, students also found it difficult to prioritize the arts because they were insufficiently connected to their majors, not offered or encouraged as a part of their coursework, or not obviously aligned with their career goals."],"children":[{"name":["Fit With Major and Course Scarcity"],"summary":["Students respondents mainly reported difficulties in taking art courses outside their majors because there were few courses open to non-arts majors, and those that were were inaccessible due to few seats or the lack of space in a course schedule designed to fulfill requirements (Fit With Major and Course Scarcity).  They were unsure how they might fit arts courses into their schedule and needed additional help to do so.  They also commented on needing to prioritize activities that more closely aligned with their career goals."],"size":[1800],"topic_no":[21],"thoughts":["I don't have time since it doesn't correlate with my future career goals or major.","Time, money, and availability (many arts classes seemed restricted to those looking to pursue those areas as a major or career)","The arts classes that available for non majors are very small and it's extremely difficult for freshmen/ sophomores to get a seat in classes like photography or clay for non majors.","Science requirements for science majors make it difficult to take classes in the arts, and sometimes to experience extra art activities.","Since my major is neuroscience and I am premed it is difficult for me to take art classes and be involved in any other art organizations. Also the organizations that I have heard of require you to be more knowledgable about art than I am.","Time, since it is not directly related to my major. Lack of expertise/experience.","I was a double major and having declared an environmental studies major late in the game, I had too many requirements to fulfill in my last two years to be as involved in arts as I would have liked.","Not applicable to major or career goal.","Hard to find time when there are so many requirements for majors and LSA requirements\r\n","It's hard for me to be involved in the arts because of my major which doesn't give me much time to pursue things that I would be interested in pursuing. I also don't know how easy it is for non majors to get into art classes."],"thought_proportions":[0.3347,0.2767,0.2439,0.2368,0.232,0.2301,0.2263,0.2261,0.2242,0.2169],"prob":["mani, major, requir, money, difficult, also, relat"],"frex":["requir, major, choic, scienc, mani, non, restrict"],"lift":["doubl, choic, non, priorit, scienc, concentr, requir"],"score":["choic, major, mani, requir, money, difficult, relat"],"proportion":["0.05"]},{"name":["Course Load"],"summary":["A large percentage of student respondents (15%) indicated simply and directly that their academic Course Load was too great (sometimes in conjunction with other more highly prioritized activities), to be involved in the arts at college."],"size":[1800],"topic_no":[9],"thoughts":["Too large of a course load","Time, due to the heavy courseload as well as other extracurriculars that I have.","Lack of interest, too heavy of engineering course load","Time conflicts with academic obligations.","Engineering curriculum too time demanding","Heavy workload from my courses, other obligations","The course work loads are too demanding to leave free time to go to the arts events","Not enough time due to course load","Course demands not leaving enough time","Too heavy of a course load (not enough time)"],"thought_proportions":[0.3059,0.298,0.2943,0.2893,0.2889,0.2738,0.2724,0.2674,0.2674,0.2674],"prob":["academ, conflict, cours, engin, due, load, manag"],"frex":["conflict, cours, load, manag, schoolwork, athlet, academ"],"lift":["athlet, load, conflict, cours, curriculum, schoolwork, demand"],"score":["conflict, curriculum, academ, load, cours, manag, due"],"proportion":["0.15"]}],"topic_no":[9,21]},{"name":["Time"],"summary":["Time was the single largest reported barrier cited by students, either that involved in participating in the arts activity itself, or in the logistical effort to do so (i.e. travel).  They “could not do everything,” and the arts were sometimes cited as outside the students’ interest areas or priorities, as related to their free time."],"size":[1800],"topic_no":[1],"thoughts":["time constraints with school and extra curriculars","Time commitments and constraints","Time constraints and other commitments.","time committment/ other committments in sorority","Time constraints, and priorities","Time constraints, not a priority for me.","Big time commitment","Strict engineering curriculum, wasn't my priority for the little free time I had for extra curricular activities","Too many commitments, time constraints","Time constraints.  It's difficult to do everything."],"thought_proportions":[0.2181,0.1835,0.1835,0.1835,0.1821,0.1821,0.1797,0.1737,0.1602,0.1601],"prob":["commit, constraint, free, avail, everyth, prioriti, extra"],"frex":["commit, constraint, free, everyth, avail, committ, restraint"],"lift":["committ, commit, constraint, free, restraint, everyth, avail"],"score":["commit, committ, constraint, free, avail, restraint, extra"],"proportion":["0.24"]},{"name":["Logistics"],"summary":["Logistical considerations fill out the majority of this topic area, with students reporting difficulties with transportation,  the geographic locations of arts events, the cost of tickets (sometimes within the frame of cost/benefits, sometimes as a pure affordability concern), and the time or resources it takes to attend or participate.  Students also report wanting to go with friends to events, and speaking to the difficulties coordinating those efforts."],"children":[{"name":["Distance Between Campuses"],"summary":["The perception that North Campus is too far from Central Campus, where many arts activities occur, was noted as a barrier, and this “split campus” was a factor in learning about arts activities as well.  This is a barrier that might be unique to U-M, though this kind of campus “split” or geographic barrier to various kinds of participation is not uncommon at other institutions.  And although the regular bus  trips between the campuses are relatively short and convenient, weather, commute time, inconvenient activity scheduling, and the poor information flow between the campuses were contributing barrier factors."],"size":[1800],"topic_no":[7],"thoughts":["Distance - Especially in the winter. I live in Central Campus and the practices were held in North Campus at nights","I lived in Central campus but orchestra practice was on north campus during evenings, from 7 to 10pm.","I lived on central campus my first two years and it was difficult to know all of the events that happened on North Campus. Now that I live on North Campus I am much more exposed to the events that are happening.","Inconvenient times/places (North Campus, weekend nights)","Most art stuff is on North Campus, and I live on Central","distance (live on central campus, most things are on north campus)","Time Constraints, North Campus location (living on north campus and have to commute to attend events)","I live at home and it is a 45 minute commute so its hard to be on campus for that long and drive that much.","Conflicts with classes, project due dates, and other activities.\r\n\r\nArts at Michigan also tend to be on Central campus not North. I live on North.","Split campus makes learning about arts on north very difficult if you were to live on central."],"thought_proportions":[0.7229,0.6393,0.5783,0.5458,0.5458,0.535,0.461,0.4316,0.4273,0.4087],"prob":["campus, homework, north, live, practic, central, put"],"frex":["campus, north, live, homework, locat, stuff, central"],"lift":["distanc, campus, stuff, commut, held, home, inconveni"],"score":["campus, north, seen, homework, live, central, locat"],"proportion":["0.03"]},{"name":["Cost"],"summary":["Cost, as expressed here in terms of personal affordability as well as a cost/benefit analysis, was not a large barrier, but an expected one for some students.  The arts were sometimes described as a luxury that was hard to justify against the perceived benefit of participation.  Students expressed a desire for access to more free high-quality events and activities, while acknowledging that those events have justifiable costs and value."],"size":[1800],"topic_no":[5],"thoughts":["Sometimes I would rather not pay to see performances, but I understand that the performances need to have these fees due to costs of the production.","I think cost to participate and attend certain art exhibits and performances can be a barrier to involvement. Arts, for me, is an outlet and a luxury, so if I couldn't afford to participate/attend, then I wouldn't. If things were less expensive/free, I wold have participated more.","Nope. Simply comparison of benefit versus cost.","Transportation sometimes. The bus system can be really slow sometimes, and the prices are sometimes high.","Some form of art are not as easily asccessed and some do come with a cost that can be hard to justify sometimes.","Lack of time. \r\nEvents, shows, performances can be too expensive for a student budget.","Sometimes it's expensive - I'd like to get more involved in photography but can't afford the equiptment and studio fees","Perhaps financial barriers--some UMS shows are somewhat expensive","Not willing to spend money to go to shows or performances. Wish there were more free events, and ON CENTRAL CAMPUS","Not enouph time, and costs a bit more than I am willing to spend"],"thought_proportions":[0.3246,0.3225,0.296,0.2351,0.2211,0.2184,0.2183,0.1956,0.1928,0.1888],"prob":["particip, perform, cost, sometim, can, abl, show"],"frex":["cost, perform, sometim, perhap, may, rather, simpli"],"lift":["afford, nope, perhap, rather, cost, sometim, fee"],"score":["cost, nope, particip, sometim, perform, show, may"],"proportion":["0.04"]},{"name":["Friend/Cost Ecosystem"],"summary":["The Friend/Cost Ecosystem topic respondents moved from reporting directly on value or affordability barriers to the desire to have U-M offer subsidies or strategies to work around financial constraints.  Students also indicated that their friends not attending (due to perhaps their own time and cost constraints) kept them from participating as well."],"size":[1800],"topic_no":[3],"thoughts":["This wasn't me, but my friend who is Chinese went to try the Indian style of dance but she just felt overwhelmed but the amount of Indian people there and wound up feeling left out.","Timing conflicts - literally too busy with school/leadership positions/extra curriculars to even sleep, let alone attend art events","I really appreciate the discounted tickets to Hill Auditorium, but I wish that there were more ways to get complimentary tickets to events. For mid-week events, there are often many seats left empty, and I'm sure plenty of students would be willing to wrie reviews or volunteer in exchange for tickets - something like Arts Ambassador, but not restricted to dorm residents.","Time commitments and tickets at Hill are sort of expensive. It would be nice if they let students in for free if they had extra seats; I have no idea how they would accomplish this.","fees for UMS concerts (despite half price student tickets)","ticket price, finding friends to attend events with, too much classical music not enough newer options","School work; usually too busy to attend. Ticket prices also made me hesitant.","Cost.\r\n\r\nI took several art and design classes as a non-art major and had to spend a lot of money out-of-pocket to pay for materials in addition to the lab fee that is already charged to my student account.\r\n\r\nI also enjoy attending UMS concerts, and I wold not be able to attend without the student half-price ticket sale.","I generally found out about different performances or exhibits after they had already taken place from a friend who went.  There needed to be more advertising and marketing for such events.  While i never personally felt a desire to audition for a performnce group, a few of my friends felt discouraged from getting involved because they had to go through an audition process.","Some of my  friends weren't interested in the arts\r\nTransportation\r\nDidn't have enough advance notice about a lot of the art events on campus to be able to attend"],"thought_proportions":[0.2643,0.2393,0.2297,0.2133,0.2073,0.1991,0.1991,0.1961,0.1872,0.1863],"prob":["attend, friend, most, made, concert, ticket, felt"],"frex":["friend, most, ticket, overwhelm, attend, made, took"],"lift":["call, most, went, overwhelm, friend, let, ticket"],"score":["attend, call, friend, ticket, most, made, concert"],"proportion":["0.02"]}],"topic_no":[7,5,3]},{"name":["Not Engaged"],"summary":["Engaging in the arts in college is not a priority or interest area for every student, as should be expected (Not Engaged).  Respondents in this topic listed a variety of personal reasons they were not engaged in the arts at U-M, including but not limited to lack of planning, lack of motivation, lack of art interests, lack of arts talent, and lack of previous exposure.  A percentage of students also indicated they experienced no reportable  barriers to participating at the level to which they had aspired."],"children":[{"name":["No Barriers, Except..."],"size":[1800],"topic_no":[16],"thoughts":["I haven't gotten my schedule down yet so I'm still too scattered to be committed to anything right now.","I don't know about anything until its already done.","None except for time","None, except time constraints","None besides the time commitment","none, besides lack of interest","None. Time conflicts, maybe","None except my own personal laziness","Nothing except I just had no time because of schoolwork","None, besides lack of talent."],"thought_proportions":[0.4506,0.2882,0.2701,0.2378,0.2378,0.2334,0.2317,0.2212,0.221,0.2167],"prob":["none, anyth, workload, mayb, noth, right, except"],"frex":["none, anyth, workload, noth, mayb, except, sure"],"lift":["anyth, none, noth, sure, workload, except, yet"],"score":["none, sure, anyth, workload, noth, except, besid"],"proportion":["0.04"]},{"name":["Lack of Personal Interest"],"size":[1800],"topic_no":[17],"thoughts":["Lack of personal interest. Lack of exposure","Time constraints, lack of motivation to initiate involvement, lack of interest","Lack of motivation or interest.","Lack of personal interest.","My own personal lack of interest.","lack of personal interest","Lack of personal interest, lack of time due to studies/work/volunteering","Time and lack of interest in socializing.","Lack of events of interest to me, personally.","lack of awareness, too expensive, not of my interest"],"thought_proportions":[0.3721,0.3719,0.343,0.343,0.343,0.343,0.3348,0.3079,0.302,0.2902],"prob":["lack, interest, person, awar, main, focus, social"],"frex":["lack, awar, interest, social, person, main, accept"],"lift":["lack, accept, social, cultur, awar, motiv, interest"],"score":["lack, interest, accept, person, awar, social, main"],"proportion":["0.05"]},{"name":["No Barriers"],"size":[1800],"topic_no":[19],"thoughts":["The barriers would be just getting more inormed and the desire to become involved in the arts at the University of Michigan.","I don't see any barriers preventing me from being involved in the arts","I don't experience any barriers preventing me from being involved in the arts. I'm simply not interested in the arts. If I was interested in the arts, then I am positive that there are many ways at U of M that I could get involved in them.","I do not see any barriers preventing me from being involved in the arts at the University of Michigan.","I do not see any barriers preventing one from being involved in the arts at the University of Michigan.","time management, took a lot of initiative on my own part to get involved, want to get involved in other ways (crafts, things that are lower commitment) but found that those were hard to get involved in.","Finding new clubs/organizations to get involved with that I don't know anyone in, learning about all the different ways to get involved","The only barrier I see is that is you lack skills in art, it is hard for you to get involved with dance or theater or such. Which is understandable, however, is a barrier","I hadn't experienced any barriers preventing me from being involved.","I do not experience any barriers preventing me from being involved in the arts."],"thought_proportions":[0.2845,0.2664,0.2567,0.2488,0.241,0.2396,0.2353,0.2218,0.2167,0.2133],"prob":["involv, get, barrier, see, prevent, way, becom"],"frex":["involv, barrier, get, havent, becom, prevent, see"],"lift":["havent, involv, act, becom, barrier, get, prevent"],"score":["havent, involv, get, barrier, see, prevent, way"],"proportion":["0.05"]},{"name":["Ennui"],"size":[1800],"topic_no":[22],"thoughts":["Probably just that there wasn't enough time to attend all of the arts events. Many things occur on the same nights (Friday/Saturday) so you really have to pick and choose.","I didn't experience any. I just don't really prefer to be involved in the arts.","I didn't experience any barriers, I just didn't have a very strong interest in the arts coming into college so I didn't choose to involve myself much in the arts.","more publicizing of arts opportunities, know that arts opportunities probably exist but didnt really know of many specifically","Oftentimes I didn't hear about a really interesting event/performance until after it was over; so basically lack of advertising was my main obstacle.","I don't think I'm good enough at anything specifically to be involved in a really competitive setting.  I played clarinet in high school, but I don't think I'm good enough for any of the highly respected bands here.  I guess I just didn't pursue joining lwer key organizations.","I just think I am not very artistic and it is better I just appreciate it then create it.  I enjoy plays and reading, but I have a really hectic schedule and so I haven't had a lot of time for arts.","I am really interested in the wood working aspect of the arts, but I have not really found anywhere that would facilitate my needs if I wanted to pursue this area. I was very involved in the wood working program at my high school and worked as a builder dring my summer jobs. I would love to be able to keep up this skill, but have not found a place/opportunity to do so. I also feel that it is hard for people who would just like to get involved in the arts to do it just for fun. The classes are for a grade ased on how good you are, but I would like to do things just for the pure enjoyment. I would like more classes that would offer me that opportunity with no negative consequences.","I didn't, its just something I don't particularly enjoy","I was really involved in classical music in high school, but found few opportunities to continue my involvement without doing something through the music school. Besides Pops and a few trio opportunities, there wasn't anything out there for an LSA major.  did a trio my freshman year but the music was not as advanced as what I was used to and I didn't really enjoy it, so I stopped."],"thought_proportions":[0.2404,0.2295,0.2221,0.1928,0.1881,0.1871,0.1859,0.1798,0.1782,0.1684],"prob":["just, realli, didnt, enjoy, play, specif, wasnt"],"frex":["just, realli, didnt, enjoy, far, choos, basic"],"lift":["far, just, realli, didnt, basic, choos, enjoy"],"score":["just, far, realli, didnt, enjoy, specif, play"],"proportion":["0.03"]}],"topic_no":[16,17,19,22]}],"topic_no":[16,17,1,9,7,5,3,21]}],"topic_no":[11,15,19,22,20,6,10,8,2,14,7,5,3,13,21,16,17,1,9,18],"name":["What do you see as the barriers preventing you from being involved in the arts at the University of Michigan (if you experienced any)?"],"this_root":[true],"summary":["A topic model with 24 topics, 3857 documents and a 537 word dictionary."],"proportions":[0.0425,0.0416,0.0202,0.1417,0.0362,0.0281,0.0297,0.0308,0.0433,0.0413,0.0309,0.0352,0.0302,0.0447,0.028,0.0385,0.0489,0.0756,0.0534,0.0252,0.0494,0.0331,0.0329,0.0187]}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    
+<script>
+   var stm_data = {"children":[{"name":["Positive"],"children":[{"name":["Expanded Possibilities and Relaxation"],"summary":["The major node Expanded Possibilities and Relaxation contains student responses that include those related to opening up students to consider different perspectives (Broadened Worldview) or changed personal goals or skills (Life Path and Improvement).  Part of these expanded possibilities cited also included new or altered career goals or paths (Encouraged Exploration) or a more enriched or fulfilled life (Personal Enrichment).  Interwoven throughout these topic areas is the idea that the arts created opportunities for relaxation and stress-relief from academic pressures, with this most specifically being described in the subnode, Break from Classes."],"children":[{"name":["Break from Classes"],"summary":["Having something relaxing and creative to engage their time and attention outside of the classroom (Break from Classes) was reported by students as an important role the arts played in their college lives.  They also reported it as a useful pastime, adding to their enjoyment of their coursework and a way to develop additional skills."],"size":[1800],"topic_no":[7],"thoughts":["A chance to relax and take a break from school","Good break from constant school work, appreciating a field outside of my own.","The arts provided a space for sanity and creative problem solving. A nice escape from academic and business related works, while still building professional, positive, and useful life skills.","It gave me a creative outlet and a chance to focus on something other than school work.","Mostly a good way to relax, take a break from class stress","The arts provided a relief from academic responsibilities, but also an outlet for creativity when there was no space for it in the classroom.","The arts are an outlet for other academic stress. It is a relief to attend a dance class for credit hours instead of going to math or science classes.","Taking the classes were an outlet for me. Although, they were hard work and time consuming it allowed me to have an outlet from the typical science courses that I took. I enjoyed being on north, sitting outside and using my time to visualize my surroundins in a way I normally wouldn't.","it gave me something outside of academia to focus on. it helped me relax","Going to plays or concerts gave me a break from school work and helped me to relax","Positive: It was a nice break from most of my school work (mathematics).\r\nNegative: None.","Definitely a good way to take my mind of the stress of classes and work","For me, the arts I experienced in my years in college gave me a nice outlet for expression outside of class.  Great stress reliever/ alternative to other social outings.","It gave me an outlet from school work but it also gave me drama which made things more diffcult","It helped me de-stress and it is a relaxing experience outside of school work.\r\nThe leadership position in the club is time consuming, sometimes I don't have enough time to focus on school.","Giving me a relaxing outlet from the stresses of college","kept me goal-oriented, disciplined,fit and focused. Takes up a lot of time, affects my school work","It was my way to take a break from athletics and academics.","Helped diversify my experience as an undergraduate student.  A great break from the monotony of school work and other responsibilities","Gave me an outlet for stress and made college more enjoyable","Positive, stress relieving\r\nNegative, time commitment and grades suffered","They were stress relievers.","helped relieve stress","stress relief","stress relief","Helped with stress relief","positive- stress release","An outlet for stress","the arts can be a great outlet for the stressful environment that is U of M","Chance to relax","It was the center of my college experience - arts took priority. Class work would be stressful but recreational art activities were relaxing","Gave me an outlet, something outside of schools, way to be with family, create","Arts were a great way to take a break from the academic stresses on campus.","They were a nice break from the ordinary and mundane","Entirely positive - The arts helped me relieve stress and build my professional network of other artistic individuals. It helped me express myself outside the confines of academia.","I use it to relax and de-stress, so it plays only a positive role.","The arts, specifically concerts, film, and comedy, provided an enjoyable event for me to go to outside of school and provided a nice break from school.","Arts helped me to relax and de-stress.","a relief from classes","I wasn't super involved, but when I was they gave me a chance to express myself a little bit more anddd take a bit of the stress out of my life!","gave me something to do besides strict academic work","gave me an outlet for stress during my classes\r\na chance to continue my art through college\r\ndefinitely took a lot of time out of my schedule\r\n","Arts provided an outlet to escape from seemingly nonstop stress and workload. They gave me a greater appreciation for even small components of my environment. They played no negative role in my experience.","Positive because I learn about arts in more realms than in art classes. I have taken art classes that touch on literature and science classes. I have worked on art in a huge group project that works on a public street festival.","negative, it was time consuming bc it was on top of school work but positive bc of the rewarding social","Stimulated my creativity, reduced stress level.","Stress relief, enjoyment","The arts have been a good break from school work sometimes. Other times they are just a distraction.","It was a great stress reliever and way to have a creative outlet","Positively, the arts are my stress relief. I have no negative arts experiences."],"thought_proportions":[0.635,0.5973,0.5806,0.5568,0.5379,0.5351,0.5303,0.5238,0.5064,0.4873,0.4799,0.4747,0.4643,0.4622,0.4585,0.4568,0.4534,0.4477,0.4452,0.4396,0.4336,0.4185,0.4185,0.4185,0.4185,0.4185,0.4185,0.4185,0.4185,0.4114,0.411,0.4091,0.4082,0.4033,0.4009,0.4001,0.3984,0.3959,0.3958,0.3842,0.3828,0.3814,0.3675,0.3663,0.3615,0.3594,0.3593,0.3506,0.3472,0.344],"prob":["stress, outlet, class, work, gave, relax, school"],"frex":["stress, outlet, break, relief, work, reliev, relax"],"lift":["relief, reliev, break, stress, releas, wasnt, outlet"],"score":["relief, stress, outlet, work, relax, break, reliev"],"proportion":["0.12"]},{"name":["Broadened World View"],"summary":["Students reported the role the arts played in giving them a Broadened Worldview as a positive outcome. They often described this role as expanding their cultural awareness, giving them greater empathy, and developing new ways of thinking."],"size":[1800],"topic_no":[12],"thoughts":["Negative- my grades in art classes besides creative writing\r\nPositive- given me an alternate world view as opposed to the view touted by my major","It has broadened my world view in a positive way.","I love to read and write and in college, through creative writing classes, I learned both how to write in a more effective and beautiful way and how to learn from the great writers.","Often a great opportunity in and out of class to expand my understanding of art and other ways of thinking.","A great way to interact with people from all over the world and share common human experiences","Provided me with enjoyment and an expanded world view and more accepting of others cultures\r\n","They extended my world view and I got to experience another world outside of my own.","I began to think in new ways and think about the beliefs of others","The arts broadened my view of the art culture of the world.","arts has given me a positive outlet to share my feelings","Positive, more competent at making art. Negative: don't feel that I am as creative as others.","Writing classes helped my creativity.","I had a great time sharing my love for music with others in a college setting.","Creative Writing class helped me to express myself through writing and to expand my writing skills past essay writing. Arts Chorale was just relaxing, as singing is a good stress relief for me. :) I am not sure if there was any negative impact...","Widened my world view","It provided a great way to destress","positive! helped expand my view and touched my soul","really expanded my thinking.","It was a great stress reliever and way to have a creative outlet","They allowed me to view the arts in another way and open my mind to more arts experiences.","It was a source of friends, a way to get creatively express myself, in non traditional ways. No negative experiences","new way of thinking","The arts have helped cultivate me into a well-rounded, experienced, and learned young person who feels confident about going out into the world and using the skills that I learned from the arts to help others.","They provided me with enjoyment and provoked my thinking about myself and the world.","Positive: expanded my creativity, made me more open-minded and exposed me to new creative mediums and practices.\r\nNegative: the heavy work load took its toll and I feel my social life suffered as a result.","It allowed me an opportunity to express creativity in a social setting, which I greatly enjoyed.","the arts served as a great way to relieve stress so in that way it was positive. It also provided a way for my friends and i to hang out and experience new things together. I don't know if they necessarily had a negative role","Creative outlet, way to experience different things, way to enjoy an interest and connect with others who have similar interests","Self expression through a creative writing class that I loved\r\n","positive in finding new ways to be creative\r\nI don't have any negative experiences","The arts were a way to explore and meet new people as well as being a way of being creative and self-expressive individually.","Arts made up much of my studies in Creative Writing. I really enjoyed the writing program in the Residential College and felt that the professors knew how to teach and enhance that experience. However, I felt  that the University did not have the best intrests of the professors in mind.","Helped to keep me on task and helped me to realize the importance of sharing my arts with others","They were able to give me an open mind and expand my views and personal beliefs, which gave me a better understanding of the world.  I cannot think of anything negative.","The arts allowed me to broaden my horizons, and allowed me to interact with individuals in ways that I would not be able to do so in strict academic settings. I would not necessarily say that I experienced many negatives from my involvement in the arts.","Being in an arts-related major, architecture, the arts were the majority of my college experience. It has given me a greater love and appreciation for beauty and the belief that the creation of beautiful things and creative expression are a vital part of ur world. Traditional college course structures are not the most conducive for fostering creativity, however, and oftentimes my classes have been very stressful for the constant pressure to create. I also participate in writing, drawing, and painting for eisure and those have been an excellent outlet for me when I am stressed.","Well, studying literature has improved the analytical side of my brain, and creative writing has let me express myself in a way that makes me feel important.  However, I'm a senior and don't have a job yet - I don't think that these experiences are too imortant to many people besides grad school admission boards.","Helped me see the world in a different way.","Helped to make me feel more creative","Arts was a way to relax and take time to get to know myself and others better beyond a class setting.","It was a great way to meet people","It was a great way to meet up with friends","They were often a way for me to meet and connect with others who shared the same interests, which was important for me since most people in my department (that I've met) aren't nearly as involved. Looking at visual art from around the world has also made e more interested in traveling to different places around the world.","They encouraged my creative expression by inspiring me to remember my creativity in everyday situations.","They allowed me to become more open-minded and expanded my world view. At times though, my participation in my dance group greatly lowered my self-confidence because there was a lot of competition.","expanded what I was used to before.","helped me make friends and develop a wider world view"],"thought_proportions":[0.636,0.4869,0.4722,0.4613,0.3904,0.383,0.3808,0.3604,0.3552,0.3328,0.3264,0.3237,0.3142,0.3131,0.3094,0.3086,0.3073,0.306,0.2754,0.2717,0.2708,0.2706,0.2694,0.2607,0.2553,0.2475,0.2442,0.2418,0.2407,0.24,0.2362,0.2345,0.2344,0.2334,0.2312,0.2281,0.2269,0.226,0.2248,0.2246,0.2237,0.2226,0.2195,0.2166,0.2095,0.2058,0.2054],"prob":["creativ, way, great, world, other, write, expand"],"frex":["creativ, other, world, way, view, great, write"],"lift":["broaden, view, set, program, other, world, creativ"],"score":["broaden, way, great, creativ, world, write, view"],"proportion":["0.08"]},{"name":["Exploration and Development"],"summary":["As the students have reported, the arts were a mechanism for them to explore their interests, passions and career aspirations, and also a way for them to broadly develop themselves both personally and professionally. While arts participation Encouraged Exploration, leading to changes in perspective, expression, and academic goals, they also led to Personal Enrichment in professional, cultural, social, and communication contexts."],"children":[{"name":["Encouraged Exploration"],"summary":["Student respondents described the arts here as allowing them to explore their interests and values, often unrelated to their major but important to their career choices (Encouraged Exploration).  This exploration led to a wide range of impacts - everything from changed worldview to creative expression. They also indicated the importance of this exploration as an alternative to the stress of their academics. \n\nThis survey question is one of only a few we asked that elicited open-ended responses around career decisions and goals - aside from the direct question focused on career impacts.  The student pool of respondents does not reflect a larger than expected number of arts majors (they appear in similar numbers to the overall student body at the time of the survey), so these career influences are likely spread across the range of majors (as is evidenced by some of the response quotes)."],"size":[1800],"topic_no":[2],"thoughts":["it positively allowed me to de-stress from all the schoolwork.  nothing negative","Allow me to get my mind off of engineering for a while","Positive: providing me with a solid group and network, especially as an out-of-state student.\r\nNegative: huge time commitment. Didn't get to further my career path as much as I would have liked.","The arts allowed me to keep and open mind and expand my world-view at a reasonable price","I feel like you cant be involoved unless you are talented in the field","Allowed me to explore my passions that were unrelated to my major","The arts have helped me maintain my values, and realize my passions and goals.","Positively by giving me a career path.","Architecture served as a possible career path, and exploring it really opened my eyes to new ways of thinking about the physical world.","Helps open my eyes to diverse perspectives. Provides an outlet for the expression of the soul.","They offered a distraction from the daily grind of schoolwork\r\n","They allowed me to open my mind to the world in general through the different types of arts from all over the world.","It has only brought positivity, openness, expression, and happiness to my life. Nothing negative.","Helping me get through tough times, and influencing my potential career goals","They allowed me to get away from the stress of classes and helped keep me focused","career path","i realized that society doesnt support the arts and it reaffirmed my belief that going into business was the right career choice","I can't think of any negative experiences, though cost may have been deterring at times. I would say my college experience in the arts was mostly positive. I was able to see the enthusiasm and passion other students had for the arts and it made me apprecite it that much more. It definitely keeps my mind open, inspires my personal creativity, and motivates me to achieve my goals.","Gave me an outlet for creative expression, source of passion that allowed me to get away from all the problems/stress I faced","They allowed me to view the arts in another way and open my mind to more arts experiences.","It opened my mind up to the art culture more","It played a positive role because it opened up my mind and made me feel more well rounded.  It also allowed me to feel more educated.","The arts helps me enjoy this passion of mine and helps me to relax and realize that it's important to take time for yourself and enjoy what you love!","I gained a more open mind from the arts","I can't say that anything was negative really, it made college more enjoyable and allowed me to relax.","The arts allowed me to be more creative, open minded, and expressive. They helped develop leadership and organizational skills.","The arts were a rare opportunity to combine enjoyment and productivity of the mind away from schoolwork.","Allowed me to have a way to express myself.\r\nprovided a distraction from stress and allowed me to enjoy things.","I would have liked to continue music in a more meaningful manner. It contributed positively by giving me a creative output and by networking, but as mentioned before not having time to practice and go to rehearsals was a negative effect.","Allowed me to explore the creativity of other people","It allowed me to continue to do what I love, but it was frustrating not being able to do some of the things that we wanted to help the orchestra due to rules from the School of Music.","It hasn't really played a role at all.  Unfortunately it is so hard to get involved in the arts now that it doesn't really influence my life","Helped to keep me on task and helped me to realize the importance of sharing my arts with others","Opened my eyes to other cultures outside of my own.","Positive- expanded my mind\r\nNegative- can be a little distracting","Positively, the arts have changed my perspective on the world of engineering and have led me down a path that I could have not predicted.  Negatively, being involved in the arts has effected my College of Engineering GPA because the professors simply don' understand or support student involvement in creative programs.","Places like the UMMA have been occasional resting places, to get away from the busy campus and be immersed in the calm and grandeur that the exhibits have to offer.","The arts allowed me to explore my career goals (though working on Xylem Literary Magazine), and it gave me fun activities to attend with my friends (particularly UMS plays/musicals and Pops Orchestra concerts).","It made me realize that I am very passionate about art. Sometimes I was very overwhelmed and needed a break from being creative.","I haven't had much time to do much with the arts in college, which is unfortunate, but I truly like it","I think they have opened my mind to appreciate more of a variety of arts.","It allowed me to express myself and escape momentarily from the stresses of schoolwork.","Positively it made me learn more about different cultures. nothing negative","Knew good friends who were involved in the arts and tried to support them as much as possible. Also got access to arts that I would have never explored on my own. Helped me keep an open mind on different interests and art forms","The arts have been very positive in my experience, providing a welcome escape from my day to day engineering classes and homework. They provide a stress relief."],"thought_proportions":[0.5345,0.508,0.4888,0.4767,0.4518,0.4295,0.394,0.3795,0.3668,0.3587,0.3522,0.3503,0.3321,0.3307,0.3246,0.3241,0.297,0.2936,0.2907,0.2903,0.2768,0.2753,0.275,0.2743,0.2659,0.2466,0.2464,0.2454,0.2419,0.2415,0.2404,0.2375,0.2357,0.2349,0.2344,0.2254,0.2247,0.2214,0.2182,0.218,0.2113,0.2079,0.2022,0.2019,0.2001],"prob":["allow, like, open, mind, get, help, career"],"frex":["open, allow, mind, realiz, help, passion, career"],"lift":["eye, path, passion, unfortun, realiz, open, mind"],"score":["path, allow, open, mind, career, help, realiz"],"proportion":["0.07"]},{"name":["Personal Enhancement Enrichment"],"summary":["Learning about themselves and developing a sense of purpose and balance are the main takeaways from student arts engagement reported here (Personal Enrichment).  The language indicates a very personal connection to the benefits of their participation across  a wide range of topics - professional, cultural, expressive, leadership, social, communicative.  When the reported role of the arts was personally negative it was typically related to the time it took to participate or the financial burdens the arts placed on audience members or career practitioners."],"size":[1800],"topic_no":[8],"thoughts":["It was truly a launching point for the rest of my life in terms of my career.  It exposed me to all of the aspects of the music industry, some positive and some negative.  It provided me with opportunities for personal fulfillment and self expression thathave given me a strong purpose in life.  Negatively, it prevented me from \"getting out there\" sometimes.  I had to practice so much that sometimes I felt like a bit of a shut-in.  It took work to figure out how to balance out practicing and leisure.","Positively helped me to communicate better and be more confident about my abilities","The arts were always a good balance from the very intense science courses I had to take for my major. I have always felt that creativity is completely necessary for life and Michigan has reinforced this with its encouragement.","I was a music major throughout my four years, with my primary instrument being voice. I was never negatively influenced by the arts at any point at the University and have always felt that I was encouraged to keep participating in them. I was never cut don by anyone here when I revealed my major to other non-music majors. The arts played a huge role in my college career, I always find myself attending peers' performances, participating in performances, and of course practicing my instrument on a daily bass. If I didn't have that outlet to be able to consume and express myself through art, I don't think I would have been as fulfilled in the past four years that I've been at Michigan.","My experiences have been positive, enriching my understanding of self and cultural expression.","Majority of the artwork I did in college was for homework, but it lead me to choose artistic classes outside of the artschool that could be a bit more free.","conduit for self expression","good leadership skills, ability to understand others better, know what else is out there.","Peer and community involvement, a very positive experience. I learned a lot about myself and what kinds of art I like, and why I like them, giving me a better sense of myself.","Positively, I think I gained self confidence. Negatively, it has lead me to aspire to be something that does not pay money.","I have become more confident in my artistic and leadership abilities.","It has given me confidence and an ability to believe in myself;  believe I am worth something.","I wasn't super involved, but when I was they gave me a chance to express myself a little bit more anddd take a bit of the stress out of my life!","POSITIVE! helped me feel better and more expressive","Provided an outlet for self expression","The arts largely had a positive role in my college experience. I was exposed to a lot of different kinds of art, and with greater depth than I was prior to college, and I was able to adopt and appreciation and understanding for kinds of art I knew nothingabout before.","I play guitar regularly and it helps me express emotions that I can't really verbalize well","Positive: It helped me to build friendships, communicate, and learn how to give critique and receive it.  It also gave me an outlet for personal expression. \r\nNegative: N/A","Positive: giving me chance to escape from the daily grind, to express myself, and to experience calm\r\nNegative: stress when I couldn't play trombone as well as those in my section because I hadn't had time to practice","The arts played the role of extra curricular activity, and something enjoyable to do outside of classes and homework. I always felt less stressed after a cappella rehearsal, yet still felt like I was actively using my mind.","They were able to give me an open mind and expand my views and personal beliefs, which gave me a better understanding of the world.  I cannot think of anything negative.","Positive: encouraged creativity\r\nNegative: felt like I should be studying instead","They encouraged my creative expression by inspiring me to remember my creativity in everyday situations.","Stress reliever mainly and an avenue where I felt like I could listen to my conscious without talking it out with someone else."],"thought_proportions":[0.5759,0.4716,0.4269,0.3583,0.3388,0.3059,0.2957,0.2927,0.2828,0.2795,0.2786,0.2656,0.2616,0.2599,0.2597,0.2526,0.2475,0.2455,0.2372,0.2287,0.2165,0.211,0.2025,0.2],"prob":["express, better, negat, understand, artist, felt, practic"],"frex":["better, express, felt, negat, emot, self, encourag"],"lift":["self, abil, felt, extra, better, emot, express"],"score":["self, express, felt, better, negat, understand, encourag"],"proportion":["0.06"]}],"topic_no":[2,8],"thoughts":["Help me express myself, but hindered my academics","Creative expression and networking","it was very positive- it was something that was mine, and that I could come to to express my emotions in a different way. \r\nI can't really say it was negative in any way.","positive. it allowed me to express myself and also to build a large network.","Helped my future career, expression, and mental health","I play guitar regularly and it helps me express emotions that I can't really verbalize well"],"thought_proportions":[0.3039,0.3106,0.3304,0.3767,0.3453,0.438],"thought_variances":[0.0019,0.0065,0.0068,0.0223,0.024,0.0571]}],"topic_no":[7,12,2,8],"thoughts":["It gave me a space to let my thoughts drive me instead of me driving my thoughts; it gave me a place to express myself, to find myself; generally it allowed me to get more in touch with my motivations and emotions.","They played a positive role and allowed me to express myself creatively.","Creative expression and networking","It allowed me to experience creativity and better appreciate the arts.","Build friendships!","Very little role...","negative, I went to an opera I did not understand or follow very well.\r\npositive, clay class allowed me to have a creative outlet from engineering studies","Encouragement.","made me more expressive","positive: introduced me to some great girls during my freshamn year, allowed me to contnue somehting i loved in high school\r\nnegative: hard to schedule schoolwork and practice","I've realized a little bit more that you don't have to be GREAT at something to do it and enjoy it-","Positively, the arts provided an outlet for expression and artistic appreciation from viewing or attending. I did not notice any negative effects.","Positive: It gave me something to do and be passionate about. Negative: There isn't any negatives."],"thought_proportions":[0.4119,0.4923,0.5724,0.4925,0.4463,0.4512,0.4898,0.462,0.462,0.4578,0.4724,0.4927,0.5067],"thought_variances":[0.0301,0.0554,0.0633,0.0636,0.0685,0.0746,0.0786,0.0821,0.0822,0.0846,0.0849,0.0876,0.0894]},{"name":["More and Better Social Connections"],"summary":["The role the arts in college play in creating More and Better Social Connections is described through the broadly reported sub-topics of Fun Social Activities, Personal Enhancement, Greater Involvement, and Social Connections.  In almost every one of these categories students report the importance of engaging in the arts in their creating interpersonal connections to others - leading to new and improved perspectives, skills, friendships, involvement on campus, growth,  and overall happiness.  The arts set the table for these social interactions by acting as a shared interest or pursuit, a shared audience experience, an opportunity to stretch oneself personally or communally, or a welcome respite from academic pressure."],"children":[{"name":["Fun Social Activities"],"summary":["Students report that arts participation in college led to them attending Fun Social Activities and events, leading to new and improved social connections, things to do, often at little or no cost, and an additional element of fun to their college experience."],"size":[1800],"topic_no":[9],"thoughts":["The arts helped me find a social space. Most of my friends had been musicians in high school, which helped us become friends in college.","The arts played a positive role during my freshman year when I lived in South Quad and there were weekly arts and crafts nights in the Union. These were fun, allowed me to socialize, convenient (since it was so close to where I lived), and it was fun becase I got to make cool stuff for free! Since then, I haven't been as involved in the arts as I hoped to because I live off-campus and events aren't as convenient to go to, and also because I have been busier in my classes. Some incorporation of arts in reglar, non-arts related classes would be nice to help spawn creativity.","I enjoyed the performances I got to go to, and I was also able to sing in a choir my for my sophomore year. That was a good experience, since I had been part of choir all throughout high school and I was really missing it.","They gave me something to do, and I love doing things.\r\nThey helped me be involved.\r\nThey helped me support my friends-my friends who love to sing, dance, and otherwise perform or share.\r\nThey helped me learn.\r\nThey helped me share and step out of my comfrt zone.\r\nThey helped me be proud of who I am and what I can do.","Fun diversion from school, social experience with friends, good way to meet new people","Gave me fun things to do with friends.","very small roll. i found that i thought there was less opportunity to be involved.  before college i thought that opportunities to be involved were constantly being proposed to me whereas now i have to be way more proactive to find these opportunities, whch can be difficult when trying to balance a full course load.","it was fun to dance, i met friends","i attended student org presentations for fun and to support friends","It was a fun thing to do with friends in my free time\r\n\r\nIt was a good way to build video-making experience","Ballroom dance freshman year was overall disappointing, but creative writing is one of my majors and a huge part of my life. It helps me process the tough things and the wonderful things I go through. It reminds me that the world is beautiful and I can mae it more so.","The arts have been present throughout - Architecture, Design, Music - it's been fun and challenging to be involved in all these things.","The arts were generally about enjoyment and fun for me. I haven't had any negative experiences with the arts.","I enjoyed my dance classes. I wish I had taken them earlier than my senior year.","Fun times with friends, good exposure to cultural features.","Participating in anything is difficult to do fully while taking a full course load, but the arts take even more practice than most things. So, ultimately, my participation presented challenges in terms of time management.","they had a positive role and made my course load these past semesters much more enjoyable","I think the only difficult thing about the arts in my college experience was learning to enjoy producing art as work and not necessarily always for fun.","I got leadership experience and had fun.","It was my main social activity. I met a lot of my friends that I probably would not have interacted with otherwise through going to concerts and have had lots of fun experiences. I only wish I could do it more.","fun thing to do with friends to get mind off stresses of school","Since I was unable to participate in much of the arts on campus do to other priorities it is difficult for me to anwser this question. Many of the dances and shows I seen advertised looked really interesting. I wish I had found the time to go to some.","Fun activities, support friends, social activity, journaling for myself was extremely important","Helped me make friends, got me involved outside of the classroom. No negative things.","Was my primary course load in 4 academic years. Learned to be a more open person and effective communicator. Also got a lot better at singing.","I feel that the arts helped my express myself outside of the academic sphere that is Michigan. I should only have needed a few CE credits, but I chose to take more because a full academic load was too stressful. Negatively, I think some professors were beter than others, and the course load was too heavy with multiple projects rather than spacing them out.","They did not play an overall large part, but they were an important part of my college experience.  For me, it was a positive social activity to do with friends and experience things I have not experienced before.  I never had a negative experience.","It gave me a space to let my thoughts drive me instead of me driving my thoughts; it gave me a place to express myself, to find myself; generally it allowed me to get more in touch with my motivations and emotions.","The arts served as a nice recreational activity. I loved having conversations with friends after arts events. Overall, the arts had a positive role in my college experience.","Arts played a positive role in my college experience. I enjoyed attending events with friends and engaging in art-related project in my courses","Got me more into a profession I love but it took away my social life.","went ot shows and plays and concerts with friends, fun. also was expensive, not good.","The arts served as a fun thing to do as an alternative to my typical weekend activities."],"thought_proportions":[0.5032,0.3875,0.3671,0.3533,0.3226,0.3146,0.3134,0.3054,0.2844,0.2822,0.275,0.2676,0.2603,0.259,0.2485,0.2449,0.2388,0.2369,0.2362,0.2355,0.2331,0.2331,0.2302,0.2284,0.2221,0.2189,0.214,0.2139,0.2138,0.2104,0.2087,0.2079,0.2006],"prob":["fun, thing, friend, social, danc, good, wish"],"frex":["fun, thing, social, load, wish, thought, danc"],"lift":["rather, load, thought, sing, high, incorpor, fun"],"score":["rather, fun, thing, danc, social, friend, wish"],"proportion":["0.08"]},{"name":["Personal Enhancement"],"summary":["The Personal Enhancement topic speaks to the personal enjoyment, growth, and improved well-being that participation in the arts in college brought to the student respondents.  While the Entertainment topic area speaks for itself, the Personal Growth and Well-Being topic is more nuanced - recognizing both the personal benefits to a student’s social and skill development and overall happiness through arts participation, but also the struggle that participation can create around time management."],"children":[{"name":["Entertainment"],"summary":["The arts play a number of roles in students’ college experience, including the well understood role of providing entertainment and enjoyment in their lives."],"size":[1800],"topic_no":[4],"thoughts":["The arts provided me with entertainment as well as service opportunities, and I enjoyed participating/attending them","The arts did not play a negative role. The arts served as a source of enjoyment for me.","Gave me something to enjoy on the occasional weekend.","the arts have been my outlet and something to do just for fun as well.","Something to do in my free time, a source of entertainment","MMB is very stressful, but all of the wonderful opportunities outweighed the anxiety I sometimes had. And all of the arts opportunities here made it easy to just decide to go see or do something one night when you are free.","I was not involved in the arts in college beyond occasionally viewing some art pieces for enjoyment. (That was enjoyable and relaxing).","Not much, just on the side.  I enjoyed the art opportunities and classes, though!","Positive for enjoyment and exposure to the arts.","I don't know.  They were enjoyable.","source of adventure, enjoyment, and relaxation. Helped develop my sense of myself and my relation to the world","My role in the arts gave me enjoyment, as well as more experience with the arts.","It was mostly all positive because I looked to the arts for enjoyment."],"thought_proportions":[0.3711,0.276,0.252,0.2507,0.2491,0.2343,0.2316,0.2298,0.2271,0.2269,0.2212,0.2082,0.2077],"prob":["enjoy, someth, just, opportun, well, entertain, know"],"frex":["enjoy, just, well, entertain, someth, occasion, exposur"],"lift":["exposur, occasion, entertain, well, just, enjoy, serv"],"score":["exposur, enjoy, someth, just, well, entertain, opportun"],"proportion":["0.08"]},{"name":["Personal Enhancement Growth and Well-Being"],"summary":["The growth students experience through arts participation was reported as both personal and professional, but it is the arts’ contribution to dealing with the academic and social pressures at college that connects this growth with struggle (Personal Growth and Well-Being).  Skills, expression, stress relief, social connections and levels of happiness improve.  However, the cost is also acknowledged with the time tradeoffs arts participation requires for the benefits it bestows."],"size":[1800],"topic_no":[6],"thoughts":["Took up a lot of free time, but I got to meet lots of people.","Helped me grow as a person and helped build skills that I couldn't learn in the classroom, but also took a lot of my time which took away from academics.","Amazing, I met a lot of amazing people because of it, and grew as a professional.","It helped me make a lot of friends who are a lot like me.  I think it may have been what got me through a tough academic schedule; it gave me something to look forward to every day.","IT was mostly for enjoyment.  I have never intended on making it my career or anything, but it is something I enjoying participating in when I have free time.","Without my arts experience, my resume would be empty and I would probably be medicated. Though it is sometimes frustrating to work with others under the pressure and demanding schedules of college, my arts experiences keep my life together.","positive as it makes me happy","POSITIVE! I makes me happy.","makes me mad how much money we waste on it","They were at least half of my college experience, being a music education major. Not a day goes by where I don't participate and/or talk about the arts. This has been positive overall, but it has sometimes been stressful, other times it makes me concernedthat I am not developing intellectually in other ways. But it has given me wonderful opportunities I would not have had otherwise.","gave me an outlet for stress during my classes\r\na chance to continue my art through college\r\ndefinitely took a lot of time out of my schedule\r\n","It helped me learn more about different cultures. For example, I have attended a lot of cultural dance performances during my time here.","The arts were a nice \"break\" from the regular hustle and grind of college, and was an outlet through which I could express myself differently than I express myself in class. On the flip-side, it did sometimes take up too much of my free time, thus making t harder to manage my time for all of my other activities.","It was a good outlet for my own artistic expression; however, being involved in women's glee club was pretty time consuming and stressful at times. Overall, I'm happy I did it; my college experience would not have been the same without it...if anything, i just helped with my time management skills. It was also good socially!","As a music major, I spend pretty much all of my time doing something arts-related, and I couldn't be more happy about it.","I think it allowed me to appreciate more wholly the talent that individuals here possess. Even though I know I can't perform or create the art they do, I think it's wonderful, and it makes me proud that people can do such things.","Enjoyment of free time","Makes it a lot more interesting.","Played a positive role because I got the chance to meet many new people and learn about other cultures.\r\nNegative because it took away a lot of my time from when I could've been studying.","Was extremely enjoyable and confidence-building.  Took up a ton of time, even leading to a dip in my academic performance.","Some days it's great, some days it's the bane of my existence","I learned a lot and made a lot of friends.","Helped me make friends, gave me something to do in my free time, gave me something to be proud of.  conversely, when I was in a  songwriting slump I would feel very depressed or inadequate.","Arts were an activity for my enjoyment during free time","Not much of a role to be honest. I only have recently begun to involve myself more in the arts, mostly because it is my last semester and the only semester in which I had available space in my schedule.","I was not heavily involved in the arts, I don't even have much time to enjoy film, and minimal time to watch television. My love of music has certainly helped me throughout college though.","My involvement in the arts was mostly for enjoyment.  Sometimes, though unintended, it opened my mind to new perspectives.","Positive - It pushed me to incorporate arts into more areas of my life.  \r\n\r\nNegative - Took away time from my science curriculum.","As said, art makes me feel like I'm something special for having a skill that makes me unique and admired by others.  But it also makes me feel inferior sometimes since art is typically not seen as useful or functional for society.  Art is nice and prettybut does it feed or shelter people?"],"thought_proportions":[0.4135,0.4084,0.3287,0.3133,0.3103,0.2946,0.2785,0.2785,0.2785,0.2729,0.2729,0.2656,0.2653,0.2604,0.2525,0.2476,0.2471,0.2427,0.2355,0.2281,0.228,0.2186,0.2138,0.2126,0.2106,0.2064,0.2058,0.2022,0.2017],"prob":["time, lot, make, most, cultur, free, though"],"frex":["lot, make, most, happi, time, free, day"],"lift":["happi, day, money, lot, make, manag, most"],"score":["happi, time, lot, make, most, free, though"],"proportion":["0.07"]}],"topic_no":[4,6],"thoughts":["I think that they were mostly centered around my own personal enjoyment more than anything.  The arts were an opportunity to get outside of the schoolwork.","MMB is very stressful, but all of the wonderful opportunities outweighed the anxiety I sometimes had. And all of the arts opportunities here made it easy to just decide to go see or do something one night when you are free.","Something to do in my free time, a source of entertainment"],"thought_proportions":[0.3258,0.4253,0.4466],"thought_variances":[0.0202,0.0433,0.0516]},{"name":["Greater Involvement"],"summary":["The role the arts played in motivating students to become more involved while in college was true both in greater arts participation and in encouraging students to be more involved in other aspects of University life (Greater Involvement).  This greater involvement was also reflected in students changing their involvement profile to create a more balanced and varied college experience."],"size":[1800],"topic_no":[3],"thoughts":["My involvement with the arts helped me to become more engaged with the University environment. It also increased my social skills and taught me how to become involved in activities I was interested in.","Seeing my friends involved in the arts inspired me to become involved.","Very positive; I love being able to create art myself and appreciate other art forms\r\nIt has also been negative in a sense that there is a stigma in being an artist","Was not involved in many arts experiences but few I was involved in were positive","the only negative would be the cost, the positive is that it definitely increase my cultural awareness and appreciation.  It also increased my motivation to become involved, specifically with dance","Positive in that it created many meaningful relationships. Negative in that disagreements led to bad feelings.","I think it has added great balance to my experience. While I haven't been involved too extensively, I treasure the memories I have had of engaging in the arts.","Positive when involved but I didn't feel that I was very involved in the arts","They have created extreme pressure, but have also pushed me as an artist and person and helped me to grow.","every role in my community work/academics","Some of my closest friends I met in the marching band and in many cases, I quickly become friends with other people who are also involved in music and the arts.","I was able to feel more comfortable performing in front of a large group of audience.\r\nIt also helped me become more responsible.","Positive role.  I rehearse every week and go to many concerts.","Living in East Quad, I have been lucky to be surrounded by art and artistic people even though I have not been directly involved in RC arts. This living environment has affected me positively, because I still feel connected to art at U of M although it isnot my major or main focus. Dancing throughout college has also been a very positive part, in keeping fit and mentally happy.","Positive, attend to support my friends involved in the arts","Being involved in the arts gave me a community within the huge MIchigan community; I was able to meet people who had similar interests as me.  The friends I have made through my involvement in the arts became my closest friends.","My involvement in the arts through the marching band and hockey pep band benefitted me in so many ways, I cannot come close to naming them all.  The majority of my friends are involved in these organizations, helping me meet people studying things very diferent than what I am studying.  I was able to continue playing the piccolo throughout college, which was very important to me. I gained leadership experience, better understanding of myself, increased self-esteem and self-confidence, and networking that ill last forever. My experience with the arts in college is invaluable and irreplaceable.","The arts helped me in so many ways. I was able to be part of a community that accepted my beliefs the same way I accepted theirs. No matter what reason a person has to be involved, everybody that is involved cares and does what they like. The opportunitie I've had with UM arts have given me excellent leadership, communication, and problem solving skills. On top of it all, I've had so much fun doing it.","The arts provide a community feeling, where friends and family can socialize in a comfortable environment.","It provided a release from the duldrums of every day as well as made me feel apart of a community.","i met many people who are now my friends through the arts","I wish that I would have been involved more, but again, I chose to be involved in athletics instead.","The dance community at the University has served as a constant outlet for my creativity throughout my four years here. Through my involvement in dance, I met so many amazing people who I would never have known without it. Taking on leadership roles in thedance community has taught me more than I ever thought I'd learn about conflict resolution, time and money management, and how to be an effective leader in general. I am so glad that I made the decision to become involved in the arts here at Michigan. I blieve that it has truly shaped my experience here for the better.","My college experience revolved entirely around art. As a singer, I participated in many musical activities and attending concerts and performances was a large part of my free time. As an art enthusiast, the RC Art Forum provided a want to engage with all rtistic mediums on a different level through conversation and also participation. As a arts administrator, working with UMS as an intern and with the UMS Student Committee allowed for further experience with the behind the scenes side of bring art to Ann rbor. As a actress, I was on stage in many productions and also saw many shows of varying style from avant garde to Shakespearean. And this only scratches the surface of my involvement."],"thought_proportions":[0.4723,0.4359,0.4078,0.4046,0.4003,0.3753,0.3371,0.3261,0.3026,0.2979,0.2852,0.2833,0.2469,0.2453,0.2405,0.2377,0.2374,0.231,0.229,0.2247,0.2234,0.2147,0.2123,0.2118],"prob":["involv, mani, abl, none, communiti, feel, creat"],"frex":["none, mani, involv, becom, communiti, everi, extrem"],"lift":["side, none, engag, extrem, becom, awar, everi"],"score":["side, involv, mani, none, becom, communiti, engag"],"proportion":["0.06"]},{"name":["Social Connections"],"summary":["When students reported meeting new people through the arts in college (Social Connections) it resulted in new ideas, new skills (New People and New Skills), or new friends (Meet New Friends) - especially as they believed they were students they might not otherwise have met without their shared arts connections."],"children":[{"name":["New People and Skills"],"summary":["In meeting new people and gaining new skills through the arts, student reported gaining broader perspectives, new ideas, and interactions outside of their majors they would not have otherwise experienced.  It is the more diverse environment for learning that (New People and New Skills) brings that distinguishes this category from (Meet New Friends), which is primarily about developing new interpersonal connections."],"size":[1800],"topic_no":[1],"thoughts":["The arts positive effect was what I stated in the question before this one. The negative effects are the amount of time creative project consume. I find it frustrating when I am graded on a creative project, because what one  person likes about an essay o presentation another person may not like. It is hard to be proud of a creative assignment and then have to change everything around because one person does not like it.","Helped me gain broader perspectives, learn to ask meaningful questions, and made my college experience more well-rounded.","Met new people, learned new skills, entertainment","positive - networking, learning about different forms of art\r\nnegative - time consuming","Positive - Interacted with many types of people, learned how to teach different people\r\nNegative - None","Met new people","I learned more about people from different backgrounds.","Introduced me to new ideas. Also introduced me to some huge egos and ass holes.","Theatre and creative writing made me meet new people and hear new perspectives from people around me.","It forced me to interact with people outside of my major. These were very positive interactions that I would not have otherwise had.","I think being involved with the arts definitely helped me develop my communications and leadership skills.","Positive - introduced me to different people, provided balance","Positive - not being sure of how people will react to performances, putting yourself in a different situation\r\nNegative - learning about/realizing how uncultured/unappreciative some people are","The arts during my college experience has allowed me to push myself into creating visually pleasing effects.  This has allowed me to develop cognitive skills and deepened my respect for all art forms realizing how difficult it is.","The arts helped me develop leadership skills, skills in working with youth, and allowed me to express myself.","received enjoyment from it and made more personal connections with people","It has strengthened my skills as a person, but it has also presented challenges about dealing with people I could not relate to.","The arts helped me deal with stress from school and have more fun during college, helped me meet new people and learn new skills.","They helped me grow as a person.","Made me a more well-rounded person","Personal development","Provided much enjoyment and appreciation for the arts; gained new perspectives on other people's cultures.","It helped me get rid of personal frustrations through expressive means.","Made new friends, developed artistic skills, kept in shape","The arts have helped cultivate me into a well-rounded, experienced, and learned young person who feels confident about going out into the world and using the skills that I learned from the arts to help others.","personality change to more open-minded and relaxed--higher levels of intrinsic value obtained and discline, in many respects\r\n","being involved allowed me to meet a lot of friends and develop a network. it also developed my leadership skills","The arts were the vehicle for finding and making new friends, for expressing myself, for discovering so much more about myself, about the kind of person that I wanted to be. I've discovered what I'm capable of doing, and what I am not. They gave me time mnagement skills, and gave me practice coping with rejection. I also gained leadership skills that completely changed how I interact with group work and team members (which is very, very important in engineering fields). I no longer am too afraid to get acively involved in the leadership and direction of group work. The arts had an incredibly positive influence on my college experience; without these opportunities, my experience in college would have been completely different, and most likely, far less enjyable and important to my growth and development as contributing member to society.","Introduced me to different cultures and experiences","Positive: enjoyment, development of personal style","Helped me better understand and empathize with others, and I gained many leadership skills through Arts Ambassadors.","it helped me meet very different people and appreciate other perspectives that I would have otherwise have missed.","It allowed me to meet new people and explore my creative side. I learned to expand both my creativity and expression through my involvement with the arts. I was opened up to new ideas and fresh perspectives. There was nothing negative about the experience","They helped me see and appreciate different people's styles and perspectives.","Met so many people","Played a positive role, I had fun, traveled places and met new people","helped me meet friends and learn about new cultures","The arts allowed me to be more creative, open minded, and expressive. They helped develop leadership and organizational skills.","The arts gave me a broader understanding and appreciation for different people, perspectives, and cultures.","Helped me to meet many diverse people, all of which had new and interesting perspectives","it has opened my eyes to a new form of expression but it is very time consuming, forcing me to sacrifice other facets of my interest.","helped me meet new people","Met people, had fun.  Frustrating because I didn't have time for everything I wanted to do.","It was definitely a positive connection. I really enjoyed seeing as many performances and exhibits as possible. I truly learned a lot and got to experience a wide range of unique forms of art. It is one of the things I will miss most about college.","I liked going to arts events with my friends. We all have different interests and its nice to share them and learn about new things.","Positive- learned to dance! Increased social skills, met diverse group of friends\r\n\r\nNegative- consumed more time than anticipated. Interfered with academic life","The arts has definitely encouraged me to develop a new perspective and better understand others' points of view through films, creative visual art, etc.","All positive, and by choice. I took elective courses and attended events in order to learn more and gain new experiences.","The arts helped me find a social group in which I feel very comfortable and also gave me the opportunity to learn a new skill.  I can't think of any negative impact on my college experience.","positive in finding new ways to be creative\r\nI don't have any negative experiences"],"thought_proportions":[0.6976,0.5931,0.5591,0.4483,0.4472,0.4362,0.4301,0.425,0.4247,0.4105,0.4097,0.4089,0.4089,0.3864,0.3654,0.3652,0.3636,0.3627,0.3592,0.3592,0.3592,0.3553,0.3533,0.3373,0.3263,0.3223,0.3158,0.3007,0.2967,0.2942,0.294,0.2877,0.2875,0.2801,0.2765,0.2583,0.2551,0.2549,0.2526,0.2483,0.2455,0.2451,0.245,0.239,0.2376,0.2351,0.2337,0.2336,0.2324,0.2316],"prob":["new, learn, person, peopl, skill, differ, develop"],"frex":["person, develop, skill, met, new, leadership, introduc"],"lift":["grow, well-round, develop, introduc, person, chang, met"],"score":["grow, person, new, develop, learn, peopl, skill"],"proportion":["0.09"]},{"name":["Meet New Friends"],"summary":["Meeting new people that became part of one’s social network as friends was a reported role of the arts in college (Meet New Friends).  These new friends also created community for students  through arts organization membership or other interest group connections."],"size":[1800],"topic_no":[13],"thoughts":["Gave me a chance to meet a lot of great friends and be a part of a group with a common interest. It also gave me something to focus on besides schoolwork, which was really important. However, it also took a ton of time out of my schedule, which prevented e from getting involved in other student organizations. Band was my one extracurricular activity.","The arts gave me a place to take part in extracurriculars that I really enjoyed. It also helped me meet new people with similar interests!","Being involved in the arts gave me a community within the huge MIchigan community; I was able to meet people who had similar interests as me.  The friends I have made through my involvement in the arts became my closest friends.","Positive: Gave me a place to go when I didn't have anything to do, I really don't participate in drinking so the events are perfect for hanging out with friends and getting to know what is going on and meeting new people.\r\nNegative: Perhaps if it is a realy popular event it becomes less enjoyable because there is a large amount of people waiting at each activity.","The arts played the role of a fun activity to do, one that made me feel that I was getting involved. It also was positive in that it helped me meet new and interesting people.","made me more organized and focused. also allowed me to have a healthy lifestyle","Arts played a positive role in my experience, especially through building a community with other people with similar interests.","Gave me a creative release, as well as opportunities to meet people I would not otherwise have met. It also gave me opportunities both to lead and to follow.","It was interesting to meet an entirely different set of people.","Shaped and defined my circle of friends.","Helped me to meet many diverse people, all of which had new and interesting perspectives","They were often a way for me to meet and connect with others who shared the same interests, which was important for me since most people in my department (that I've met) aren't nearly as involved. Looking at visual art from around the world has also made e more interested in traveling to different places around the world.","meet new people, get involved","Positive influence on my attitude and stress levels. It helped me make a great group of friends and meet new people.","Well, art is my life since I am an art student. Which is great because I get lost in it... but is bad because lots of people on campus have a prejudices against art students (not a real degree, easy a's, etc)","I became involved in MDraw, a student organization, mostly because my friends were starting the club, not because I consider myself to be particularly artistic.  I did however participate in ballet, inside and outside of classes for credit, and really enjyed the creative expression that it allowed me.","Attending and performing in arts related activities have been a creative outlet for me. My business school classes are heavily based in quantitative reasoning. The arts have been a way for me to release tension and stress from my other responsibilities. I's also been a way for me to meet people and collaborate with students interested in things similar to myself.","helped me meet new people","Some of my closest friends I met in the marching band and in many cases, I quickly become friends with other people who are also involved in music and the arts.","Positive- interest/connection\r\nNegative- people i'm meeting are strange and not like me at all"],"thought_proportions":[0.5703,0.4737,0.4724,0.3051,0.3004,0.2884,0.2852,0.2708,0.2431,0.2415,0.2371,0.2369,0.2367,0.2331,0.2251,0.2213,0.2143,0.2137,0.2136,0.2053],"prob":["also, peopl, interest, meet, friend, gave, student"],"frex":["meet, interest, also, organ, peopl, similar, student"],"lift":["shape, similar, becam, meet, organ, interest, place"],"score":["shape, meet, peopl, interest, also, friend, similar"],"proportion":["0.05"]}],"topic_no":[1,13],"thoughts":["it has been positive, learning about music and art, I also took art history and learned about historical art movements and that was interesting","Arts organizations were my primary extra-curricular activities in college, and while there is always stress associated with these organizations I would say that they were very positive experiences both in terms of my personal happiness and development.","Helped me to meet many diverse people, all of which had new and interesting perspectives","They were often a way for me to meet and connect with others who shared the same interests, which was important for me since most people in my department (that I've met) aren't nearly as involved. Looking at visual art from around the world has also made e more interested in traveling to different places around the world.","helped me meet new people","meet new people, get involved","helped me meet friends and learn about new cultures","It was interesting to meet an entirely different set of people."],"thought_proportions":[0.31,0.3215,0.4854,0.4443,0.4587,0.4308,0.444,0.4056],"thought_variances":[0.0023,0.0084,0.0113,0.0296,0.0314,0.0425,0.0663,0.0806]}],"topic_no":[9,4,6,3,1,13],"thoughts":[],"thought_proportions":[],"thought_variances":[]}],"topic_no":[7,12,2,8,9,4,6,3,1,13],"thoughts":[],"thought_proportions":[],"thought_variances":[]},{"name":["Educational"],"summary":["Focusing on the expected role the arts had in students’ learning and educational experience in college, this section of responses focuses strongly on students enrolling in arts courses, majoring in the arts, or otherwise engaging in the arts more through their academic work (Educational). We know from another question in the Arts Engagement Project survey (Barriers) that students want to have opportunities to engage the arts through classes, but are often unable to due to Academic Program Requirements, University Priorities, Departmental Segregation, and Distance Between Campuses."],"size":[1800],"topic_no":[11],"thoughts":["I really enjoyed learning about art history on a global scale and visiting a variety of museums in and around the Ann Arbor/Detroit/Toledo area. University of Michigan's Art History Department is one of the best on campus and inspired me (a pre-med studen) to continue to pursue my love of art by studying through a historical lens. I went from deciding to take one art history class for my LSA humanities credit to considering a minor in Art History to now majoring in Art History along with my original sciene major. I feel like I understand so much more about the world through art and I'm so glad I was able to learn about cultures I had limited to no exposure to previously.","I took an art history class that I enjoyed very much. I did little else related to the arts besides visit museums occasionally.","I took a few art history classes and enjoyed quite a bit, and I also took a class on creative writing, art of film, and history of rock music. Each of these classes were some of the best I have taken at the University.","Positive values were to experience history and culture through theatrical productions and concerts","Arts haven't been a big part of my experience--I'm a science major.","It provided a lot of activities to do on the weekends. Art museums and concerts were a positive part of my college time.","It made me more active in pursuing other means of doing light design such as through university production","Being that LSA Music is one of my majors, arts (namely music) have been a very regular part of my college experience. There were times, however, that I wished I could be part of other arts activities on campus, such as participating in theater groups, butmy busy schedule made that near impossible because of the time commitment they require.","I've really enjoyed the classes that required me to go to the UofM museums. I went to a couple of musicals and I had never been to one before, and it was a really good experience.","The arts fulfilled me more personally during my time at Michigan than almost anything else, but I did not always have the most positive experiences while studying it formally in the University's History of Art department.","It supported my initial ideas of pursuing my interest in the arts further. However, it reminded me that the arts are a large time commitment.","not a huge role, mostly was a big part of my abroad experience","They did not play an overall large part, but they were an important part of my college experience.  For me, it was a positive social activity to do with friends and experience things I have not experienced before.  I never had a negative experience.","As a Museum Studies minor, I appreciate the arts, and I do try to attend shows when I can, but the arts as a whole really aren't an important part of my life at school, so I couldn't say they had a role at all.","Not too large, required writing class...occasionally went to exhibits, speakers, lectures, performances; the ones every thursday at Michigan Theater--forget what it was called but those were awesome (e.g. John Cage Trust)","Arts are a huge part of my life, so naturally they were a big part of my time during college. I listen to music everyday, create visual art on my own, and appreciate tons of art online, through social networking and surfing the internet.","Not a large one. Outside of the english classes I was required to take, I didn't have a strong arts experience.","A pretty minimal one","Neutral, Art is not a big part of my life.","I took an arts class for non majors to further my interest and knowledge","music minor. got to take piano lessons, took a lot of musicology classes (very educational), took a PAT class (a very new and awesome experience).","i went to the opening of the art museum, but that's about it","I haven't done much with the arts while I have been in college so I feel it hasn't played a big role","Concerts were a way to take a break from studying and the bustle of college life, but they also took time away from work.","I attended several concerts at the Hill Auditorium of really awesome groups (SF Symphony, Berlin Philharmonic, etc). I am part of the Arts In Residence committee of Markley ResStaff and have spent my year planning Arts-related activities for the residents","No real negative, I attended some shows and go the the art museum time to time.  I also took some art history classes and learned a lot from them.","I often visited the Kelsey Museum for class/enjoyment. I also liked being given the opportunity to take classes that corresponded with the arts ie. photography. Looking and examining art/artifacts makes you appreciate life and history","The arts provided me with some entertainment throughout my time in college, but typically only when I had nothing else to do. I never had negative experiences with them, and I felt that the University of Michigan provided me sufficient opportunities to paticipate in activities free of charge.","I was often required to attend events or museums for classes. It was nice to have a break from the classroom and have class in a museum or at an art exhibit.","It did not play a large role. It was an elective. For the most part it was positive.","The arts served as a fun thing to do as an alternative to my typical weekend activities.","I loved attending shows, going to concerts, and going to museums. There weren't really any negatives.","Fun activities, support friends, social activity, journaling for myself was extremely important","The arts play a major part of my college experience since the degree I am pursuing is heavily associated with creativity, problem solving, open-mindedness, etc.","I have attended a few University art shows and they have all been very enjoyable positive experiences that helped me to take a break from my studies.","It was always a fun thing for me to go watch a musical performance, or a play, or visit the art museum. I looked forward to such activities. I can't think of a negative experience","more activities to choose from"],"thought_proportions":[0.7626,0.5738,0.5734,0.5399,0.5212,0.4879,0.4821,0.4404,0.4067,0.4036,0.3861,0.3803,0.3628,0.356,0.3414,0.3321,0.3255,0.3161,0.3122,0.3056,0.2792,0.2766,0.276,0.2688,0.2679,0.2679,0.2474,0.2419,0.2404,0.2377,0.2305,0.2209,0.2178,0.2165,0.2071,0.2035,0.202],"prob":["activ, concert, part, museum, class, studi, took"],"frex":["histori, studi, concert, activ, museum, part, pursu"],"lift":["histori, pretti, minor, studi, pursu, product, weekend"],"score":["pretti, part, concert, histori, museum, studi, activ"],"proportion":["0.06"]},{"name":["Small Role"],"children":[{"name":["Unable to Participate Much"],"summary":["Many of the students responding here specifically stated that the arts “didn’t play a role” in their college experience.  Other responses pointed to an inability to attend arts events as much as they might have wanted,  though this did not dampen the generally positive role they felt the arts had played for them during their time at the University."],"size":[1800],"topic_no":[5],"thoughts":["Arts played a small role in my college experience. When I did participate, it was a positive experience","I attended various arts events that I thoroughly enjoyed, so I would say that arts played a slightly positive role","Attending events, doing arts and crafts","I attended a bunch of shows and participated on my own (not in an organization)","I didn't get to participate as much as I wanted to.","I enjoyed attending theater and music performances","Mainly performing in a band and attending plays and music concerts. I loved both.","Their was only positive. I came to U of M to study music, and everything that I have received here has made me more capable at my craft.","Positive:  Was able to attend a wide variety of fun events that showcased the immense talent we have on this campus\r\nNegative:  I wish there was more time to participate in groups!","mainly I missed the arts and loved the few events I was able to attend","I would say that attending arts events was a bonding experience for my friends and I.","I love attending the different events at U of M, whether it be a play, a student show, or just an exhibit. I can't think of any negative things about the arts here at U of M.","I made a lot of friends in choir, it was great. I also saw some plays and musicals, I used to be in musicals all the time and I like watching them. I think it's hard to do musicals here if you're not a musical theater or vocal major.","didn't play a role","It didn't really play a role.","didn't play a role","They didn't play that much of a role in college.","didnt play a role","Didn't play a role","The arts played no significant role, they were neither positive nor negative.","They played a very small, but positive, role.","It played a minimal experience.","I never played a leadership role in the arts, but, I did attend and enjoy many events around campus. Personally, attending events, such as concerts or films, helped me relax and cope with stress.","Mostly, I enjoy going to performing art shows like dance shows, musicals, and plays","Positive: arts (esp. music) have afforded me an outlet to relax and an avenue to express myself through the notes/rhythm (I play the drums - tabla - for the Indian Classical music group on campus).\r\n\r\nNegative: at times, I have found myself practicing forhours, forgetting the time, and, as a result, falling behind on my academic work!\r\n\r\n\r\n","Did not play a large role in my life much less college.","I loved attending shows, going to concerts, and going to museums. There weren't really any negatives.","Didn't really play much of a role, but it did relieve stress when I attended an arts performance.","I never really had any negative art experiences in college. That being said, I had very few experiences to begin with, so perhaps I was just discriminatory in choosing which events to attend. Overall, I would say the arts have been only positive.","positive, but a limited role.  I rarely participated in the \"making\" of art, but I attended/supported events and I learned more about art through attending.","attended events for fun","I enjoyed attending Art events","It didn't play a big role other than my attending performances in the arts when possible for fun.","I've attended concerts, plays and performances, however never participated.","I enjoyed going to performances, nut didnt really participate myself.","I attended musical performances occasionally","Arts played a positive role in my college experience, not just through what I do but by watching my peers (some who are in music school and some who aren't) who express their love for the arts. \r\nIt's a really freeing avenue.","I was not heavily involved in the arts, I don't even have much time to enjoy film, and minimal time to watch television. My love of music has certainly helped me throughout college though.","Attending shows and visiting museums many times. I also participated in the dance scene, not only with my group but with many of the other dance groups.","I loved every moment I spent participating in the arts here at u of m.","i loved going to see stuff, i hated not being able to participate. it made me miserable for two years.","art did not have a big impact in my college experience. attending shows were fun, so i suppose positive.","I didn't attend enough for it to have a really big impact on me. I wish I would have, but there didn't seem to be enough time.","enjoyed watching certain plays around campus during free time","Arts played a positive role in my college experience. I enjoyed attending events with friends and engaging in art-related project in my courses","i enjoyed the events that were available around campus","My role in the arts was only positive.  The shows I attended were wonderful.  The classes I participated in were great and I produced some really cool work to ate home.","It didn't play a very large role either way.","It didn't play a major role in either way.","Enrichment of my activities.  We always feel so cool when we go to the theater to see a play or a concert."],"thought_proportions":[0.4212,0.4166,0.3953,0.3566,0.355,0.3528,0.3523,0.352,0.3454,0.338,0.3379,0.3342,0.3336,0.3288,0.3288,0.3288,0.3288,0.3288,0.3288,0.3288,0.3288,0.3288,0.3201,0.315,0.3143,0.3134,0.294,0.2924,0.2904,0.2901,0.2898,0.2897,0.287,0.2853,0.2811,0.2808,0.2788,0.2762,0.2723,0.2674,0.2671,0.2651,0.2605,0.2589,0.2555,0.2527,0.2498,0.2477,0.2476,0.2446],"prob":["play, attend, music, event, particip, didnt, love"],"frex":["didnt, event, attend, play, particip, want, music"],"lift":["signific, small, didnt, watch, minim, want, event"],"score":["small, play, attend, didnt, event, music, particip"],"proportion":["0.1"]},{"name":["Small Role"],"summary":["Students who report that the arts played only a small role in their college experience (Small Role) typically indicated it was because they had participated a limited number of times as an audience member, or as time allowed.  While reporting this role as generally positive, they also said even this limited interaction increased their appreciation or the arts and artists."],"size":[1800],"topic_no":[10],"thoughts":["Mainly played a neutral role.  I appreciated the arts when I was exposed to them, but that was a limited amount of experiences.","not a huge role, mainly went to see a few performances, nothing negative","The arts have had a positive impact on me, especially because I have gone to the university art museum and different performances that have broadened my world-view in relation to the arts.  I always feel more appreciative for different ways of expressing nes-self after seeing different types of art exhibits.","I have not been very involved in the arts in college - however I did attend a handful of preformances which I have always enjoyed and appreciated. I would not say however that they had a large impact on me. While I am not an arts person, I can appreciate he arts"," I went to see theater performances and a few exhibits on north campus, which were always positive and enlightening experiences. None negative.","I had a lot of positive experiences, especially through performances that I would have never been exposed to if I hadn't come to UMich.","I wouldn't say the played a large enough role for me to have experienced anything negative, but I've definitely learned to be more appreciative of people in the arts as a result of my college experience.","Completely neutral.  Some shows, performances, exhibits were weekend outings, but that is it.","I've participated in more arts activities this year than in years prior.   I've attended a couple plays and dance performances, which have had positive impacts as I've gone to support friends and really enjoyed myself.  There really hasn't been a negativeaspect to my slightly increased participation in the arts.","It was mainly a recreational aspect of my college life, neither positive nor negative.","I am a film major so that has definitely been a positive aspect of my life.  I've loved all the places, dances, cultural shows, etc.  I just wish I could have done more.","Positive I've been able to see a wide range of performances and groups and I have learned of many different contributors and povs.  Negative some of it is very segregated","I got to go to a lot of plays, exhibits, performances, etc. that were fun and expanded my knowledge about the arts","I was never involved with arts directly, but always enjoyed attending performances of my friends. I've also attended musical performances through invitation from someone I know. All were positive experiences.","Not a large role but always positive when I had encounters","Not a huge role, but it was always something that I enjoyed seeing.","I've attended concerts, plays and performances, however never participated.","Only positive. I've attended various arts performances...musicals, plays, musical performances...and I've enjoyed every one. I've developed a greater appreciation for what artists put into their work.","I like going to the art fair and seeing music performances. These were positive experiences.","It's almost all positive--the only negative impact that being in the arts has had on me is that I am less disciplined.  but I guess discipline and creativity cannot always co-exist, which might be why that is.","The arts really only played a positive experience for me in college, as it was a way I spent some of my leisure time. I always looked forward to going to artistic events on campus, including concerts, art exhibits and film screenings.","I feel that this year, they've played the role of challenging my beliefs and expanding my world-view, as well as exposing me to things that I otherwise would not have been exposed to. A big factor for me was cost, as I was able to attend many more events han previous years due to them being subsizied through the Honors College (an opportunity which I previously had not taken advantage of).","I attended several concerts at the Hill Auditorium of really awesome groups (SF Symphony, Berlin Philharmonic, etc). I am part of the Arts In Residence committee of Markley ResStaff and have spent my year planning Arts-related activities for the residents","helped me learn more about the arts, I am more knowledgeable and I appreciate art much more now\r\n","I was able to feel more comfortable performing in front of a large group of audience.\r\nIt also helped me become more responsible.","It was definitely a positive connection. I really enjoyed seeing as many performances and exhibits as possible. I truly learned a lot and got to experience a wide range of unique forms of art. It is one of the things I will miss most about college.","i loved going to see stuff, i hated not being able to participate. it made me miserable for two years.","mainly I missed the arts and loved the few events I was able to attend","The arts largely had a positive role in my college experience. I was exposed to a lot of different kinds of art, and with greater depth than I was prior to college, and I was able to adopt and appreciation and understanding for kinds of art I knew nothingabout before.","I was a music major throughout my four years, with my primary instrument being voice. I was never negatively influenced by the arts at any point at the University and have always felt that I was encouraged to keep participating in them. I was never cut don by anyone here when I revealed my major to other non-music majors. The arts played a huge role in my college career, I always find myself attending peers' performances, participating in performances, and of course practicing my instrument on a daily bass. If I didn't have that outlet to be able to consume and express myself through art, I don't think I would have been as fulfilled in the past four years that I've been at Michigan.","They didn't play a huge role time wise, but when I was able to express myself through art, they made a large impact on my emotional and mental health.","They helped me see and appreciate different people's styles and perspectives."],"thought_proportions":[0.5389,0.5191,0.5028,0.4936,0.4068,0.3952,0.3384,0.334,0.3247,0.3052,0.3035,0.2986,0.2908,0.2907,0.2905,0.2839,0.2786,0.2444,0.2433,0.2403,0.2392,0.2386,0.2371,0.2368,0.2361,0.2322,0.2303,0.2265,0.2221,0.2181,0.2139,0.2057],"prob":["perform, appreci, see, ive, alway, impact, larg"],"frex":["appreci, perform, impact, see, exhibit, ive, knowledg"],"lift":["neutral, exhibit, knowledg, comfort, etc, impact, appreci"],"score":["neutral, perform, see, appreci, ive, alway, impact"],"proportion":["0.07"]}],"topic_no":[5,10],"thoughts":["I've attended concerts, plays and performances, however never participated.","They were positive. A nice break from engineering. I really enjoy dancing and seeing musical performances, plays, dances, etc.","Arts became something I would go to see if I had spare time. It doesn't happen often, because that doesn't usually coincide with events I want to see.","The arts really only played a positive experience for me in college, as it was a way I spent some of my leisure time. I always looked forward to going to artistic events on campus, including concerts, art exhibits and film screenings.","They didn't play a huge role time wise, but when I was able to express myself through art, they made a large impact on my emotional and mental health.","mainly positive, didn't have any negative experiences","I attended several concerts at the Hill Auditorium of really awesome groups (SF Symphony, Berlin Philharmonic, etc). I am part of the Arts In Residence committee of Markley ResStaff and have spent my year planning Arts-related activities for the residents","i loved going to see stuff, i hated not being able to participate. it made me miserable for two years.","My participation in dance performances was an overall positive experience and created lasting memories that I will always have.","Enrichment of my activities.  We always feel so cool when we go to the theater to see a play or a concert.","Only positive. I've attended various arts performances...musicals, plays, musical performances...and I've enjoyed every one. I've developed a greater appreciation for what artists put into their work.","Attended plays and performances.  Added a nice variety of things to do.","The arts did not play a large role in my college experience.","The arts was my major in college and it let me experience many opportunities including participate in the Ann Arbor Film Festival, many galleries around campus, and such.","I was a music major throughout my four years, with my primary instrument being voice. I was never negatively influenced by the arts at any point at the University and have always felt that I was encouraged to keep participating in them. I was never cut don by anyone here when I revealed my major to other non-music majors. The arts played a huge role in my college career, I always find myself attending peers' performances, participating in performances, and of course practicing my instrument on a daily bass. If I didn't have that outlet to be able to consume and express myself through art, I don't think I would have been as fulfilled in the past four years that I've been at Michigan.","I like going to the art fair and seeing music performances. These were positive experiences.","I feel that this year, they've played the role of challenging my beliefs and expanding my world-view, as well as exposing me to things that I otherwise would not have been exposed to. A big factor for me was cost, as I was able to attend many more events han previous years due to them being subsizied through the Honors College (an opportunity which I previously had not taken advantage of).","It's almost all positive--the only negative impact that being in the arts has had on me is that I am less disciplined.  but I guess discipline and creativity cannot always co-exist, which might be why that is.","There weren't any negative aspects related to the arts in college. The positive experiences made me want to participate in the arts and get more creative.","I was never involved with arts directly, but always enjoyed attending performances of my friends. I've also attended musical performances through invitation from someone I know. All were positive experiences."],"thought_proportions":[0.5638,0.3514,0.3537,0.4613,0.3988,0.4035,0.4377,0.4974,0.3604,0.4415,0.4408,0.4286,0.3837,0.3847,0.3716,0.4191,0.3985,0.4008,0.3859,0.498],"thought_variances":[0.0067,0.008,0.0145,0.0172,0.0289,0.0339,0.0364,0.0368,0.0385,0.0477,0.048,0.051,0.0574,0.0619,0.0645,0.0676,0.0788,0.0798,0.0832,0.0834]}],"topic_no":[7,12,2,8,9,4,6,3,1,13,11,5,10],"name":["What role did the arts play in your college experience, both positive and negative?"],"this_root":[true],"summary":["A topic model with 13 topics, 840 documents and a 300 word dictionary."],"proportions":[0.0891,0.0749,0.0645,0.076,0.098,0.0698,0.1212,0.0607,0.0784,0.0705,0.0637,0.0797,0.0536],"thoughts":["It helped me to see more culturally important practices, but made me lose self-esteem.","It made me college experience more diverse.","It gave me something to do on nights when I didnt feel like drinking","positive, feeling of belonging","It shaped my college career because it is what I studied.","Helped me find arts from my parent's backgrounds.","Writing on my own helped me to come out of times when i was slipping into depression. This, however, was personal rather than school driven.","Positive, made me feel like I was a part of something bigger.","It gave me something fun to do that was inexpensive and also helped me expand my passion for the arts.","positive - I like it more, negative - I wish I'd been involved in it sooner.","Helped me become a more well rounded individual.","I was able to relax and have fun at arts events, expressing myself through music and material objects.  Arts was also very important to my career choice and helping me understand the ideas associated to my major and minor.","Helped make college life a diverse and worldly experience.","It made me realize that something might be missing from my life which could be both positive and negative.  Observing others' art made me happy which is a positive thing.","I wanted to get involved, just no time","I had a great time dancing for FASA","Extremely positive, my whole life revolves around design and creativity.","They allowed me to look at the world from very different viewpoints and helped me to find out some things that are important, that maybe I didn't realize were important before. I definitely appreciate the world and the people around me more.","I found an appreciation for other's skills in the arts that I could not accomplish.","Made me wish I was more artistically inclined","good--variation\r\nbad--not enough","positive; but i havent had a lot","I don't know how to answer this","Something to do on the weeks that was out of the ordinary","Positive for enjoyment purposes","Enjoyment","It made my college experience much more enjoyable.","Enjoyment","enjoyment","enjoyment only","Enjoyment","for enjoyment","An enjoyable experience","Not much-- I enjoy going there.","entertainment","It provided entertainment","Entertainment","Entertainment.","Provided entertainment","entertainment"],"thought_proportions":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"thought_variances":[0.0646,0.0654,0.0751,0.0803,0.0817,0.0834,0.0862,0.0869,0.0877,0.0887,0.0892,0.0911,0.0929,0.0934,0.0936,0.0939,0.0942,0.0954,0.0977,0.0984,0.0991,0.0992,0.0994,0.0995,0.0996,0.0996,0.0996,0.0996,0.0996,0.0996,0.0996,0.0996,0.0996,0.0996,0.0996,0.0996,0.0996,0.0996,0.0996,0.0996]}
 </script>
 <style>
 div.settings-label {
-    font-size: 12px;
-    color: #BBB;
-    font-style: italic;
-    margin-top: -10px;
-    margin-bottom: 40px;
-    font-weight: 300
+	font-size: 12px;
+	color: #BBB;
+	font-style: italic;
+	margin-top: -10px;
+	margin-bottom: 40px;
+	font-weight: 300
 }
 
 div.tooltip {
-    position: absolute;
-    text-align: left;
-    padding: 10px;
-    border: 1px solid #D5D5D5;
-    font-family: arial, helvetica, sans-serif;
-    font-size: 1.1em;
-    color: #333;
-    padding: 10px;
-    border-radius: 3px;
-    background: rgba(255, 255, 255, 1);
-    color: #000;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
-    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
-    border: 1px solid rgba(200, 200, 200, .85);
+	position: absolute;
+	text-align: left;
+	padding: 10px;
+	border: 1px solid #D5D5D5;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 1.1em;
+	color: #333;
+	padding: 10px;
+	border-radius: 3px;
+	background: rgba(255, 255, 255, 1);
+	color: #000;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+	-moz-box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+	border: 1px solid rgba(200, 200, 200, .85);
 }
 
 .sidebar {
-    position: absolute;
-    text-align: left;
-    padding: 10px;
-    border-right: 1px solid #D5D5D5;
-    font-family: arial, helvetica, sans-serif;
-    font-size: 1.1em;
-    color: #333;
-    padding: 10px;
-    background: rgba(255, 255, 255, 1);
-    color: #000;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
-    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, .4)
+	position: absolute;
+	text-align: left;
+	padding: 10px;
+	border-right: 1px solid #D5D5D5;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 1.1em;
+	color: #333;
+	padding: 10px;
+	background: rgba(255, 255, 255, 1);
+	color: #000;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+	-moz-box-shadow: 0 1px 5px rgba(0, 0, 0, .4)
 }
 
 .sidebar-item {
-    direction: ltr
+	direction: ltr
 }
 
 .sidebar-rule {
-    height: 1px;
-    margin: 1px auto 3px;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    background: #ccc;
-    width: 10em
+	height: 1px;
+	margin: 1px auto 3px;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	background: #ccc;
+	width: 10em
 }
 
 .header-rule {
-    height: 1px;
-    margin: 1px auto 3px;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    background: #ccc;
-    width: 16em
+	height: 1px;
+	margin: 1px auto 3px;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	background: #ccc;
+	width: 16em
 }
 
 .header-rule-short {
-    height: 1px;
-    margin: 1px auto 3px;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    background: #ccc;
-    width: 6em
+	height: 1px;
+	margin: 1px auto 3px;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	background: #ccc;
+	width: 6em
 }
 
 .header0 {
-    color: #000;
-    font-size: .7em;
-    margin-bottom: 2px;
-    text-align: center;
-    font-style: oblique
+	color: #000;
+	font-size: .7em;
+	margin-bottom: 2px;
+	text-align: center;
+	font-style: oblique
 }
 
 .header1 {
-    color: #000;
-    font-size: .8em;
-    margin-bottom: 2px;
-    text-align: center
+	color: #000;
+	font-size: .8em;
+	margin-bottom: 2px;
+	text-align: center
 }
 
 .header2 {
-    text-align: left;
-    font-size: .7em;
-    margin-bottom: 2px;
-    color: #666;
-    text-align: center
+	text-align: left;
+	font-size: .7em;
+	margin-bottom: 2px;
+	color: #666;
+	text-align: center
 }
 
 .header3 {
-    color: #333;
-    text-align: left;
-    font-size: 13px;
-    font-style: italic;
-    text-align: center
+	color: #333;
+	text-align: left;
+	font-size: 13px;
+	font-style: italic;
+	text-align: center
 }
 
 .thoughts {
-    color: #333;
-    text-align: left;
-    opacity: 1 font-size:.7em;
-    text-align: center;
-    transition: .7s ease;
-    font-size: 16px;
+	color: #333;
+	text-align: left;
+	opacity: 1 font-size:.7em;
+	text-align: center;
+	transition: .7s ease;
+	font-size: 16px;
 }
 
 .overlay-text {
-    color: black;
-    font-size: 16px;
-    font-weight: 700;
-    opacity: 0;
-    position: absolute;
-    transition: .7s ease;
-    width: 90%;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center
+	color: black;
+	font-size: 16px;
+	font-weight: 700;
+	opacity: 0;
+	position: absolute;
+	transition: .7s ease;
+	width: 90%;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-align: center
 }
 
 .thought-container {
-    position: relative;
-    margin: 7.5px 8px 0 8px
+	position: relative;
+	margin: 7.5px 8px 0 8px
 }
 
 .thought-container:hover .thoughts {
-    opacity: .15
+	opacity: .15
 }
 
 .thought-container:hover .overlay-text {
-    opacity: 1
+	opacity: 1
 }
 </style>
     <!-- css -->
@@ -1140,8 +163,10 @@ div.tooltip {
     <!-- js -->
 <script>
    var vizuly={};vizuly.version="1.0",vizuly.core={},vizuly.viz={},vizuly.viz.layout={},vizuly.viz.layout.CLUSTERED="CLUSTERED",vizuly.viz.layout.STACKED="STACKED",vizuly.viz.layout.OVERLAP="OVERLAP",vizuly.viz.layout.STREAM="STREAM",vizuly.svg={},vizuly.theme={},vizuly.skin={},vizuly.ui={},vizuly.core.component=function(a,b,c,d){function e(a,b,c){Object.getOwnPropertyNames(c).forEach(function(d,e,f){"undefined"==typeof b[d]&&(b[d]=c[d],a[d]=function(c){if(!arguments.length)return b[d];var e=b[d];return b[d]=c,b[d]!==e&&b.dispatch[d+"_change"].apply(this,[b[d],e]),a})})}b.parent=a,b.properties=c,b.id=vizuly.core.util.guid(),b.selection=d3.select(a).append("div").attr("id","div_"+b.id).style("width","100%").style("height","100%");var f=[];f.push("mouseover"),f.push("mouseout"),f.push("mousedown"),f.push("click"),f.push("dblclick"),f.push("touch"),f.push("zoom"),f.push("zoomstart"),f.push("zoomend"),f.push("initialize"),f.push("validate"),f.push("measure"),f.push("update"),Object.getOwnPropertyNames(c).forEach(function(a,b,c){f.push(a+"_change")}),d&&d.length>0&&d.forEach(function(a){f.push(a)}),b.dispatch=d3.dispatch.apply(this,f);var g=function(){return e(g,b,b.properties),g};return b.dispatch.component=g(),g.id=function(){return b.id},g.selection=function(){return b.selection},g.on=function(a,c){return b.dispatch.on(a,c),g},g.validate=function(){if(!a){var a=[];if(Object.getOwnPropertyNames(c).forEach(function(c){!b[c]&&Number(0!=b[c])&&a.push(c)}),a.length>0)throw new Error("vizuly.core.util.component.validate(): "+a.concat()+" need to be declared");b.dispatch.validate()}},b.dispatch.component},vizuly.core.util={},vizuly.core.util.size=function(a,b,c){var d={};return d.width=b-vizuly.core.util.measure(a.left,b)-vizuly.core.util.measure(a.right,b),d.height=c-vizuly.core.util.measure(a.top,c)-vizuly.core.util.measure(a.bottom,c),d.top=vizuly.core.util.measure(a.top,c),d.left=vizuly.core.util.measure(a.left,b),d.bottom=vizuly.core.util.measure(a.bottom,c),d.right=vizuly.core.util.measure(a.right,b),d},vizuly.core.util.getTypedScale=function(a){var b;return b="string"==typeof a?d3.scale.ordinal():a instanceof Date?d3.time.scale():d3.scale.linear()},vizuly.core.util.setRange=function(a,b,c){"string"==typeof a.domain()[0]?a.rangeBands([b,c],0):a.range([b,c])},vizuly.core.util.measure=function(a,b){if("string"==typeof a&&"%"==a.substr(a.length-1)){var c=Math.min(Number(a.substr(0,a.length-1)),100)/100;return Math.round(b*c)}return a},vizuly.core.util.guid=function(){return"vzxxxxxxxx".replace(/[xy]/g,function(a){var b=16*Math.random()|0,c="x"===a?b:3&b|8;return c.toString(16)})},vizuly.core.util.getDefs=function(a){var b=a.selection().selectAll("svg defs");return b[0].length<1&&(b=a.selection().select("svg").append("defs")),b},vizuly.core.util.createCSSKey=function(a){return a=String(a).replace(",","_"),a=a.replace(/[\s+,'+,\.,\(,\),\"]/g,""),a="css"+a.toUpperCase()},vizuly.core.util.aggregateNest=function(a,b,c){function d(a,b){if(b)for(var c=0;c<g.length;c++){var d=g[c];void 0!=a[d]&&(a["childProp_"+d]=a[d]),b["childProp_"+d]=a["childProp_"+d]?a["childProp_"+d]:a[d]}}function e(a,f){for(var g=0;g<a.length;g++){var h=a[g];if(h.values){e(h.values,h);for(var i=0;i<h.values.length;i++)for(var j=h.values[i],k=0;k<b.length;k++)isNaN(h["agg_"+b[k]])&&(h["agg_"+b[k]]=0),h["agg_"+b[k]]=c(h["agg_"+b[k]],j["agg_"+b[k]])}else for(var k=0;k<b.length;k++)h["agg_"+b[k]]=Number(h[b[k]]),isNaN(h["agg_"+b[k]])&&(h["agg_"+b[k]]=0);d(h,f)}}for(var f=a[0];f.values;)f=f.values[0];var g=[];Object.getOwnPropertyNames(f).forEach(function(a){g.push(a)}),e(a)},vizuly.core.util.format_YEAR_Mon_MonDay=d3.time.format.multi([[".%L",function(a){return a.getMilliseconds()}],[":%S",function(a){return a.getSeconds()}],["%I:%M",function(a){return a.getMinutes()}],["%I %p",function(a){return a.getHours()}],["%a %d",function(a){return a.getDay()&&1!=a.getDate()}],["%b %d",function(a){return 1!=a.getDate()}],["%b",function(a){return a.getMonth()}],["20%y",function(a){return!0}]]),vizuly.svg.filter={},vizuly.svg.filter.dropShadow=function(a,b,c,d){var e=Math.round(100*b)+"_"+Math.round(100*c)+"_"+Math.round(100*dev),f=a.id(),g=vizuly.core.util.getDefs(a),h=g.selectAll("#vz_filter_"+f+"_"+e).data([e]).enter().append("filter").attr("id","vz_filter_"+f+"_"+e).attr("class","vz-svg-filter-dropShadow").attr("width","300%").attr("height","300%");h.append("feGaussianBlur").attr("in","SourceAlpha").attr("stdDeviation",d),h.append("feOffset").attr("dx",b).attr("dy",c),h.append("feComponentTransfer").append("feFuncA").attr("type","linear").attr("slope",.2);var i=h.append("feMerge");return i.append("feMergeNode"),i.append("feMergeNode").attr("in","SourceGraphic"),"#vz_filter_"+f+"_"+e},vizuly.svg.gradient={},vizuly.svg.gradient.blend=function(a,b,c,d){var e,f,g,h,i=String(b).replace("#","")+String(c).replace("#",""),j="vz_gradient_blend_"+a.id()+"_"+i;"horizontal"==d?(e="100%",f="0%",g="0%",h="0%"):(e="0%",f="0%",g="100%",h="0%");var k=vizuly.core.util.getDefs(a),l=k.selectAll("#"+j).data([i]).enter().append("linearGradient").attr("id",j).attr("class","vz-svg-gradient-blend").attr("x1",e).attr("x2",f).attr("y1",g).attr("y2",h);return l.append("stop").attr("offset","0%").attr("stop-color",b),l.append("stop").attr("offset","100%").attr("stop-color",c),l=k.selectAll("#"+j)},vizuly.svg.gradient.fade=function(a,b,c,d,e){e||(e=[0,1]),d||(d=[.75,.9]);var f,g,h,i,j=String(b).replace("#",""),k="vz_gradient_fade_"+a.id()+"_"+j;"horizontal"==c?(f="0%",g="100%",h="0%",i="0%"):(f="0%",g="0%",h="100%",i="0%");var l=vizuly.core.util.getDefs(a),m=l.selectAll("#"+k).data([j]).enter().append("linearGradient").attr("id",k).attr("class","vz-svg-gradient-fade").attr("x1",f).attr("x2",g).attr("y1",h).attr("y2",i);return m.append("stop").attr("offset",100*e[0]+"%").attr("stop-color",b).attr("stop-opacity",d[0]),m.append("stop").attr("offset",100*e[1]+"%").attr("stop-color",b).attr("stop-opacity",d[1]),m=l.selectAll("#"+k)},vizuly.svg.gradient.radialFade=function(a,b,c,d){d||(d=[0,1]),c||(c=[.75,.9]);var e=String(b).replace("#",""),f="vz_gradient_radial_fade"+a.id()+"_"+e,g=vizuly.core.util.getDefs(a),h=g.selectAll("#"+f).data([e]).enter().append("radialGradient").attr("id",f).attr("class","vz-svg-gradient-radial-fade");return h.append("stop").attr("offset",100*d[0]+"%").attr("stop-color",b).attr("stop-opacity",c[0]),h.append("stop").attr("offset",100*d[1]+"%").attr("stop-color",b).attr("stop-opacity",c[1]),h=g.selectAll("#"+f)},vizuly.svg.gradient.darker=function(a,b,c){var d,e,f,g,h=String(b).replace("#",""),i="vz_gradient_darker_"+a.id()+"_"+h;"horizontal"==c?(d="100%",e="0%",f="0%",g="0%"):(d="0%",e="0%",f="100%",g="0%");var j=vizuly.core.util.getDefs(a),k=j.selectAll("#"+i).data([h]).enter().append("linearGradient").attr("class","vz-gradient-darker").attr("id",i).attr("x1",d).attr("x2",e).attr("y1",f).attr("y2",g);return k.append("stop").attr("offset","0%").attr("stop-color",b).attr("stop-opacity",.75),k.append("stop").attr("offset","100%").attr("stop-color",d3.rgb(b).darker()).attr("stop-opacity",.9),k=j.selectAll("#"+i)},vizuly.svg.text={},vizuly.svg.text.arcPath=function(a,b){var c=.0174533,d={};d.angle=b,d.startAngle=d.angle-179*c,d.endAngle=d.angle+179*c;var e=d3.svg.arc().innerRadius(r).outerRadius(a)(d),f=/[Mm][\d\.\-e,\s]+[Aa][\d\.\-e,\s]+/,g=f.exec(e);return g&&(g=g[0]),g},vizuly.svg.text.wrap=function(a,b,c,d){d=!d&&a.attr("width")?Number(a.attr("width")):d,a.each(function(){var a=d3.select(this);a.selectAll("tspan").remove();var e,f=b.split(/\s+/).reverse(),g=[],h=0,i=a.attr("x"),j=a.attr("y"),k=parseFloat(c);isNaN(k)&&(k=0);for(var l=a.text(null).append("tspan").attr("x",i).attr("y",j).attr("dy","0px");e=f.pop();)g.push(e),l.text(g.join(" ")),l.node().getComputedTextLength()>d&&(h++,g.pop(),l.text(g.join(" ")),g=[e],l=a.append("tspan").attr("class","vz-multi-line").attr("x",i).attr("y",j).attr("dy",+k+"px").text(e),k+=c)})},vizuly.skin.COLUMNBAR_AXIIS="Axiis",vizuly.skin.COLUMNBAR_NEON="Neon",vizuly.skin.COLUMNBAR_MATERIALBLUE="MaterialBlue",vizuly.skin.COLUMNBAR_MATERIALPINK="MaterialPink",vizuly.theme.column_bar=function(a){function b(){l(),"viz.chart.column"==a.type?(m=".vz-left-axis",n=".vz-bottom-axis"):(n=".vz-left-axis",m=".vz-bottom-axis")}function c(){var b=a.width(),c=a.selection();o=Math.max(8,Math.round(a.width()/65)),c.attr("class",s["class"]),c.selectAll(n+" .tick text").style("font-weight",s.ordinalAxis_font_weight).style("fill",s.labelColor).style("fill-opacity",1).style("font-size",o+"px").style("opacity",function(){return b>399?1:0}),c.selectAll(m+" line").style("stroke",s.valueAxis_line_stroke).style("stroke-width",1).style("opacity",s.valueAxis_line_opacity),c.selectAll(m+" text").style("font-size",o+"px").style("fill",s.labelColor).style("fill-opacity",.8);var d=c.selectAll(".vz-plot .vz-bar").style("stroke","#FFF");a.layout()==vizuly.viz.layout.STACKED?d.style("stroke-opacity",1).style("stroke-width",function(){return b/800+"px"}).style("stroke-opacity",.6):d.style("stroke-opacity",s.bar_stroke_opacity),c.selectAll(".vz-bar-group")[0].forEach(function(a,b){d3.select(a).selectAll("rect.vz-bar").attr("filter",function(a,b){return s.bar_filter(a,b)}).style("fill-opacity",function(a,b){return s.bar_fill_opacity(a,b)}).style("fill",function(a,b){return s.bar_fill(a,b)}).style("rx",s.barRadius)}),s.background_transition()}function d(b,c,d){d3.select(b).style("fill",s.bar_mouseover_fill).style("fill-opacity",s.bar_mouseover_opacity).style("stroke",s.bar_mouseover_stroke).attr("filter",s.bar_filter_over()),d3.select(a.selection().selectAll(n+" .tick text")[0][g(c)]).transition().style("font-size",1.2*o+"px").style("font-weight",700).style("fill",s.color).style("text-decoration","underline").style("fill-opacity",1).style("opacity",1)}function e(b,c,d){d3.select(b).style("fill",function(){return s.bar_fill(c,d)}).style("fill-opacity",function(){return s.bar_fill_opacity(c,d)}).style("stroke","#FFF").attr("filter",s.bar_filter()),d3.select(a.selection().selectAll(n+" .tick text")[0][g(c)]).transition().style("font-size",o+"px").style("fill",s.labelColor).style("font-weight",s.ordinalAxis_font_weight).style("text-decoration",null).style("fill-opacity",1).style("opacity",function(){return a.width()>399?1:0})}function f(){a.selection().selectAll(".vz-tip").remove(),"viz.chart.column"==a.type?a.yAxis().tickSize(-vizuly.core.util.size(a.margin(),a.width(),a.height()).width).ticks(5).orient("left"):a.xAxis().tickSize(-vizuly.core.util.size(a.margin(),a.width(),a.height()).height).ticks(5)}function g(b){return(m=".vz-left-axis")?a.xScale().domain().indexOf(a.y().apply(this,[b])):a.yScale().domain().indexOf(a.x().apply(this,[b]))}function h(){var b=a.width();return"url("+vizuly.svg.filter.dropShadow(a,b/300,b/300,b/200)+")"}function i(){var b=a.width();return"url("+vizuly.svg.filter.dropShadow(a,b/100,b/100,1.5)+")"}function j(){a.selection().selectAll(".vz-background").style("fill-opacity",1),a.selection().selectAll(".vz-background").attr("fill",function(){return"url(#"+r.attr("id")+")"}),r.selectAll("stop").transition().duration(500).attr("stop-color",function(a,b){return 0==b?s.grad0:s.grad1})}function k(a,b){return a="0x"+a.replace("#",""),a=parseInt(a,16),a+=65793,a|=b,"#"+a.toString(16)}function l(){q.forEach(function(b){a.on(b.on,b.callback)})}var m,n,o,p={MaterialBlue:{name:"Material Blue",labelColor:"#FFF",color:"#02C3FF",grad0:"#021F51",grad1:"#039FDB",background_transition:j,bar_filter:function(a,b){return h()},bar_filter_over:function(a,b){return i()},bar_fill:function(a,b){return"#02C3FF"},bar_fill_opacity:function(a,b){return 1-b/4},bar_mouseover_stroke:"#02C3FF",bar_mouseover_fill:"#FFF",bar_stroke_opacity:0,bar_mouseover_opacity:1,ordinalAxis_font_weight:200,valueAxis_line_stroke:"#FFF",valueAxis_line_opacity:.25,barRadius:function(){return 0},datatip_class:"vz-material-datatip","class":"vz-skin-default"},MaterialPink:{name:"Material Pink",labelColor:"#FFF",color:"#F553B1",grad0:"#540936",grad1:"#C12780",background_transition:j,bar_filter:function(a,b){return h()},bar_filter_over:function(a,b){return i()},bar_fill:function(a,b){return"#FF35BE"},bar_fill_opacity:function(a,b){return 1-b/4},bar_stroke_opacity:0,bar_mouseover_stroke:"#FF35BE",bar_mouseover_fill:"#FFF",bar_mouseover_opacity:.9,ordinalAxis_font_weight:200,valueAxis_line_stroke:"#FFF",valueAxis_line_opacity:.25,barRadius:function(){return 0},datatip_class:"vz-material-datatip","class":"vz-skin-default"},Neon:{name:"Neon",labelColor:"#FFF",color:"#D1F704",grad0:"#000000",grad1:"#474747",background_transition:j,bar_filter:function(a,b){return null},bar_filter_over:function(a,b){return i()},bar_fill:function(a,b){return"#D1F704"},bar_fill_opacity:function(a,b){return 1-b/6},bar_stroke_opacity:0,bar_mouseover_stroke:"#D1F704",bar_mouseover_fill:"#FFF",bar_mouseover_opacity:1,ordinalAxis_font_weight:200,valueAxis_line_stroke:"#FFF",valueAxis_line_opacity:.25,barRadius:function(){return a.width()/150},datatip_class:"vz-neon-datatip","class":"vz-skin-default"},Axiis:{name:"Axiis",labelColor:"#444",color:"#000",colorScale:d3.scale.linear().range(["#DF1133","#3333DF"]).domain([0,a.data()[0].length]),background_transition:function(){a.selection().select(".vz-background").transition().style("fill-opacity",0)},bar_filter:function(a,b){return null},bar_filter_over:function(a,b){return null},bar_fill:function(b,c){var d=vizuly.svg.gradient.fade(a,k(this.colorScale(a.xScale().domain().indexOf(a.x().apply(this,[b]))),2245632*c));return"url(#"+d.attr("id")+")"},bar_fill_opacity:function(a,b){return 1-b/4},bar_mouseover_stroke:"#AAA",bar_mouseover_fill:"#000",bar_mouseover_opacity:.8,bar_stroke_opacity:1,ordinalAxis_font_weight:400,valueAxis_line_stroke:"#AAA",valueAxis_line_opacity:1,barRadius:function(){return 0},datatip_class:"vz-axiis-datatip","class":"vz-skin-axiis"},Minimal:{name:"Minimal",labelColor:"#444",color:"#333",grad0:"#F0F0F0",grad1:"#F0F0F0",background_transition:j,bar_filter:function(a,b){return null},bar_filter_over:function(a,b){return null},bar_fill:function(a,b){return"#555"},bar_fill_opacity:function(a,b){return 1-b/4},bar_stroke_opacity:0,bar_mouseover_stroke:"#000",bar_mouseover_fill:"#333",bar_mouseover_opacity:1,ordinalAxis_font_weight:400,valueAxis_line_stroke:"#AAA",valueAxis_line_opacity:.35,barRadius:function(){return 0},datatip_class:"vz-minimal-datatip","class":"vz-skin-default"}},a=a,q=[{on:"measure.theme",callback:f},{on:"update.theme",callback:c},{on:"mouseover.theme",callback:d},{on:"mouseout.theme",callback:e}];b();var r=vizuly.svg.gradient.blend(a,"#000","#000");b.apply=function(a){return arguments.length>0&&b.skin(a),c(),b},b.release=function(){a&&(a.selection().attr("class",null),q.forEach(function(b){a.on(b.on,null)}),a=null)},b.viz=function(b){return arguments.length?(a=b,void l()):a};var s=null;return b.skin=function(a){if(0==arguments.length)return s;if(!p[a])throw new Error("theme/column_bar.js - skin "+a+" does not exist.");return s=p[a],b},b.skins=function(){return p},b},vizuly.skin.LINEAREA_AXIIS="Axiis",vizuly.skin.LINEAREA_NEON="Neon",vizuly.skin.LINEAREA_FIRE="Fire",vizuly.skin.LINEAREA_OCEAN="Ocean",vizuly.skin.LINEAREA_SUNSET="Sunset",vizuly.skin.LINEAREA_BUSINESS="Business",vizuly.theme.radial_linearea=function(a){function b(){h()}function c(){if(i){var b=a.selection();b.attr("class",i["class"]),b.selectAll(".vz-background").attr("fill",function(){return"url(#"+j.attr("id")+")"}),b.selectAll(".vz-plot-background").style("opacity",0),b.selectAll(".vz-area").style("fill",function(a,b){return i.area_fill(a,b)}).style("fill-opacity",function(b,c){return i.area_fill_opacity.apply(a,[b,c])}),b.selectAll(".vz-line").style("stroke-width",function(){return a.outerRadius()/450}).style("stroke",function(a,b){return i.line_stroke(a,b)}).style("opacity",function(b,c){return i.line_opacity.apply(a,[b,c])}),b.selectAll(".vz-data-point").style("opacity",0),b.selectAll(".vz-radial-x-axis-tick").style("font-weight",i.xAxis_font_weight).style("fill",i.labelColor).style("font-weight",300).style("fill-opacity",.4).style("font-size",Math.max(8,Math.round(a.outerRadius()/25))+"px"),b.selectAll(".vz-y-axis-tick").style("stroke",i.yAxis_line_stroke).style("stroke-width",1).style("opacity",i.yAxis_line_opacity),b.selectAll(".vz-y-axis-tick-label").style("font-size",Math.max(8,Math.round(a.outerRadius()/30))+"px").style("fill",i.labelColor).style("font-weight",200).style("fill-opacity",function(){return i===m.Business?1:.4}),i.background_transition()}}function d(b,c,d){a.selection().selectAll(".vz-line").transition().style("stroke-width",function(){return a.outerRadius()/270}).style("stroke",function(a,b){return i.line_over_stroke(a,b)}).style("opacity",function(a,b){return b==d?1:0}),a.selection().selectAll(".vz-area").transition().style("opacity",function(a,b){return b==d?1:.35}),a.selection().selectAll(".vz-plot").append("circle").attr("class","vz-yAxis-mouseover").attr("cx",0).attr("cy",0).attr("r",function(){return a.radiusScale()(b.y+b.y0)}).style("stroke","#FFF").style("fill","none").style("stroke-dasharray",function(){return a.outerRadius()/80+","+a.outerRadius()/80}),a.selection().selectAll(".vz-y-axis-tick").style("opacity",.1),a.selection().selectAll(".vz-point-tip").remove();var e=d3.select(this);e.append("circle").attr("class","vz-point-tip").attr("r",4).style("fill","#000").style("stroke","#FFF").style("stroke-width",2).style("pointer-events","none")}function e(b,c,d){a.selection().selectAll(".vz-line").transition().style("stroke-width",function(){return a.outerRadius()/450}).style("stroke",function(a,b){return i.line_stroke(a,b)}).style("opacity",function(b,c){return i.line_opacity.apply(a,[b,c])}),a.selection().selectAll(".vz-area").transition().style("opacity",1),a.selection().selectAll(".vz-yAxis-mouseover").remove(),a.selection().selectAll(".vz-point-tip").remove(),a.selection().selectAll(".vz-y-axis-tick").style("opacity",i.yAxis_line_opacity)}function f(){a.yAxis().tickSize(a.outerRadius()).ticks(a.layout()==vizuly.viz.layout.OVERLAP?5:7).orient("left")}function g(){a.selection().selectAll(".vz-background").style("fill-opacity",1),j.selectAll("stop").transition().duration(500).attr("stop-color",function(a,b){return 0==b?i.grad0:i.grad1})}function h(){l.forEach(function(b){a.on(b.on,b.callback)})}var a=a,i=null,j=vizuly.svg.gradient.blend(a,"#000","#000"),k=d3.scale.category20(),l=[{on:"measure.theme",callback:f},{on:"update.theme",callback:c},{on:"mouseover.theme",callback:d},{on:"mouseout.theme",callback:e}];b(),b.apply=function(a){return arguments.length>0&&b.skin(a),c(),b},b.release=function(){a&&(a.selection().attr("class",null),l.forEach(function(b){a.on(b.on,null)}),a=null)},b.viz=function(b){return arguments.length?(a=b,void h()):a},b.skin=function(a){if(0==arguments.length)return i;if(!m[a])throw new Error("theme/linearea.js - skin "+a+" does not exist.");return i=m[a],b},b.skins=function(){return m};var m={Fire:{name:"Fire",labelColor:"#FFF",color:"#02C3FF",stroke_colors:["#FFA000","#FF5722","#F57C00","#FF9800","#FFEB3B"],fill_colors:["#C50A0A","#C2185B","#F57C00","#FF9800","#FFEB3B"],grad0:"#000000",grad1:"#474747",background_transition:g,line_stroke:function(a,b){return this.stroke_colors[b%5]},line_over_stroke:function(a,b){return d3.rgb(this.stroke_colors[b%5]).brighter()},line_opacity:function(a,b){return this.layout()==vizuly.viz.layout.STREAM?.4:.6},area_fill:function(b,c){return"url(#"+vizuly.svg.gradient.radialFade(a,this.fill_colors[c%5],[1,.35]).attr("id")+")"},area_fill_opacity:function(a,b){return this.layout()==vizuly.viz.layout.OVERLAP?.7:.9},xAxis_font_weight:200,yAxis_line_stroke:"#FFF",yAxis_line_opacity:.25,"class":"vz-skin-default"},Sunset:{name:"Sunset",labelColor:"#D8F433",color:"#02C3FF",stroke_colors:["#CD57A4","#B236A3","#FA6F7F","#FA7C3B","#E96B6B"],fill_colors:["#89208F","#C02690","#D93256","#DB3D0C","#B2180E"],grad1:"#7D1439",grad0:"#000",background_transition:g,line_stroke:function(a,b){return this.stroke_colors[b%5]},line_over_stroke:function(a,b){return d3.rgb(this.stroke_colors[b%5]).brighter()},line_opacity:function(a,b){return this.layout()==vizuly.viz.layout.STREAM?.4:.9},area_fill:function(b,c){return"url(#"+vizuly.svg.gradient.radialFade(a,this.fill_colors[c%5],[1,.35]).attr("id")+")"},area_fill_opacity:function(a,b){return this.layout()==vizuly.viz.layout.OVERLAP?.8:1},xAxis_font_weight:200,yAxis_line_stroke:"#D8F433",yAxis_line_opacity:.25,"class":"vz-skin-default"},Ocean:{name:"Ocean",labelColor:"#FFF",color:"#02C3FF",stroke_colors:["#001432","#001432","#001432","#001432","#001432"],grad1:"#390E1D",grad0:"#92203A",background_transition:function(b){a.selection().select(".vz-background").transition(1e3).style("fill-opacity",0)},line_stroke:function(a,b){return"#FFF"},line_over_stroke:function(a,b){return"#FFF"},line_opacity:function(a,b){return.3},area_fill:function(b,c){return"url(#"+vizuly.svg.gradient.radialFade(a,"#FFF",[1,.35]).attr("id")+")"},area_fill_opacity:function(a,b){return this.layout()==vizuly.viz.layout.OVERLAP?.2:.7},xAxis_font_weight:200,yAxis_line_stroke:"#FFF",yAxis_line_opacity:.25,"class":"vz-skin-ocean"},Neon:{name:"Neon",labelColor:"#FFF",color:"#02C3FF",stroke_colors:["#FFA000","#FF5722","#F57C00","#FF9800","#FFEB3B"],fill_colors:["#C50A0A","#C2185B","#F57C00","#FF9800","#FFEB3B"],grad0:"#000000",grad1:"#474747",background_transition:g,line_stroke:function(a,b){return"#FFF"},line_over_stroke:function(a,b){return"#FFF"},line_opacity:function(a,b){return this.layout()==vizuly.viz.layout.STREAM?.2:.4},area_fill:function(a,b){return"#D1F704"},area_fill_opacity:function(b,c){var d=d3.scale.linear().range([.1,.8]).domain([0,a.data().length])(c);return this.layout()==vizuly.viz.layout.OVERLAP?.8*d:d},xAxis_font_weight:200,yAxis_line_stroke:"#FFF",yAxis_line_opacity:.25,"class":"vz-skin-default"},Business:{name:"Business",labelColor:"#000",color:"#000",stroke_colors:["#FFA000","#FF5722","#F57C00","#FF9800","#FFEB3B"],fill_colors:["#C50A0A","#C2185B","#F57C00","#FF9800","#FFEB3B"],grad0:"#CCC",grad1:"#CCC",background_transition:g,line_stroke:function(a,b){return d3.rgb(k(b)).darker()},line_over_stroke:function(a,b){return"#FFF"},line_opacity:function(a,b){return.7},area_fill:function(a,b){return k(b)},area_fill_opacity:function(a,b){return this.layout()==vizuly.viz.layout.OVERLAP?.9:.95},xAxis_font_weight:200,yAxis_line_stroke:"#000",yAxis_line_opacity:.25,"class":"vz-skin-default"}};return b},vizuly.skin.HALO_FIRE="Fire",vizuly.skin.HALO_SUNSET="Sunset",vizuly.skin.HALO_NEON="Neon",vizuly.skin.HALO_OCEAN="Ocean",vizuly.theme.halo=function(a){function b(){r()}function c(){if(s&&a){var b=a.selection();b.attr("class",s["class"]),b.selectAll(".vz-background").attr("fill",function(){return"url(#"+t.attr("id")+")"}),b.selectAll(".vz-plot-background").style("opacity",0),b.selectAll(".vz-halo-link-path").style("fill",function(a,b){return s.link_fill(a,b)}).style("fill-opacity",s.link_fill_opacity).style("stroke",function(a,b){return s.link_stroke(a,b)}),b.selectAll(".vz-halo-link-node").style("fill",function(a,b){return s.link_fill(a,b)}).style("fill-opacity",s.link_node_fill_opacity),b.selectAll(".vz-halo-node").style("fill",function(a,b){return s.node_fill(a,b)}).style("stroke",function(a,b){return s.node_stroke(a,b)}).style("stroke-width",function(a,b){return u(a.r)}),b.selectAll(".vz-halo-arc-slice").style("fill",function(a,b){return s.arc_fill(a,b)}),b.selectAll(".vz-halo-arc").style("fill",function(a,b){return s.arc_fill(a,b)}),s.background_transition()}}function d(b,c,d){h(),n(d3.select(b)),i(a.selection().selectAll(".vz-halo-link-path.halo-key_"+c.data.key)),c.data.values.forEach(function(b){k(a.selection().selectAll(".vz-halo-node.node-key_"+a.nodeKey()(b)))})}function e(b,c,d){h(),i(d3.select(b.parentNode).selectAll(".vz-halo-link-path")),n(a.selection().selectAll(".vz-halo-arc.halo-key_"+a.haloKey()(c.data))),m(d3.select(b.parentNode).selectAll(".vz-halo-arc-slice")),j(a.selection().selectAll(".vz-halo-node.node-key_"+a.nodeKey()(c.data))),l(d3.select(b.parentNode).selectAll("circle"))}function f(b,c,d){h();var e=a.selection().selectAll(".vz-halo-link-path.node-key_"+c.key);e.each(function(b){var c=a.selection().selectAll(".vz-halo-arc.halo-key_"+a.haloKey()(b.data));n(c)}),i(e),m(a.selection().selectAll(".vz-halo-arc-slice.node-key_"+c.key)),l(a.selection().selectAll(".vz-halo-node.node-key_"+c.key))}function g(a,b,c){o()}function h(){a.selection().selectAll(".vz-halo-node").style("fill-opacity",.1).style("stroke-opacity",.05),a.selection().selectAll(".vz-halo-link-node").style("fill-opacity",0),a.selection().selectAll(".vz-halo-link-path").style("fill-opacity",.025)}function i(a){a.style("fill-opacity",.6).style("stroke-opacity",.25)}function j(a){a.style("stroke-opacity",.8).style("stroke",function(a,b){return s.node_over_stroke(a,b)})}function k(a){a.style("fill-opacity",.8).style("stroke-opacity",.5).style("stroke",function(a,b){return s.node_over_stroke(a,b)})}function l(a){a.style("fill-opacity",.5).style("stroke-opacity",.7).style("stroke",function(a,b){return s.node_over_stroke(a,b)})}function m(a){a.style("fill-opacity",.8).style("stroke-opacity",.8)}function n(a){a.style("fill-opacity",.65).style("stroke-opacity",.8).style("fill",function(a,b){return s.arc_over_fill(a,b)})}function o(){a.selection().selectAll(".vz-halo-arc").style("fill-opacity",null).style("stroke-opacity",null).style("fill",function(a,b){return s.arc_fill(a,b)}),a.selection().selectAll(".vz-halo-node").style("fill-opacity",null).style("stroke-opacity",null).style("stroke",function(a,b){return s.node_stroke(a,b)}),a.selection().selectAll(".vz-halo-link-node").style("fill-opacity",s.link_node_fill_opacity).style("stroke",null),a.selection().selectAll(".vz-halo-link-path").style("fill-opacity",s.link_fill_opacity).style("stroke-opacity",null),a.selection().selectAll(".vz-halo-arc-slice").style("fill-opacity",null).style("stroke-opacity",null)}function p(){var b=Math.min(a.width(),a.height()/2);u.domain([0,b/20]),u.range([0,b/80])}function q(){a.selection().selectAll(".vz-background").style("fill-opacity",1),t.selectAll("stop").transition().duration(500).attr("stop-color",function(a,b){return 0==b?s.grad0:s.grad1})}function r(){v.forEach(function(b){a.on(b.on,b.callback)})}var a=a,s=null,t=vizuly.svg.gradient.blend(a,"#000","#000"),u=d3.scale.linear(),v=[{on:"measure.theme",callback:p},{on:"update.theme",callback:c},{on:"nodeover.theme",callback:f},{on:"nodeout.theme",callback:g},{on:"arcover.theme",callback:d},{on:"arcout.theme",callback:g},{on:"linkover.theme",callback:e},{on:"linkout.theme",callback:g}];b(),b.apply=function(a){return arguments.length>0&&b.skin(a),c(),b},b.release=function(){a&&(a.selection().attr("class",null),v.forEach(function(b){a.on(b.on,null)}),a=null)},b.viz=function(b){return arguments.length?(a=b,void r()):a},b.skin=function(a){if(0==arguments.length)return s;if(!w[a])throw new Error("theme/linearea.js - skin "+a+" does not exist.");return s=w[a],b},b.skins=function(){return w};var w={Fire:{name:"Fire",labelColor:"#FFF",labelFill:"#C50A0A",stroke_colors:["#FFA000","#FF5722","#F57C00","#FF9800","#FFEB3B"],fill_colors:["#C50A0A","#C2185B","#F57C00","#FF9800","#FFEB3B"],grad0:"#000000",grad1:"#474747",background_transition:q,link_stroke:function(a,b){return this.stroke_colors[b%5]},link_fill:function(a,b){return this.fill_colors[b%5]},link_fill_opacity:.1,link_node_fill_opacity:.1,node_stroke:function(a,b){return this.stroke_colors[b%5]},node_over_stroke:function(a,b){return"#FFF"},node_fill:function(a,b){return this.fill_colors[b%5]},arc_stroke:function(a,b){return"#FFF"},arc_fill:function(a,b){return this.fill_colors[b%5]},arc_over_fill:function(a,b){return"#FFEB3B"},"class":"vz-skin-fire"},Sunset:{name:"Sunset",labelColor:"#FFF",labelFill:"#00236C",stroke_colors:["#CD57A4","#B236A3","#FA6F7F","#FA7C3B","#E96B6B"],fill_colors:["#89208F","#C02690","#D93256","#DB3D0C","#B2180E"],grad0:"#220910",grad1:"#571825",background_transition:q,link_stroke:function(a,b){return this.stroke_colors[b%5]},link_fill:function(a,b){return this.fill_colors[b%5]},link_fill_opacity:.2,link_node_fill_opacity:.5,node_stroke:function(a,b){return this.stroke_colors[b%5]},node_over_stroke:function(a,b){return"#FFF"},node_fill:function(a,b){return this.fill_colors[b%5]},arc_stroke:function(a,b){return"#FFF"},arc_fill:function(a,b){return this.fill_colors[b%5]},arc_over_fill:function(a,b){return"#00236C"},"class":"vz-skin-sunset"},Neon:{name:"Neon",labelColor:"#FFF",labelFill:"#005",grad0:"#000000",grad1:"#474747",background_transition:q,link_stroke:function(a,b){return"#D1F704"},link_fill:function(a,b){return"#D1F704"},link_fill_opacity:.1,link_node_fill_opacity:.1,node_stroke:function(a,b){return"#D1F704"},node_over_stroke:function(a,b){return"#FFF"},node_fill:function(a,b){return"#FFF"},arc_stroke:function(a,b){return"#FFF"},arc_fill:function(a,b){return"#D1F704"},arc_over_fill:function(a,b){return"#03F"},"class":"vz-skin-neon"},Ocean:{name:"Ocean",labelColor:"#FFF",labelFill:"#000",background_transition:function(b){a.selection().select(".vz-background").transition(1e3).style("fill-opacity",0)},link_stroke:function(a,b){return"#FFF"},link_fill:function(a,b){return"#FFF"},link_fill_opacity:.075,link_node_fill_opacity:.075,node_stroke:function(a,b){return"#FFF"},node_over_stroke:function(a,b){return"#FFF"},node_fill:function(a,b){return"#FFF"},arc_stroke:function(a,b){return"#FFF"},arc_fill:function(a,b){return"#FFF"},arc_over_fill:function(a,b){return"#000"},"class":"vz-skin-ocean"}};return b},vizuly.skin.LINEAREA_AXIIS="Axiis",vizuly.skin.LINEAREA_NEON="Neon",vizuly.skin.LINEAREA_FIRE="Fire",vizuly.skin.LINEAREA_OCEAN="Ocean",vizuly.skin.LINEAREA_SUNSET="Sunset",vizuly.skin.LINEAREA_BUSINESS="Business",vizuly.theme.linearea=function(a){function b(){h()}function c(){if(i&&null!=i){var b=a.width(),c=a.height(),d=a.selection();d.attr("class",i["class"]),d.selectAll(".vz-background").attr("fill",function(){return"url(#"+j.attr("id")+")"}),d.selectAll(".vz-plot-background").style("opacity",0),d.selectAll(".vz-area").style("fill",function(a,b){return i.area_fill(a,b)}).style("fill-opacity",function(b,c){return i.area_fill_opacity.apply(a,[b,c])}),d.selectAll(".vz-line").style("stroke-width",function(){return c/450}).style("stroke",function(a,b){return i.line_stroke(a,b)}).style("opacity",function(b,c){return i.line_opacity.apply(a,[b,c])}),d.selectAll(".vz-data-point").style("opacity",0),d.selectAll(".vz-bottom-axis").style("font-weight",i.xAxis_font_weight).style("fill",i.labelColor).style("font-weight",300).style("fill-opacity",.8).style("font-size",Math.max(8,Math.round(b/65))+"px").style("opacity",function(){return b>399?1:0}),d.selectAll(".vz-left-axis line").style("stroke",i.yAxis_line_stroke).style("stroke-width",1).style("opacity",i.yAxis_line_opacity),d.selectAll(".vz-left-axis text").style("font-size",Math.max(8,Math.round(b/65))+"px").style("fill",i.labelColor).style("fill-opacity",.8),i.background_transition()}}function d(b,c,d){a.selection().selectAll(".vz-line").transition().style("stroke",function(a,b){return i.line_over_stroke(a,b)}).style("opacity",function(a,b){return b==d?1:0}),a.selection().selectAll(".vz-area").transition().style("opacity",function(a,b){return b==d?1:.35}),a.selection().selectAll(".vz-point-tip").remove();var e=d3.select(this);e.append("circle").attr("class","vz-point-tip").attr("r",4).style("fill","#000").style("stroke","#FFF").style("stroke-width",2).style("pointer-events","none")}function e(b,c,d){a.selection().selectAll(".vz-line").transition().style("stroke",function(a,b){return i.line_stroke(a,b)}).style("opacity",function(b,c){return i.line_opacity.apply(a,[b,c])}),a.selection().selectAll(".vz-area").transition().style("opacity",1),a.selection().selectAll(".vz-point-tip").remove()}function f(){a.yAxis().tickSize(-vizuly.core.util.size(a.margin(),a.width(),a.height()).width).ticks(5).orient("left"),a.xAxis().tickSize(-vizuly.core.util.size(a.margin(),a.width(),a.height()).width)}function g(){a.selection().selectAll(".vz-background").style("fill-opacity",1),j.selectAll("stop").transition().duration(500).attr("stop-color",function(a,b){return 0==b?i.grad0:i.grad1})}function h(){l.forEach(function(b){a.on(b.on,b.callback)})}var a=a,i=null,j=vizuly.svg.gradient.blend(a,"#000","#000"),k=d3.scale.category20(),l=[{on:"measure.theme",callback:f},{on:"update.theme",callback:c},{on:"mouseover.theme",callback:d},{on:"mouseout.theme",callback:e}];b(),b.apply=function(a){return arguments.length>0&&b.skin(a),c(),b},b.release=function(){a&&(a.selection().attr("class",null),l.forEach(function(b){a.on(b.on,null)}),a=null)},b.viz=function(b){return arguments.length?(a=b,void h()):a},b.skin=function(a){if(0==arguments.length)return i;if(!m[a])throw new Error("theme/linearea.js - skin "+a+" does not exist.");return i=m[a],b},b.skins=function(){return m};var m={Fire:{name:"Fire",labelColor:"#FFF",color:"#02C3FF",stroke_colors:["#FFA000","#FF5722","#F57C00","#FF9800","#FFEB3B"],fill_colors:["#C50A0A","#C2185B","#F57C00","#FF9800","#FFEB3B"],grad0:"#000000",grad1:"#474747",background_transition:g,line_stroke:function(a,b){return this.stroke_colors[b%5]},line_over_stroke:function(a,b){return d3.rgb(this.stroke_colors[b%5]).brighter()},line_opacity:function(a,b){return this.layout()==vizuly.viz.layout.STREAM?.6:.8},area_fill:function(b,c){return"url(#"+vizuly.svg.gradient.fade(a,this.fill_colors[c%5],"vertical",[.35,1]).attr("id")+")"},area_fill_opacity:function(a,b){return this.layout()==vizuly.viz.layout.OVERLAP?.7:.9},xAxis_font_weight:200,yAxis_line_stroke:"#FFF",yAxis_line_opacity:.25,data_point_stroke:function(a,b){return this.stroke_colors[b%5]},data_point_fill:function(a,b){return"#FFF"},"class":"vz-skin-default"},Sunset:{name:"Sunset",labelColor:"#D8F433",color:"#02C3FF",stroke_colors:["#CD57A4","#B236A3","#FA6F7F","#FA7C3B","#E96B6B"],fill_colors:["#89208F","#C02690","#D93256","#DB3D0C","#B2180E"],grad1:"#390E1D",grad0:"#92203A",background_transition:g,line_stroke:function(a,b){return this.stroke_colors[b%5]},line_over_stroke:function(a,b){return d3.rgb(this.stroke_colors[b%5]).brighter()},line_opacity:function(a,b){return this.layout()==vizuly.viz.layout.STREAM?.4:.9},area_fill:function(b,c){return"url(#"+vizuly.svg.gradient.fade(a,this.fill_colors[c%5],"vertical",[.5,1]).attr("id")+")"},area_fill_opacity:function(a,b){return this.layout()==vizuly.viz.layout.OVERLAP?.8:1},xAxis_font_weight:200,yAxis_line_stroke:"#D8F433",yAxis_line_opacity:.25,"class":"vz-skin-default"},Ocean:{name:"Ocean",labelColor:"#FFF",color:"#02C3FF",stroke_colors:["#001432","#001432","#001432","#001432","#001432"],grad1:"#390E1D",grad0:"#92203A",background_transition:function(b){a.selection().select(".vz-background").transition(1e3).style("fill-opacity",0)},line_stroke:function(a,b){return"#000"},line_over_stroke:function(a,b){return"#FFF"},line_opacity:function(a,b){return.3},area_fill:function(a,b){return"#FFF"},area_fill_opacity:function(b,c){return(c+1)/a.data().length*(this.layout()==vizuly.viz.layout.OVERLAP?.8:.85)},xAxis_font_weight:200,yAxis_line_stroke:"#FFF",yAxis_line_opacity:.25,"class":"vz-skin-ocean"},Neon:{name:"Neon",labelColor:"#FFF",color:"#02C3FF",stroke_colors:["#FFA000","#FF5722","#F57C00","#FF9800","#FFEB3B"],fill_colors:["#C50A0A","#C2185B","#F57C00","#FF9800","#FFEB3B"],grad0:"#000000",grad1:"#474747",background_transition:g,line_stroke:function(a,b){return"#FFF"},line_over_stroke:function(a,b){return"#FFF"},line_opacity:function(a,b){return this.layout()==vizuly.viz.layout.STREAM?.4:.6},area_fill:function(a,b){return"#D1F704"},area_fill_opacity:function(a,b){return(b+1)/this.data().length*(this.layout()==vizuly.viz.layout.OVERLAP?.6:.8)},xAxis_font_weight:200,yAxis_line_stroke:"#FFF",yAxis_line_opacity:.25,"class":"vz-skin-default"},Business:{name:"Business",labelColor:"#000",color:"#000",stroke_colors:["#FFA000","#FF5722","#F57C00","#FF9800","#FFEB3B"],fill_colors:["#C50A0A","#C2185B","#F57C00","#FF9800","#FFEB3B"],grad0:"#CCC",grad1:"#EEE",background_transition:g,line_stroke:function(a,b){return d3.rgb(k(b)).darker()},line_over_stroke:function(a,b){return"#FFF"},line_opacity:function(a,b){return.7},area_fill:function(a,b){return k(b)},area_fill_opacity:function(a,b){return this.layout()==vizuly.viz.layout.OVERLAP?.8:.9},xAxis_font_weight:200,yAxis_line_stroke:"#000",yAxis_line_opacity:.25,"class":"vz-skin-default"}};return b},vizuly.theme.radial_progress=function(a){function b(){f()}function c(){if(j){var b=a.selection();b.attr("class",j["class"]),b.selectAll(".vz-radial_progress-arc").style("fill",function(a,b){return j.arc_fill(a,b)}).style("fill-opacity",function(a,b){return j.arc_fill_opacity(a,b)}).style("stroke",function(a,b){return j.arc_stroke(a,b)}),b.selectAll(".vz-radial_progress-track").style("fill",j.track_fill),b.selectAll(".vz-radial_progress-label").style("fill",j.label_color).style("stroke-opacity",0).style("font-size",.25*a.radius())}}function d(b,c,d){a.selection().selectAll(".vz-radial_progress-label").style("font-weight",700)}function e(b,c,d){a.selection().selectAll(".vz-radial_progress-label").style("font-weight",null)}function f(){i.forEach(function(b){a.on(b.on,b.callback)})}function g(){i.forEach(function(b){a.on(b.on,null)})}var h={Alert:{name:"Alert",label_color:"#CCC",track_fill:"#DDDDDD",progress_colors:["#4CAF50","#FFC107","#FF9800","#E64A19","#FFEB3B"],arc_fill:function(a,b){return this.progress_colors[b%5]},arc_fill_opacity:function(a,b){return 1},arc_stroke:function(a,b){return this.progress_colors[b%5]},"class":"vz-skin-alert"},Fire:{name:"Fire",label_color:"#F13870",track_fill:"#DDDDDD",progress_colors:["#C50A0A","#F57C00","#FF9800","#FFEB3B","#C2185B"],arc_fill:function(a,b){return this.progress_colors[b%5]},arc_fill_opacity:function(a,b){return 1},arc_stroke:function(a,b){return this.progress_colors[b%5]},"class":"vz-skin-fire"},White:{name:"White",label_color:"#FFF",track_fill:null,arc_fill:function(a,b){return"#FFF"},arc_fill_opacity:function(a,b){return.85/Math.exp(.75*b)},arc_stroke:function(a,b){return"#FFF"},"class":"vz-skin-white"},Neon:{name:"Neon",label_color:"#D1F704",track_fill:"#000",progress_colors:["#D1F704","#A8C102","#788A04","#566204","#383F04"],arc_fill:function(a,b){return this.progress_colors[b%5]},arc_fill_opacity:function(a,b){return 1},arc_stroke:function(a,b){return this.progress_colors[b%5]},"class":"vz-skin-neon"},Business:{name:"Business",label_color:"#EEE",track_fill:"#DDDDDD",progress_colors:d3.scale.category20(),arc_fill:function(a,b){return this.progress_colors(b)},arc_fill_opacity:function(a,b){return 1},arc_stroke:function(a,b){return this.progress_colors(b)},"class":"vz-skin-business"}},a=a,i=[{on:"update.theme",callback:c},{on:"mouseover.theme",callback:d},{on:"mouseout.theme",callback:e}];b(),b.apply=function(a){return arguments.length>0&&b.skin(a),c(),b},b.release=function(){a&&(a.selection().attr("class",null),g(),a=null)},b.viz=function(b){return arguments.length?(a&&g(),a=b,void f()):a},b.skin=function(a){if(0==arguments.length)return j;if(!h[a])throw new Error("theme/linearea.js - skin "+a+" does not exist.");return j=h[a],b},b.skins=function(){return h};var j=h[vizuly.skin.RADIAL_PROGRESS_BUSINESS];return b},vizuly.skin.RADIAL_PROGRESS_FIRE="Fire",vizuly.skin.RADIAL_PROGRESS_MATERIAL="Material",vizuly.skin.RADIAL_PROGRESS_NEON="Neon",vizuly.skin.RADIAL_PROGRESS_OCEAN="Ocean",vizuly.skin.RADIAL_PROGRESS_ALERT="Alert",vizuly.skin.RADIAL_PROGRESS_BUSINESS="Business",vizuly.theme.range_input=function(a){function b(){f()}function c(){if(j){var b=a.selection();b.attr("class",j["class"]),b.selectAll(".vz-range_input-handle").style("cursor","pointer"),b.selectAll(".vz-range_input-centerpane").style("cursor","pointer"),b.selectAll(".vz-range_input-track").style("opacity",0)}}function d(a,b,c){}function e(a,b,c){}function f(){i.forEach(function(b){a.on(b.on,b.callback)})}function g(){i.forEach(function(b){a.on(b.on,null)})}var h={Default:{name:"Default",label_color:"#CCC"}},a=a,i=[{on:"update.theme",callback:c},{on:"mouseover.theme",callback:d},{on:"mouseout.theme",callback:e}];b(),b.apply=function(a){return arguments.length>0&&b.skin(a),c(),b},b.release=function(){a&&(a.selection().attr("class",null),g(),a=null)},b.viz=function(b){return arguments.length?(a&&g(),a=b,void f()):a},b.skin=function(a){if(0==arguments.length)return j;if(!h[a])throw new Error("theme/linearea.js - skin "+a+" does not exist.");return j=h[a],b},b.skins=function(){return h};var j=h.Default;return b},vizuly.skin.SCATTER_NEON="Neon",vizuly.skin.SCATTER_FIRE="Fire",vizuly.skin.SCATTER_OCEAN="Ocean",vizuly.skin.SCATTER_SUNSET="Sunset",vizuly.skin.SCATTER_BUSINESS="Business",vizuly.theme.scatter=function(a){function b(){h()}function c(){if(i){var b=a.width(),c=Math.min(a.width(),a.height())/80,d=a.selection();d.attr("class",i["class"]),d.selectAll(".vz-background").attr("fill",function(){return"url(#"+j.attr("id")+")"}),d.selectAll(".vz-plot-background").style("opacity",0),d.selectAll(".vz-scatter-bottom-axis").style("font-weight",i.xAxis_font_weight).style("fill",i.labelColor).style("font-size",Math.max(8,Math.round(b/85))+"px").style("opacity",function(){return b>399?1:0}),d.selectAll(".vz-scatter-left-axis line").style("stroke",i.yAxis_line_stroke).style("stroke-width",1).style("opacity",i.yAxis_line_opacity),d.selectAll(".vz-scatter-left-axis text").style("font-size",Math.max(8,Math.round(b/85))+"px").style("fill",i.labelColor).style("fill-opacity",.6),d.selectAll(".vz-scatter-node").style("stroke-width",c).style("stroke-opacity",0).style("stroke",function(a,b){return i.node_stroke(a,b)}).style("fill",function(a,b){return i.node_fill(a,b)}).style("fill-opacity",function(a,b){return i.node_fill_opacity(a,b)}),i.background_transition()}}function d(){a.yAxis().tickSize(-vizuly.core.util.size(a.margin(),a.width(),a.height()).width).orient("left"),a.xAxis().tickSize(-vizuly.core.util.size(a.margin(),a.width(),a.height()).width)}function e(b,c,d){a.selection().selectAll(".vz-scatter-node").style("opacity",.15),d3.select(b).style("opacity",1).style("stroke-opacity",.5).style("fill-opacity",.9),l.mouseover(b,c,d)}function f(b,c,d){d3.select(b).style("opacity",1).style("fill-opacity",function(a,b){return i.node_fill_opacity(a,b)}),a.selection().selectAll(".vz-scatter-node").style("stroke-opacity",0).style("opacity",1)}function g(){a.selection().selectAll(".vz-background").style("fill-opacity",1),j.selectAll("stop").transition().duration(500).attr("stop-color",function(a,b){return 0==b?i.grad0:i.grad1})}function h(){k.forEach(function(b){a.on(b.on,b.callback)})}var a=a,i=null,j=vizuly.svg.gradient.blend(a,"#000","#000"),k=[{on:"measure.theme",callback:d},{on:"update.theme",callback:c},{on:"mouseover.theme",callback:e},{on:"mouseout.theme",callback:f}];b(),b.apply=function(a){return arguments.length>0&&b.skin(a),c(),b},b.release=function(){a&&(a.selection().attr("class",null),k.forEach(function(b){a.on(b.on,null)}),a=null)},b.viz=function(b){return arguments.length?(a=b,void h()):a},b.skin=function(a){if(0==arguments.length)return i;if(!m[a])throw new Error("theme/linearea.js - skin "+a+" does not exist.");return i=m[a],b},b.skins=function(){return m};var l=d3.dispatch("mouseover","mouseout");b.on=function(a,c){return l.on(a,c),b};var m={Fire:{name:"Fire",labelColor:"#FFF",labelFill:"#C50A0A",stroke_colors:["#C50A0A","#C2185B","#F57C00","#FF9800","#FFEB3B"],fill_colors:["#C50A0A","#C2185B","#F57C00","#FF9800","#FFEB3B"],grad0:"#000000",grad1:"#474747",background_transition:g,yAxis_line_stroke:"#FFF",yAxis_line_opacity:.25,node_stroke:function(a,b){return this.stroke_colors[b%5]},node_fill:function(a,b){return this.fill_colors[b%5]},node_fill_opacity:function(a,b){return.5},"class":"vz-skin-fire"},Sunset:{name:"Sunset",labelColor:"#FFF",labelFill:"#00236C",stroke_colors:["#CD57A4","#B236A3","#FA6F7F","#FA7C3B","#E96B6B"],fill_colors:["#89208F","#C02690","#D93256","#DB3D0C","#B2180E"],grad1:"#390E1D",grad0:"#7C1B31",background_transition:g,yAxis_line_stroke:"#FFF",yAxis_line_opacity:.25,node_stroke:function(a,b){return this.stroke_colors[b%5]},node_fill:function(a,b){return this.fill_colors[b%5]},node_fill_opacity:function(a,b){return.7},"class":"vz-skin-sunset"},Neon:{name:"Neon",labelColor:"#FFF",labelFill:"#005",grad0:"#000000",grad1:"#474747",background_transition:g,yAxis_line_stroke:"#FFF",yAxis_line_opacity:.25,node_stroke:function(a,b){return"#FFF"},node_fill:function(a,b){return"#D1F704"},node_fill_opacity:function(a,b){return.6},"class":"vz-skin-neon"},Ocean:{name:"Ocean",labelColor:"#FFF",labelFill:"#000",background_transition:function(b){a.selection().select(".vz-background").transition(1e3).style("fill-opacity",0)},yAxis_line_stroke:"#FFF",yAxis_line_opacity:.25,node_stroke:function(a,b){return"#00F"},node_fill:function(a,b){return"#FFF"},node_fill_opacity:function(a,b){return.4},"class":"vz-skin-ocean"}};return b},vizuly.theme.weighted_tree=function(a){function b(){h()}function c(){if(o){var b=a.selection();j=Math.max(8,Math.round(a.width()/75)),b.selectAll(".vz-weighted_tree-node circle").style("stroke",function(a){return o.node_stroke(a)}).style("stroke-opacity",function(a){return o.node_stroke_opacity(a)}).style("fill",function(a){return o.node_fill(a)}).style("fill-opacity",function(a){return o.node_fill_opacity(a)}),b.selectAll(".vz-weighted_tree-node text").style("font-size",o.font_size()).style("fill",o.label_color).style("fill-opacity",function(a){return o.text_fill_opacity(a)}),b.selectAll(".vz-weighted_tree-link").style("stroke",function(a){return o.link_stroke(a)}).style("stroke-opacity",function(a){return o.link_stroke_opacity(a)})}}function d(){if(o&&a.data()){var b=a.data();a.children()(b).forEach(function(a,b){a.vz_link_color=o.link_colors[b%o.link_colors.length],e(a)}),l=!1,m=!1}}function e(b){a.children()(b)&&a.children()(b).forEach(function(a){a.vz_link_color=b.vz_link_color,e(a)})}function f(b,c,d){var e=a.selection();e.selectAll(".vz-id-"+c.vz_tree_id+" circle").style("fill-opacity",.9),e.selectAll("path.vz-id-"+c.vz_tree_id).style("stroke-opacity",.8),e.selectAll(".vz-id-"+c.vz_tree_id+" text").transition().style("font-size",1.25*j).style("font-weight","bold")}function g(b,c,d){var e=a.selection();e.selectAll(".vz-weighted_tree-node circle").style("fill",function(a){return o.node_fill(a)}).style("fill-opacity",function(a){return o.node_fill_opacity(a)}),e.selectAll(".vz-weighted_tree-node text").transition().style("font-size",j).style("font-weight","normal"),e.selectAll(".vz-weighted_tree-link").style("stroke-opacity",function(a){return o.link_stroke_opacity(a)})}function h(){n.forEach(function(b){a.on(b.on,b.callback)})}function i(){n.forEach(function(b){a.on(b.on,null)})}var j,k={Axiis:{name:"Axiis",label_color:"#333",link_colors:["#bd0026","#fecc5c","#fd8d3c","#f03b20","#B02D5D","#9B2C67","#982B9A","#692DA7","#5725AA","#4823AF","#d7b5d8","#dd1c77","#5A0C7A","#5A0C7A"],link_stroke:function(a,b){return a.target.vz_link_color},link_stroke_opacity:function(b,c){return a.value()(b.target)<=0?.15:.35},node_fill:function(a,b){return a.vz_link_color},node_fill_opacity:function(b,c){return a.value()(b)<=0?.15:.4},node_stroke:function(a,b){return a.vz_link_color},node_stroke_opacity:function(a,b){return.6},text_fill_opacity:function(b,c){return a.value()(b)<=0?.35:1},font_size:function(){return j+"px"}},None:{name:"None",label_color:null,link_colors:["#bd0026","#fecc5c","#fd8d3c","#f03b20","#B02D5D","#9B2C67","#982B9A","#692DA7","#5725AA","#4823AF","#d7b5d8","#dd1c77","#5A0C7A","#5A0C7A"],link_stroke:function(a,b){return null},link_stroke_opacity:function(a,b){return null},node_fill:function(a,b){return null},node_fill_opacity:function(a,b){return null},node_stroke:function(a,b){return null},node_stroke_opacity:function(a,b){return null},text_fill_opacity:function(a,b){return null},font_size:function(){return null}}},a=a,l=!0,m=!0,n=[{on:"update.theme",callback:c},{on:"data_prepped.theme",callback:d},{on:"mouseover.theme",callback:f},{on:"mouseout.theme",callback:g}];b(),b.apply=function(a){return arguments.length>0&&b.skin(a),c(),b},b.release=function(){a&&(o=k.None,c(),i(),a=null)},b.viz=function(b){return arguments.length?(a&&i(),a=b,void h()):a},b.skin=function(a){if(0==arguments.length)return o;if(!k[a])throw new Error("theme/weightedtree.js - skin "+a+" does not exist.");return l=!0,o=k[a],b},b.skins=function(){return k};var o=k[vizuly.skin.WEIGHTED_TREE_AXIIS];return b},vizuly.skin.WEIGHTED_TREE_AXIIS="Axiis",vizuly.ui.range_input=function(a){function b(){l=h.selection.append("svg").attr("id",h.id).style("overflow","auto").attr("class","vizuly"),m=vizuly.core.util.getDefs(j),n=l.append("rect").attr("class","vz-background"),o=l.append("g").attr("class","vz-range_input"),p=o.append("g").attr("class","vz-plot"),v=p.append("rect").attr("class","vz-range_input-track"),s=p.append("rect").attr("class","vz-range_input-sidepane"),t=p.append("rect").attr("class","vz-range_input-centerpane"),u=p.append("rect").attr("class","vz-range_input-sidepane"),q=p.append("rect").attr("class","vz-range_input-handle"),r=p.append("rect").attr("class","vz-range_input-handle"),q.call(z),r.call(A),t.call(B),h.dispatch.initialize()}function c(){j.validate(),k=vizuly.core.util.size(h.margin,h.width,h.height),y.range([0,k.width]),y.domain(h.domain),w=Math.round(k.height*h.trackHeight),x=h.handleWidth,h.dispatch.measure()}function d(){c(),l.attr("width",h.width).attr("height",h.height),n.attr("width",h.width).attr("height",h.height),p.style("width",k.width).style("height",k.height).attr("transform","translate("+k.left+","+k.top+")"),v.attr("width",k.width).attr("height",w).attr("y",(k.height-w)/2),q.attr("width",x).attr("height",k.height).attr("x",y(h.data[0])),r.attr("width",x).attr("height",k.height).attr("x",y(h.data[1])),s.attr("width",y(h.data[0])).attr("height",k.height),u.attr("width",k.width-y(h.data[1])).attr("height",k.height).attr("x",y(h.data[1])),t.attr("width",y(h.data[1])-y(h.data[0])).attr("height",k.height).attr("x",y(h.data[0])),h.dispatch.update()}function e(){var a=y.invert(d3.event.x);a=Math.min(h.data[1]-y.invert(x),Math.max(a,h.domain[0])),h.data[0]=a,h.dispatch.change(j),d()}function f(){var a=y.invert(d3.event.x);a=Math.max(h.data[0]+y.invert(x),Math.min(a,h.domain[1])),h.data[1]=a,h.dispatch.change(j),d()}function g(){var a=y.invert(d3.event.dx)+h.data[0];a=Math.min(h.data[1],Math.max(a,h.domain[0]));var b=h.data[1]-h.data[0];a=Math.min(h.domain[1]-b,a),h.data[0]=a,h.data[1]=a+b,h.dispatch.change(j),d()}var h={},i={data:[.25,.75],margin:{top:"10%",bottom:"7%",left:"8%",right:"7%"},domain:[0,1],duration:500,width:300,height:300,handleWidth:3,trackHeight:.1},j=vizuly.core.component(a,h,i,["change","handleOver","handleOut"]);j.type="viz.ui.range_input";var k,l,m,n,o,p,q,r,s,t,u,v,w,x,y=d3.scale.linear(),z=d3.behavior.drag(),A=d3.behavior.drag(),B=d3.behavior.drag();return z.on("drag",e),A.on("drag",f),B.on("drag",g),b(),j.update=function(){return d(),j},j};var data=stm_data;var id_i=0;function createIDs(o){o.id=id_i;id_i=id_i+1;if(o.children){for(i in o.children){o.id=id_i;id_i=id_i+1;createIDs(o.children[i])}}}createIDs(data);
-</script><script>
-        function computeClustProportions(o) {
+</script>
+
+<script>
+		function computeClustProportions(o) {
     if (o.this_root) {
         for (var i in o.children) {
             if (!o.children[i].proportion)
@@ -1800,11 +825,11 @@ function checkAllDone(str) {
 
 function createDataTipTopic(x, y, prop, name, prob, frex, lift, score, thoughts, proportions, id, d) {
     var datatip_topic = '<div class="tooltip" style="display: flex; flex-direction: column; width: 20em; min-height:16.1em;max-height:20em;background-opacity:0.5"><div style="display:flex; justify-content: space-between"> <div onclick="removeToolTip(<id>)" style="align-self:flex-start;cursor:pointer;color:#888;float:left;display:inline;" alt="close">&#10005;</div><div class="header1" style="font-weight:bold;margin-right:20px"> <name> </div><div></div></div><div class="scrollbox" style="overflow:auto;"><div class="header-rule" style="margin-top:0px; margin-bottom:10px"></div>'
-
+    
     if (d.summary !== undefined) {
         datatip_topic += '<div class="header2" style="font-weight:bold;">Topic Summary</div><div class="header2"> <div style="margin: 0px 45px 0px 45px; text-align: left;"> ' + d.summary + ' </div></div><div class="header-rule" style="margin-top:0px; margin-bottom:10px"></div>'
     }
-
+    
     datatip_topic += '<div class="header2" style="font-weight:bold;">Representative Words<sup style="color:#999" title="The most representative words calculated by various metrics (probability, frex, lift, score), then weighted and combined">?</sup></div><div class="header2"> <div style="margin: 0px 45px 0px 45px"> <words> </div></div><div class="header-rule"></div><div class="header2" style="font-weight:bold;">Representative Documents<sup style="color:#999" title="The documents containing the highest percentage of this topic (documents can contain multiple topics)">?</sup></div><div class="thought-container"> <div class="thoughts"> <doc1> </div><div class="overlay-text"> <proportion1> % representative of this topic </div></div>';
 
     for (i = 2; i < thoughts.length; i++) {
@@ -1896,24 +921,21 @@ function createDataTipClust(x, y, name, words, topics, id, d) {
 
 
 function createDataTipQuestion(x, y, question, summary, id) {
-    return // the code below needs fixing
-
     // var datatip_cluster = '<div class="tooltip" style="display: flex; flex-direction: column; width: 20em; min-height:16.1em;max-height:20em;background-opacity:0.5"><div style="display:flex; justify-content: space-between"> <div onclick="removeToolTip(<id>)" style="align-self:flex-start;cursor:pointer;color:#888;float:left;display:inline;" alt="close">&#10005;</div><div class="header1" style="font-weight:bold;margin-right:20px"> <name> </div><div></div></div><div class="scrollbox" style="overflow:auto;"><div class="header-rule" style="margin-top:0px; margin-bottom:10px"></div>'    
 
-    var datatip_question = '<div class="tooltip" style="overflow:hidden; display: flex; flex-direction: column; width: 20em; min-height:16.1em;max-height:20em;background-opacity:0.5">' 
+    var datatip_question = '<div class="tooltip" style="display: flex; flex-direction: column; width: 20em; min-height:16.1em;max-height:20em;background-opacity:0.5">' 
       + '<div style="display:flex; justify-content: space-between">' 
          + '<div onclick="removeToolTip(<id>)" style="align-self:flex-start;cursor:pointer;color:#888;float:left;display:inline;" alt="close">&#10005;</div>' 
          + '<div class="header1" style="font-weight:bold;margin-right:20px"><question></div>' 
          + '<div></div>'
       + '</div>' 
-      + '<div class="header-rule" style="margin-top:0px; margin-bottom:10px"/><div class="header2" style="font-weight:bold;"></div>'
-    //   + '<div class="scrollbox" style="max-height:20px;overflow:auto;display: flex; flex-direction: column;">'
-        + '<div class="header2"><summary>' 
-            + '<div style="margin: 0px 45px 0px 45px"><words></div>' 
-        + '</div>' 
-        + '<div class="header-rule" style="margin-bottom:20px;"></div>' 
-        + '<div class="header2" style="font-weight:bold;"></div><p style="max-height:50px; overflow:auto; font-size:18px; margin-top:10px">This is a structural topic model visualization, with hierarchical topic clusters. The leaf nodes are topics, the branching nodes are topic clusters, and the numbers are the total prevalence of the topic or cluster as a percentage all the documents. The large partially obscured node represents the entire body of texts. The clusters signify that the connected topics are more likely to co-occur in a single response (each response contains a mixture of multiple topics). Click on any node for more information.</p>' 
-    //   + '</div>'
+      + '<div class="header-rule" style="margin-top:0px; margin-bottom:10px"/><div class="header2" style="font-weight:bold;"></div>' 
+      + '<div class="header2"><summary>' 
+         + '<div style="margin: 0px 45px 0px 45px"><words></div>' 
+      + '</div>' 
+      + '<div class="header-rule" style="margin-bottom:20px;"/>' 
+      + '<div class="header2" style="font-weight:bold;"></div><p style="font-size:18px; margin-top:10px">This is a structural topic model visualization, with hierarchical topic clusters. The leaf nodes are topics, the branching nodes are topic clusters, and the numbers are the total prevalence of the topic or cluster as a percentage all the documents. The large partially obscured node represents the entire body of texts. The clusters signify that the connected topics are more likely to co-occur in a single response (each response contains a mixture of multiple topics). Click on any node for more information.</p>' 
+      + '<div class="scrollbox" style="max-height:13em; overflow:auto;">';
    //  var datatip_question = '<div class="tooltip" style="display:flex;flex-direction:column;align-items:center;width: 20em; background-opacity:0.5">'
    //       + '<div class="header1"><question></div>' 
    //       + '<div class="header-rule-short"></div>' 
@@ -2013,7 +1035,11 @@ function changeSize(width, height) {
     viz_container.transition().duration(0).style('width').style('height');
     viz.width(width).height(height).update()
 }
-</script><div id="viz_container"></div><script>
+</script>
+
+<div id="viz_container"></div>
+
+<script>
    //Once the document is ready we set javascript and page settings
    var screenWidth;
    var screenHeight;
@@ -2038,11 +1064,11 @@ function changeSize(width, height) {
       if(!stm_data.this_root)
             console.log('data loading error');
       initialize_graph(stm_data);
-
+      
       $(".js-show-sidebar").css("width", "100%")
       $(".c-textbook__page").css("width", "100%")
       $(".c-topbar").css("width", "100%")
-
+      
       parent = document.getElementsByClassName("c-textbook__page")[0]
       parent.appendChild(document.getElementById('viz_container'))
       after_elts = document.getElementsByClassName("after-tree")
@@ -2062,49 +1088,7 @@ function changeSize(width, height) {
    });
 
    window.addEventListener("resize", changeSize);
-</script><p class="after-tree">
+</script>
+
+<p class="after-tree">
 </p>
-</div>
-</div>
-</div>
-</div>
-
- 
-
-
-    </main>
-    
-            </div>
-            <div class="c-textbook__footer" id="textbook_footer">
-              
-<nav class="c-page__nav">
-  
-    
-    
-
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/insights/barriers.html">
-      〈 <span class="u-margin-right-tiny"></span> Barriers to Involvement
-    </a>
-  
-
-  
-    
-
-    
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/insights/barriers/topics.html">
-      Barriers - Topic Descriptions <span class="u-margin-right-tiny"></span> 〉
-    </a>
-  
-</nav>
-
-              <footer>
-  <p class="footer">This page is created and maintained by <a href="https://github.com/gharp">Gabriel Harp</a></p>
-</footer>
-
-            </div>
-
-        </div>
-      </main>
-    </div>
-  </body>
-</html>
