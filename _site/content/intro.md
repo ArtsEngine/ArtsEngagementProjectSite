@@ -34,7 +34,8 @@ Funding and support for the Arts Engagement project has come from a number of so
 
 ## Acknowledgements
 
-**Suggested Citation:** Harp, G., Mexicotte, D., and Bowman, J. *Impacts of Curricular and Co-Curricular Arts Engagement on Post-Secondary Student Development* [Arts Engagement Project Working Paper]. (2020, March 1). url: https://artsengagementproject.site
+**Suggested Citation:** 
+Harp, G., Mexicotte, D., and Bowman, J. *Impacts of Curricular and Co-Curricular Arts Engagement on Post-Secondary Student Development* [Arts Engagement Project Working Paper]. (2020, March 1). url: https://artsengagementproject.site
 
 **Deb Mexicotte**
 * Principal Investigator, Arts Engagement Project
