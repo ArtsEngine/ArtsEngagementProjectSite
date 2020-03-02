@@ -9,9 +9,11 @@ Drawing from a subset of open-ended questions and responses, we created ontologi
 The results — particularly when coupled with an analysis of their relationship the demographic profiles of the respondents — provided important insights for the design of arts-based experiences in higher education, as well as the impacts of the arts on student learning and engagement. 
 
 ## Future Project Development
-This project studied only University of Michigan Students, but the study design and analysis methods could be used on other campuses to look at a broader range of students and their arts experiences. For instance, arts administrators in higher education may be interested in partnering with us, creating a larger network of research projects on this topic. Additional wok is being done to document and describe the workflows used to develop the insights here, possibly providing an end-to-end workflow for quickly making sense of large collections of interviews about emerging topics. 
+This project studied only University of Michigan Students, but the study design and analysis methods could be used on other campuses to look at a broader range of students and their arts experiences. For instance, arts administrators in higher education may be interested in partnering with us, creating a larger network of research projects on this topic. We are currently documenting this project, describing the workflows used to develop the insights here, and possibly developing  an end-to-end workflow for quickly making sense of large collections of interviews, recording, or open-ended survey responses about emerging topics. 
 
 The results of this work have been used to add an array of categories of impacts to [A2RU's Impacts Map.](https://www.a2ru.org/projects/impacts-map/)
+
+Source code for this book is maintained at: [https://github.com/ArtsEngine/ArtsEngagementProjectSite](https://github.com/ArtsEngine/ArtsEngagementProjectSite)
  
 
 ## Study Funding/Support
@@ -32,6 +34,8 @@ Funding and support for the Arts Engagement project has come from a number of so
 
 ## Acknowledgements
 
+**Suggested Citation:** Harp, G., Mexicotte, D., and Bowman, J. *Impacts of Curricular and Co-Curricular Arts Engagement on Post-Secondary Student Development* [Arts Engagement Project Working Paper]. (2020, March 1). url: https://artsengagementproject.site
+
 **Deb Mexicotte**
 * Principal Investigator, Arts Engagement Project
 * Managing Director ArtsEngine 2015-Present 
@@ -45,7 +49,7 @@ Funding and support for the Arts Engagement project has come from a number of so
 * Research Assistant, ArtsEngine, 2018-2020 
 
 **Mengdan Yuan**
-* Research Assistant, ArtsEngine, 2018-2020 
+* Research Assistant, ArtsEngine, 2018-2019
 
 Veronica Stanich, Research Program Manager, A2RU, 2017-current
 
