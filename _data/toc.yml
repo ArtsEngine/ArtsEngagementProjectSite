@@ -117,9 +117,9 @@
       not_numbered: true
   - url: /analysis/dictionaries
     not_numbered: true
-  - url: /analysis/pca
+  - url: /analysis/pca-demographics
     not_numbered: true
-  - url: /analysis/demographics
+  - url: /analysis/pca-density-plots
     not_numbered: true
 
 - divider: true
