@@ -275,7 +275,7 @@ vizuly.viz.weighted_tree = function(parent) {
     var properties = {
         "data": null,
         "margin": {
-            "top": "8%",
+            "top": "20%",
             "bottom": "25%",
             "left": "13%",
             "right": "30%"
