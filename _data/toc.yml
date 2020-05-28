@@ -50,6 +50,7 @@
   url: /insights/insights
   expand_sections: true
   sections:
+  - title: Barriers to Involvement
   - url: /insights/barriers
     expand_subsections: false
     subsections:
@@ -59,6 +60,7 @@
       url: /insights/barriers/topics
     - title: Underlying Factors
       url: /insights/barriers/dimensions
+  - title: Personal Growth
   - url: /insights/othergrowth
     expand_subsections: false
     subsections:
@@ -68,6 +70,7 @@
       url: /insights/othergrowth/topics
     - title: Underlying Factors
       url: /insights/othergrowth/dimensions
+  - title: Emotional Impact
   - url: /insights/feel    
     expand_subsections: false
     subsections:
@@ -77,6 +80,7 @@
       url: /insights/feel/topics
     - title: Underlying Factors
       url: /insights/feel/dimensions
+  - title: Developmental Role
   - url: /insights/development   
     expand_subsections: false
     subsections:
@@ -84,6 +88,7 @@
       url: /insights/development/tree
     - title: Topic Descriptions
       url: /insights/development/topics
+  - title: College Experience
   - url: /insights/role   
     expand_subsections: false
     subsections:
@@ -91,6 +96,7 @@
       url: /insights/role/tree
     - title: Topic Descriptions
       url: /insights/role/topics
+  - title: Transformative Experience
   - url: /insights/experience   
     expand_subsections: false
     subsections:
